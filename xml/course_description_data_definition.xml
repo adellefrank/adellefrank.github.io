@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system-data-structure>
+    <group identifier="Number" label="Number">
+        <text type="dropdown" identifier="SubjectAbbreviation" label="Subject" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher" default="Other" required="true">
+            <dropdown-item value="AAS"/>
+            <dropdown-item value="AFS"/>
+            <dropdown-item value="AMST"/>
+            <dropdown-item value="ANCMED"/>
+            <dropdown-item value="ANT"/>
+            <dropdown-item value="ARAB"/>
+            <dropdown-item value="ARTHIST"/>
+            <dropdown-item value="ARTVIS"/>
+            <dropdown-item value="ASIA"/>
+            <dropdown-item value="BIOL"/>
+            <dropdown-item value="CHEM"/>
+            <dropdown-item value="CHN"/>
+            <dropdown-item value="CL"/>
+            <dropdown-item value="CPLT"/>
+            <dropdown-item value="CS"/>
+            <dropdown-item value="DANC"/>
+            <dropdown-item value="DUTCH"/>
+            <dropdown-item value="EAS"/>
+            <dropdown-item value="ECFS"/>
+            <dropdown-item value="ECON"/>
+            <dropdown-item value="EDS"/>
+            <dropdown-item value="ENG"/>
+            <dropdown-item value="ENGCW"/>
+            <dropdown-item value="ENVS"/>
+            <dropdown-item value="FILM"/>
+            <dropdown-item value="FREN"/>
+            <dropdown-item value="GER"/>
+            <dropdown-item value="GHCS"/>
+            <dropdown-item value="GRK"/>
+            <dropdown-item value="HEBR"/>
+            <dropdown-item value="HIST"/>
+            <dropdown-item value="HNDI"/>
+            <dropdown-item value="IDS"/>
+            <dropdown-item value="ITAL"/>
+            <dropdown-item value="JPN"/>
+            <dropdown-item value="JRNL"/>
+            <dropdown-item value="JS"/>
+            <dropdown-item value="KRN"/>
+            <dropdown-item value="LACS"/>
+            <dropdown-item value="LAT"/>
+            <dropdown-item value="LING"/>
+            <dropdown-item value="MATH"/>
+            <dropdown-item value="MESAS"/>
+            <dropdown-item value="MUS"/>
+            <dropdown-item value="NBB"/>
+            <dropdown-item value="PACE"/>
+            <dropdown-item value="PE"/>
+            <dropdown-item value="PERS"/>
+            <dropdown-item value="PHIL"/>
+            <dropdown-item value="PHYS"/>
+            <dropdown-item value="POLS"/>
+            <dropdown-item value="PORT"/>
+            <dropdown-item value="PSYC"/>
+            <dropdown-item value="REALC"/>
+            <dropdown-item value="REES"/>
+            <dropdown-item value="REL"/>
+            <dropdown-item value="ROTC"/>
+            <dropdown-item value="RUSS"/>
+            <dropdown-item value="SNSK"/>
+            <dropdown-item value="SOC"/>
+            <dropdown-item value="SPAN"/>
+            <dropdown-item value="TBT"/>
+            <dropdown-item value="THEA"/>
+            <dropdown-item value="WS"/>
+            <dropdown-item value="YDD"/>
+            <dropdown-item value="Other"/>
+        </text>
+        <text identifier="CatalogNumber" label="Catalog Number" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher" default="000" required="true"/>
+    </group>
+    <group identifier="Title" label="Title">
+        <text identifier="ShortTitle" label="Short Title" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher"/>
+        <text identifier="ShortTitleText" label="Long Title" default="0"/>
+    </group>
+    <text multi-line="true" identifier="Description" label="Description" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher" rows="5" cols="45"/>
+    <group identifier="Credits" label="Credits">
+        <text identifier="CreditMinimumValue" label="Minimum Credits" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher" default="0"/>
+        <text identifier="CreditMaximumValue" label="Maximum Credits" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher" default="0"/>
+    </group>
+    <group identifier="PeopleSoftIDCodes" label="PeopleSoft IDs">
+        <text identifier="CourseID" label="Course ID" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher" default="0" required="true"/>
+        <text identifier="CrosslistingID" label="Crosslisting ID" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher"/>
+    </group>
+    <group identifier="RelatedCourses" label="Related Courses">
+        <group identifier="Prerequisites" label="Prerequisites">
+            <asset type="page" identifier="Prerequisite" label="Prerequisite" multiple="true" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher" render-content-depth="3"/>
+        </group>
+        <group identifier="CrossListedCourses" label="Cross-listed Courses">
+            <asset type="page" identifier="CrossListed" label="Cross-listed" multiple="true" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher" render-content-depth="3"/>
+        </group>
+    </group>
+    <text type="dropdown" identifier="PermissionRequired" label="Permission" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher" default="None">
+        <dropdown-item value="No Special Consent Required"/>
+        <dropdown-item value="Instructor Consent Required"/>
+        <dropdown-item value="Department Consent Required"/>
+        <dropdown-item value="Other"/>
+    </text>
+    <text type="dropdown" identifier="CreditGradingOption" label="Grading Option" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher" default="None">
+        <dropdown-item value="None"/>
+        <dropdown-item value="GRD"/>
+        <dropdown-item value="OPT"/>
+        <dropdown-item value="SUS"/>
+        <dropdown-item value="Other"/>
+    </text>
+</system-data-structure>

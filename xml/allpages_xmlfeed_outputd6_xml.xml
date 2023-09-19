@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<nodes>
+    <node>
+        <Uid>2</Uid>
+        <Nid>71</Nid>
+        <Path>/about/staff</Path>
+        <Post-date>2011-04-28 13:04:39 -0400</Post-date>
+        <Title>Our Staff</Title>
+        <Body><p>List of our staff.</p></Body>
+    </node>
+    <node>
+        <Uid>2</Uid>
+        <Nid>81</Nid>
+        <Path>/about/location</Path>
+        <Post-date>2011-04-28 13:06:27 -0400</Post-date>
+        <Title>Our Location & Hours</Title>
+        <Body><p>More fascinating HTML goes here, including an <a href="http://mysite.gatech.edu/fakedirectory/pagename">absolute link</a> whose URLs will need replaced.</p>
+        </Body>
+    </node>
+</nodes>

@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en"> 
+
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>How to easily migrate pages from Drupal 6 CCK content types to Drupal 7 fields using the Feeds module | Adelle Frank</title>
+  
+<link rel="shortcut icon" href="ico/favicon.ico"  />
+  <link rel="stylesheet" media="all" href="css/css_6fb95d3684ef88a42b1ec6fe56ca5ccc.css" />
+  <link rel="stylesheet" media="all" href="css/grid16-960d956.css?o"/>
+  <!--[if IE]>
+   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->  
+  <!--[if IE 8]>
+  <link rel="stylesheet" media="all" href="/sites/all/themes/fusion/fusion_core/css/ie8-fixes.css?o" />
+  <![endif]-->
+  <!--[if IE 7]>
+  <link rel="stylesheet" media="all" href="/sites/all/themes/fusion/fusion_core/css/ie7-fixes.css?o" />
+  <![endif]-->
+  <!--[if lte IE 6]>
+  <link rel="stylesheet" media="all" href="/sites/all/themes/fusion/fusion_core/css/ie6-fixes.css?o"/>
+<link rel="stylesheet" media="all" href="/sites/all/themes/adelle/css/ie6-fixes.css?o"/>
+  <![endif]-->
+    <script src="js/js_a6373110aea2a7a54ab24e569f35f9f2.js"></script>
+<script>
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/" });
+//--><!]]>
+</script>
+</head>
+
+<body id="pid-blog-how-to-migrate-content-from-drupal6-to-drupal7-with-feeds-module" class="not-front not-logged-in page-node node-type-blog no-sidebars full-node layout-main sidebars-split font-size-12 grid-type-960 grid-width-16">
+  <div id="page" class="page">
+    <div id="page-inner" class="page-inner">
+      <div id="skip" role="navigation">
+        <a href="#main-content-area">Skip to Main Content Area</a>
+      </div>
+
+      <!-- header-top row: width = grid_width -->
+      
+      <!-- header-group row: width = grid_width -->
+      <div id="header-group-wrapper" class="header-group-wrapper full-width" role="banner">
+        <div id="header-group" class="header-group row grid16-16">
+          <div id="header-group-inner" class="header-group-inner inner clearfix">
+                        
+                        <div id="header-site-info" class="header-site-info block">
+              <div id="header-site-info-inner" class="header-site-info-inner inner">
+                                <div id="logo">
+                  <a href="index.html" title="Home"><img src="png/logo.png" alt="Home" /></a>
+                </div>
+                                                <div id="site-name-wrapper" class="clearfix">
+                                    <span id="site-name"><a href="index.html" title="Home">Adelle Frank</a></span>
+                                                      <span id="slogan">Drupal, genealogy, accessibility, and religion archives geek in Atlanta, Georgia</span>
+                                  </div><!-- /site-name-wrapper -->
+                              </div><!-- /header-site-info-inner -->
+            </div><!-- /header-site-info -->
+            
+            
+<div role="navigation" id="block-menu-menu-about" class="block block-menu odd first grid16-2 fusion-right fusion-multicol-menu clearfix">
+  <div class="inner clearfix">
+            <div class="content clearfix">
+      <ul class="menu"><li class="expanded first last"><a href="about.html" title="About">ABOUT</a><ul class="menu"><li class="leaf first"><a href="me.html" title="About Adelle">Adelle</a></li>
+<li class="leaf"><a href="surnames.html" title="">Surnames</a></li>
+<li class="leaf last"><a href="site.html" title="About this Site">This Site</a></li>
+</ul></li>
+</ul>    </div>
+  </div><!-- /block-inner -->
+</div><!-- /block -->
+
+<div role="navigation" id="block-menu-menu-topics" class="block block-menu even  last grid16-2 fusion-right fusion-multicol-menu clearfix">
+  <div class="inner clearfix">
+            <div class="content clearfix">
+      <ul class="menu"><li class="expanded first last"><a href="rss.html" title="Blog Topics">TOPICS</a><ul class="menu"><li class="leaf first"><a href="genealogy.html" title="Family history thoughts and notes.">Genealogy</a></li>
+<li class="leaf"><a href="libraries.html" title="Blog posts on topics of interest to those in the library and information science professions.">Libraries</a></li>
+<li class="leaf"><a href="drupal.html" title="Only the most wonderful web content management system in the universe!">Drupal</a></li>
+<li class="leaf"><a href="web.html" title="Blog posts about web design &amp; development.">The Web</a></li>
+<li class="leaf"><a href="daily-life.html" title="Blog posts related to the home and gardening.">Daily Life</a></li>
+<li class="leaf last"><a href="politics.html" title="Blog posts about politics and elections.">Politics</a></li>
+</ul></li>
+</ul>    </div>
+  </div><!-- /block-inner -->
+</div><!-- /block -->
+                      </div><!-- /header-group-inner -->
+        </div><!-- /header-group -->
+      </div><!-- /header-group-wrapper -->
+
+      <!-- preface-top row: width = grid_width -->
+      
+      <!-- main row: width = grid_width -->
+      <div id="main-wrapper" class="main-wrapper full-width">
+        <div id="main" class="main row grid16-16">
+          <div id="main-inner" class="main-inner inner clearfix">
+            
+            <!-- main group: width = grid_width - sidebar_first_width -->
+            <div id="main-group" class="main-group row nested grid16-16">
+              <div id="main-group-inner" class="main-group-inner inner">
+                
+                <div id="main-content" class="main-content row nested">
+                  <div id="main-content-inner" class="main-content-inner inner">
+                    <!-- content group: width = grid_width - (sidebar_first_width + sidebar_last_width) -->
+                    <div id="content-group" class="content-group row nested grid16-16">
+                      <div id="content-group-inner" class="content-group-inner inner">
+                        
+                        
+                        <div id="content-region" class="content-region row nested">
+                          <div id="content-region-inner" class="content-region-inner inner">
+                            <a name="main-content-area" id="main-content-area"></a>
+                                                        <div id="content-inner" class="content-inner block">
+                              <div id="content-inner-inner" class="content-inner-inner inner">   
+                                                                <div id="content-content" class="content-content" role="main">
+                                  
+<div id="node-403" class="node odd full-node node-type-blog">
+
+  <div class="inner">
+
+    
+    
+    <div class="meta">
+
+      <div class="submitted">
+      
+        <div class="day">
+           21        </div>
+        <div class="month">
+           Dec        </div>
+        <div class="year">
+           2013        </div>
+      
+      </div>
+
+
+        
+        <div class="terms">
+
+          <ul class="links inline"><li class="taxonomy_term_33 first last"><a href="drupal.html" rel="tag" title="Posts about the most wonderful web content management system in the universe.">drupal</a></li>
+</ul>
+        </div>
+
+             
+
+   </div>
+   
+       
+
+ 
+ 
+    <h1 class="title">How to easily migrate pages from Drupal 6 CCK content types to Drupal 7 fields using the Feeds module</h1>
+    
+                               
+    
+
+
+    <div class="content clearfix">
+
+      <p><a href="http://drupalcampatlanta.com/" title="Conference Web site"><img alt="Feeds icon showing move from Drupal 6 to 7" height="114" src="jpg/feeds-icon-drupalicon-d7small.jpg" title="Feeds icon showing move from Drupal 6 to 7" width="120" /></a> One of the easiest ways to upgrade between version 6 and version 7 of Drupal is to re-build your site in Drupal 7, and then use the <a href="http://drupal.org/project/views_data_export">Views Data Export</a> and <a href="http://drupal.org/project/feeds_xpathparser">Feeds XPath Parser</a> modules to move your pages and articles into your new site.</p>
+
+<p>This post shows you the details of setting up both a D6 View you can export and a D7 Feeds importer you can use to migrate that View content.</p>
+
+<p><strong>Update:</strong> You might find the <strong><a href="feeds-is-my-friend-drupal-6-to-7-migration-story.html">code attached to the &quot;Feeds is my Friend</a></strong>&quot; post helpful in supplementing these instructions. And I now recommend using the <strong><a href="https://drupal.org/project/features">Features module</a></strong> to make it easy to copy Content Types, Taxonomies, Menus, and Feeds Importers from your test to production sites.</p>
+
+<p></p>
+
+<ul id="toc">
+	<li><a href="#starting">Before you begin</a></li>
+	<li><a href="#oldd6">Set up your old D6 site</a>
+	<ul>
+		<li><a href="#view_settingsd6">View settings</a></li>
+		<li><a href="#feed_outputd6">XML feed output</a></li>
+	</ul>
+	</li>
+	<li><a href="#testd7">Set up your test site in D7</a>
+	<ul>
+		<li><a href="#importer_settings">Feed importer settings</a></li>
+		<li><a href="#importer_use">Use your feed importer</a></li>
+		<li><a href="#qa">Do checking for quality</a></li>
+	</ul>
+	</li>
+	<li><a href="#problems">Known import Problems</a></li>
+	<li><a href="#info">For more information</a></li>
+</ul>
+
+<h2><a id="starting" name="starting"></a>Before you begin</h2>
+
+<ol>
+	<li>Read other good posts on general updating strategies:
+	<ul>
+		<li><a href="http://drupal.org/documentation/upgrade/6/7">Official documentation</a></li>
+		<li><a href="http://smbjorklund.no/upgrade-drupal-6-7-how-hard-it">Upgrade from Drupal 6 to 7, how hard is it?&nbsp;</a></li>
+		<li><a href="http://quicksketch.org/node/5739">Direct Drupal 5 to Drupal 7 Migration in 24hrs</a></li>
+		<li><a href="http://drupal.ucar.edu/docs/node/154">Upgrade instructions (University Corporation for Atmospheric Research)</a></li>
+		<li><a href="http://www.unleashedmind.com/en/blog/sun/more-than-50-drupal-modules-moved-into-drupal-7">More than 50 Drupal modules moved into Drupal 7</a></li>
+		<li><a href="http://drupal.org/node/254940">Converting 6.x themes to 7.x</a></li>
+	</ul>
+	</li>
+	<li class="pullquote">Do a COMPLETE <a href="drupal-database-tables-files-backup-migrate.html">backup of your site</a> (files, database, everything).</li>
+	<li>Create a SEPARATE Test site to use for this process, so you don&#39;t kill your Live, Production site.</li>
+</ol>
+
+<h2><a id="oldd6" name="oldd6"></a>Set up your old Drupal 6 site</h2>
+
+<ol>
+	<li>On your old D6 site, install <a href="http://drupal.org/project/views">Views</a>, <a href="http://drupal.org/project/views_data_export">Views Data Export</a>, <a href="http://drupal.org/project/ctools">CTools</a> &amp; any modules they depend on.</li>
+	<li class="pullquote">I&#39;m using &quot;Views Data Export&quot;, instead of the <a href="rss/allpages_xmlfeed_outputd6rss.rss" title="sample default RSS output code">RSS display that is native to Views</a>, because RSS made it difficult to output the path and Date fields correctly.</li>
+	<li>Finally, create a separate View for each content type you want to move.</li>
+</ol>
+
+<h3><a id="view_settingsd6" name="view_settingsd6"></a>View settings in Drupal 6</h3>
+
+<p><img alt="settings for default display" src="png/allpages_xml_feed_defaultdisplay1.png" style="clear: both;" title="settings for default display" /></p>
+
+<ol>
+	<li>Add a view type of &quot;Node&quot;</li>
+	<li>Set filters for only Published Pages.</li>
+	<li>Add fields for each bit of data you want to migrate, such as these common fields:
+	<ul>
+		<li>Uid</li>
+		<li>Nid</li>
+		<li>Post date</li>
+		<li>Path</li>
+		<li>Title</li>
+		<li>Body</li>
+	</ul>
+	</li>
+	<li>Add a &quot;Data Export&quot; display to the View.<br />
+	<img alt="settings for data export display" src="png/allpages_xml_feed_dataexportdisplay1.png" style="clear: both;" title="settings for data export display" />
+	<ul>
+		<li>Under &quot;Style settings&quot;, choose &quot;XML file&quot;.&nbsp; For &quot;Data export: Style options&quot;, UNCHECK &quot;Provide as file&quot; and DO CHECK &quot;Transform spaces&quot;. For Transforming spaces, choose &quot;Dashes&quot;, because XML does not process element names if they have spaces in them.<br />
+		<img alt="settings for XML file settings" src="png/allpages_xml_feed_view_xml_stylesettings1.png" style="clear: both;" title="settings for XML file settings" /></li>
+		<li>Under &quot;Data export settings&quot;, set a &quot;Path&quot; to this new feed. For example: feeds/pages/all.</li>
+		<li>Under &quot;Fields&quot;, choose &quot;Node: Path&quot; and, under &quot;Rewriting&quot;, check &quot;Rewrite the output of this field&quot;. Enter <code>[path]</code> into the the text box, so that you will only get the internal path and not an entire URL.<br />
+		<img alt="settings for Path field rewriting" src="png/allpages_xml_feed_view_path_rewrite1.png" style="margin-top: 5px; margin-bottom: 5px; clear: both;" title="settings for Path field rewriting" /></li>
+		<li>Again under &quot;Fields&quot;, choose &quot;Node: Post date&quot; and, under &quot;Rewriting&quot;, check &quot;Rewrite the output of this field&quot;. Enter <code>[created]</code> into the the text box, so you can change the date formatting. For &quot;Date format&quot;, choose &quot;Custom&quot; and enter <code>Y-m-d H:i:s O</code> into the text box, this will output your date in a format that will be easier to import into the new Drupal 7 site.<br />
+		<img alt="settings for Date field custom format" src="png/allpages_xml_feed_view_customdateformat1.png" style="margin-top: 5px; margin-bottom: 5px; clear: both;" title="settings for Date field custom format" /></li>
+		<li>Don&#39;t link &quot;Title&quot; or &quot;User&quot; fields to their nodes, or they will output link tags in the feed.<img alt="unchecked link this field to user checkbox" src="png/allpages_xml_feed_view_user_link1.png" style="clear: both;" title="unchecked link this field to user checkbox" /></li>
+	</ul>
+	</li>
+	<li>SAVE your View, or all your changes will be LOST!</li>
+</ol>
+
+<h3><a id="feed_outputd6" name="feed_outputd6"></a>XML feed output from Drupal 6</h3>
+
+<p>When you click on the link to your new Feed (<code>http://mylivesite.gatech.edu/feeds/pages/all</code>), you may see something like <a href="xml/allpages_xmlfeed_outputd6_xml.xml" title="text file of XML output from D6">this XML code</a>: <code></code></p>
+
+<pre>
+<code>&lt;?xml version="1.0" encoding="utf-8" ?&gt;<br>&lt;nodes&gt;<br>&nbsp;&nbsp;&nbsp; &lt;node&gt;<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;Uid&gt;2&lt;/Uid&gt;<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;Nid&gt;71&lt;/Nid&gt;<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;Path&gt;/about/staff&lt;/Path&gt;<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;Post-date&gt;2011-04-28 13:04:39 -0400&lt;/Post-date&gt;<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;Title&gt;Our Staff&lt;/Title&gt;<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;Body&gt;&lt;p&gt;Our employees are brilliant!&amp;nbsp; And attractive, too.&lt;/p&gt;&lt;/Body&gt;<br>&nbsp;&nbsp;&nbsp; &lt;/node&gt;<br>&nbsp;&nbsp;&nbsp; &lt;node&gt;<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;Uid&gt;2&lt;/Uid&gt;<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;Nid&gt;81&lt;/Nid&gt;<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;Path&gt;/about/location&lt;/Path&gt;<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;Post-date&gt;2011-04-28 13:06:27 -0400&lt;/Post-date&gt;<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;Title&gt;Our Location and Hours&lt;/Title&gt;
+ &nbsp;&nbsp;&nbsp;    &lt;Body&gt;&lt;p&gt;More fascinating HTML goes here, including an &lt;a href="http://mysite.gatech.edu/fakedirectory/pagename"&gt;absolute link&lt;/a&gt; whose URL may need replaced if I am changing my site's Domain Name.&lt;/p&gt;&lt;/Body&gt;<br>&nbsp;&nbsp;&nbsp; &lt;/node&gt;<br>&lt;/nodes&gt;</code></pre>
+
+<p>&nbsp;</p>
+
+<h2><a id="testd7" name="testd7"></a>Set up your test site in Drupal 7</h2>
+
+<ol>
+	<li>Set up your new D7 site with whatever themes, modules &amp; configurations you would like.</li>
+	<li>Create <strong>custom content types</strong> with the same fields as you used in your Drupal 6 site. <span class="pullquote">The <a href="https://drupal.org/project/features">Features module</a>&nbsp;will speed up your CCK re-creation</span>, it allows you to import a generic content type with a pre-set collection of fields and settings you often use.&nbsp;</li>
+	<li>Warning: <span class="pullquote">pay attention to Text Input Formats or you might strip out important HTML tags from your Body field when importing</span>. So, allow all users (for now) permission to use the &quot;Full HTML&quot; text format. Likewise, set the default text format for your new Page content type to use &quot;Full HTML&quot;.</li>
+	<li>Install <a href="http://drupal.org/project/feeds">Feeds</a>, <a href="http://drupal.org/project/feeds_xpathparser">Feeds XPath Parser</a>, <a href="http://drupal.org/project/ctools">CTools</a> &amp; any modules they depend on.
+	<ul>
+	</ul>
+	</li>
+	<li>Warning: the <a href="http://drupal.org/project/pathauto">Pathauto module</a>, if enabled, will overwrite/re-create path aliases for all the pages you import, so <span class="pullquote">you might want to disable Pathauto before importing</span>.</li>
+</ol>
+
+<h3><a id="importer_settings" name="importer_settings"></a>Feed importer settings in Drupal 7</h3>
+
+<ol>
+	<li>Add a feed importer at <code>http://mysite.gatech.edu/admin/structure/feeds</code>.</li>
+	<li>For &quot;Basic settings&quot;, choose:<br />
+	<img alt="basic settings screen" src="png/allpages_xml_feed_importer_d7_basicsettings1.png" style="clear: both;" title="basic settings screen" />
+	<ul>
+		<li>Attach to content type: &quot;Use standalone form&quot;.</li>
+		<li>Periodic import: &quot;Off&quot;</li>
+		<li>CHECK: Import on submission</li>
+	</ul>
+	</li>
+	<li>For &quot;Fetcher&quot;, use &quot;HTTP Fetcher&quot; and choose:<br />
+	<img alt="HTTP fetcher settings screen" src="png/allpages_xml_feed_importer_d7_httpfetcher1.png" style="clear: both;" title="HTTP fetcher settings screen" />
+	<ul>
+		<li>CHECK: Auto detect feeds</li>
+	</ul>
+	</li>
+	<li>For &quot;Parser&quot;, choose &quot;XPath XML parser&quot;.</li>
+	<li>For &quot;Processor&quot;, choose &quot;Node processor&quot; and then use these Settings:<br />
+	<img alt="node processor settings screen" src="png/allpages_xml_feed_importer_d7_processor1.png" style="clear: both;" title="node processor settings screen" />
+	<ul>
+		<li>Update existing nodes: Replace existing nodes</li>
+		<li>Text format: Full HTML</li>
+		<li>Content type: Page</li>
+		<li>Author: YourUserName (Note: <span class="pullquote">To import page authors, you have to <a href="#comment-2083">import your users BEFORE importing pages</a></span>).</li>
+		<li>Expire nodes: Never</li>
+	</ul>
+	</li>
+	<li>For &quot;Node processor Mapping&quot;, add &quot;XPath Expression&quot; for each of these fields:<br />
+	<img alt="node processor mapping screen" src="png/allpages_xml_feed_importer_d7_mapping2.png" style="margin-top: 5px; margin-bottom: 5px; clear: both;" title="node processor mapping screen" />
+	<ul>
+		<li>&quot;Node ID&quot; and make it Unique</li>
+		<li>&quot;User ID&quot;</li>
+		<li>&quot;Title&quot;</li>
+		<li>&quot;Body&quot;</li>
+		<li>&quot;Published date&quot;</li>
+		<li>&quot;Path alias&quot;</li>
+	</ul>
+	</li>
+	<li>Under &quot;XPath XML parser&quot;, type in your XSL queries like this:<br />
+	<img alt="XPath XML parser screen" src="png/allpages_xml_feed_importer_d7_parserxpath1.png" style="clear: both;" title="XPath XML parser screen" />
+	<ul>
+		<li>Context: <code>//node</code></li>
+		<li>nid: <code>Nid</code></li>
+		<li>uid: <code>Uid</code></li>
+		<li>title: <code>Title</code></li>
+		<li>body: <code>Body</code></li>
+		<li>created: <code>Post-date</code></li>
+		<li>path_alias: <code>Path</code></li>
+		<li>At the bottom of the page, <span class="pullquote">do NOT check any boxes under &quot;Select the queries you would like to return raw XML or HTML&quot;</span>, as this will wrap your field data in an extra &lt;Body&gt; tag.</li>
+	</ul>
+	</li>
+	<li>Be sure to Save your settings.</li>
+</ol>
+
+<h3><a id="importer_use" name="importer_use"></a>Using your feed importer with Drupal 7</h3>
+
+<p><img alt="import screen" src="png/allpages_xml_feed_importer_d7_import1.png" style="margin-left: 10px; margin-right: 10px; clear: both;" title="import screen" /></p>
+
+<ol>
+	<li>Go to the <code>/import</code> page on your site (for example: <code>http://mysite.gatech.edu/import</code>) &amp; choose the importer you just created (D6 XML pages).</li>
+	<li>In the Import &gt; URL text box, enter the web address of the feed view you created earlier, for example: <code>http://mylivesite.gatech.edu/feeds/pages/all</code> and click on &quot;Import&quot;.<br />
+	<img alt="import screen 2" src="png/allpages_xml_feed_importer_d7_import2.png" style="clear: both;" title="import screen 2" /></li>
+	<li>Hopefully, you&#39;ll see a successful Status message that says something like &quot;10 imported items total&quot;.<br />
+	<img alt="import screen success status" src="png/allpages_xml_feed_importer_d7_importsuccess1.png" style="clear: both;" title="import screen success status" /></li>
+</ol>
+
+<h3><a id="qa" name="qa"></a>Quality assurance</h3>
+
+<ol>
+	<li>Do some sample checking of the pages you imported. <span class="pullquote">Make sure your new pages are identical to those on the old site</span>.</li>
+	<li><span class="pullquote">Consider using <a href="http://drupal.org/project/views_bulk_operations" title="module page">Views Bulk Operations (VBO)</a></span> as a great way to add tags or do mass corrections to this imported content in your new Drupal 7 site.</li>
+</ol>
+
+<h2><a id="problems" name="problems"></a>Known import Problems</h2>
+
+<ul>
+	<li><a href="#comment-2083">Users and UIDs</a></li>
+	<li><a href="#comment-2056">Date timezone conversions</a></li>
+	<li><a href="#comment-2034" style="line-height: 1.538em;">Fields with multiple values (and attached files or images</a><span style="line-height: 1.538em;">)</span></li>
+</ul>
+
+<h2><a id="info" name="info"></a>For more information</h2>
+
+<ul>
+	<li><a href="http://drupal.org/node/622696">How to use the Feeds module</a></li>
+	<li><a href="http://drupal.org/node/919448">How to configure the Feeds XPath Parser module</a></li>
+	<li><a href="http://drupal.org/documentation/modules/views">How to use the Views module</a></li>
+	<li><a href="http://nodeone.se/en/taming-the-beast-learn-views-with-nodeone">Video tutorials on the Views module</a></li>
+</ul>
+
+    </div>
+
+
+  </div><!-- /inner -->
+
+
+
+  
+</div><!-- /node-403 -->
+
+
+<div id="comments" class="comments block ">
+  <h2 class="comments-header">
+    Comments  </h2>
+  <div class="indented"><a id="comment-2085"></a>
+
+
+
+<div class="comment odd comment-by-author clear-block">
+
+  
+  
+
+  
+  <div class="authorship">
+      <h4 class="title">
+    Adelle Frank    </h4>
+      <div class="submitted">
+      Apr 13, 2013      </div>    
+      </div>
+
+<div class="comment-content">
+
+  <h3 class="title"><a href="how-to-migrate-content-from-drupal6-to-drupal7-with-feeds-module.html#comment-2085" class="active">Going to update post with your feedback</a></h3>  
+  
+    <p>Thanks, M, for giving such detailed feedback: I will update my post with your excellent additions!</p>
+  </div>
+
+  
+
+  
+  <div class="links">
+
+    <ul class="links"><li class="comment_forbidden first last"></li>
+</ul>
+  </div>
+
+  
+  
+
+</div><!-- /comment --></div><a id="comment-2056"></a>
+
+
+
+<div class="comment even comment-by-anon clear-block">
+
+  
+  
+
+  
+  <div class="authorship">
+      <h4 class="title">
+    Adelle    </h4>
+      <div class="submitted">
+      Mar 14, 2013      </div>    
+      </div>
+
+<div class="comment-content">
+
+  <h3 class="title"><a href="how-to-migrate-content-from-drupal6-to-drupal7-with-feeds-module.html#comment-2056" class="active">Date field Timezone problem</a></h3>  
+  
+    <p>There is a <a href="http://drupal.org/node/722740" rel="nofollow">known issue for Feeds</a>, where it converts imported dates to GMT, even if they are in a UNIX timestamp format.<br />
+There are a number of workarounds right now, including the <a href="http://drupal.org/project/feeds_tamper" rel="nofollow">Feeds Tamper module</a>, or setting your Content Type's date field to "UTC".&nbsp;</p>
+
+  </div>
+
+  
+
+  
+  <div class="links">
+
+    <ul class="links"><li class="comment_forbidden first last"></li>
+</ul>
+  </div>
+
+  
+  
+
+</div><!-- /comment --><a id="comment-2034"></a>
+
+
+
+<div class="comment odd comment-by-anon clear-block">
+
+  
+  
+
+  
+  <div class="authorship">
+      <h4 class="title">
+    Dawn    </h4>
+      <div class="submitted">
+      Dec 26, 2012      </div>    
+      </div>
+
+<div class="comment-content">
+
+  <h3 class="title"><a href="how-to-migrate-content-from-drupal6-to-drupal7-with-feeds-module.html#comment-2034" class="active">Great resource! Attached files and images?</a></h3>  
+  
+    <p>HI there - thank you for a very clear tutorial!&nbsp;<br />
+I'm wondering how you would handle adding multiple attached files?&nbsp;<br />
+I'm currently using Data Export module in D6 and it only outputs attached files as a comma separated list. Which would be fine if I could figure out how to get Feeds Xpath Parser in D7 to import these. I outlined the problem here <a href="http://drupal.org/node/1874380" rel="nofollow">http://drupal.org/node/1874380</a>.<br />
+Is there a standard way to attach and migrate files using feeds?<br />
+thank you</p>
+
+  </div>
+
+  
+
+  
+  <div class="links">
+
+    <ul class="links"><li class="comment_forbidden first last"></li>
+</ul>
+  </div>
+
+  
+  
+
+</div><!-- /comment --><div class="indented"><a id="comment-2037"></a>
+
+
+
+<div class="comment even comment-by-author clear-block">
+
+  
+  
+
+  
+  <div class="authorship">
+      <h4 class="title">
+    Adelle Frank    </h4>
+      <div class="submitted">
+      Jan 6, 2013      </div>    
+      </div>
+
+<div class="comment-content">
+
+  <h3 class="title"><a href="how-to-migrate-content-from-drupal6-to-drupal7-with-feeds-module.html#comment-2037" class="active">Try Feeds Tamper module</a></h3>  
+  
+    <p>Hi, Dawn: </p><p>I don't think there is a standard way to migrate attached files.&nbsp; I believe this should work, but I haven't had time to test.&nbsp; If you do try it would you let me know if it works?</p><ol><li>In your Drupal 6 View, add a field from the Uploads category, called "Upload: Attached files"</li><li>When configuring that field, choose "Rewrite the output of this field" and put the <code>[upload_fid-url]</code> token into the textarea, so that the absolute link to this file is output in the XML feed. Be sure to choose a comma WITHOUT a space as the separator for multiple values.</li><li>In your Drupal 7 site, make sure your content type for Page allows more than one value for the attached files field &amp; that your field allows the extensions (txt, png, etc) you will be migrating.</li><li>In your Feed importer, add a mapping for the Attached File field.</li><li>Under the Settings for XPath XML parser page, enter "Attached-files".</li><li>Install the <a href="http://drupal.org/project/feeds_tamper">Feeds Tamper</a> module, and <a href="http://thejibe.com/blog/12/09/feeds-importing-multiple-values-one-multi-value-field">configure it to explode multiple values</a>.</li></ol>
+  </div>
+
+  
+
+  
+  <div class="links">
+
+    <ul class="links"><li class="comment_forbidden first last"></li>
+</ul>
+  </div>
+
+  
+  
+
+</div><!-- /comment --><div class="indented"><a id="comment-2087"></a>
+
+
+
+<div class="comment odd comment-by-author clear-block">
+
+  
+  
+
+  
+  <div class="authorship">
+      <h4 class="title">
+    Adelle Frank    </h4>
+      <div class="submitted">
+      Apr 13, 2013      </div>    
+      </div>
+
+<div class="comment-content">
+
+  <h3 class="title"><a href="how-to-migrate-content-from-drupal6-to-drupal7-with-feeds-module.html#comment-2087" class="active">Text Find &amp; Replace Solution (for small amounts of data)</a></h3>  
+  
+    <p></p><p>Because Views Export as XML does NOT nest multivalued field values properly in parent/child tags, my co-worker, Matt came up with this Solution:</p><p>Use a text editor to replace &lt;elements&gt; in the exported XML. You can give those fields and their multiple values a parent/child structure manually.</p><p></p>
+  </div>
+
+  
+
+  
+  <div class="links">
+
+    <ul class="links"><li class="comment_forbidden first last"></li>
+</ul>
+  </div>
+
+  
+  
+
+</div><!-- /comment --></div></div><a id="comment-1916"></a>
+
+
+
+<div class="comment even comment-by-anon clear-block">
+
+  
+  
+
+  
+  <div class="authorship">
+      <h4 class="title">
+    Sean    </h4>
+      <div class="submitted">
+      Dec 7, 2012      </div>    
+      </div>
+
+<div class="comment-content">
+
+  <h3 class="title"><a href="how-to-migrate-content-from-drupal6-to-drupal7-with-feeds-module.html#comment-1916" class="active">More Resources</a></h3>  
+  
+    <p>Hey,<br />
+I found this resource when looking into the same problem. &nbsp;The only difference is the example they run through is done with a CSV file. &nbsp;The process is identical.<br />
+&nbsp;<br />
+<a href="http://prezi.com/g6chbltwdcbx/drupal-data-migration-made-simple-with-feeds/" title="http://prezi.com/g6chbltwdcbx/drupal-data-migration-made-simple-with-feeds/">http://prezi.com/g6chbltwdcbx/drupal-data-migration-made-simple-with-feeds/</a></p>
+
+  </div>
+
+  
+
+  
+  <div class="links">
+
+    <ul class="links"><li class="comment_forbidden first last"></li>
+</ul>
+  </div>
+
+  
+  
+
+</div><!-- /comment --><div class="indented"><a id="comment-1917"></a>
+
+
+
+<div class="comment odd comment-by-author clear-block">
+
+  
+  
+
+  
+  <div class="authorship">
+      <h4 class="title">
+    Adelle Frank    </h4>
+      <div class="submitted">
+      Dec 9, 2012      </div>    
+      </div>
+
+<div class="comment-content">
+
+  <h3 class="title"><a href="how-to-migrate-content-from-drupal6-to-drupal7-with-feeds-module.html#comment-1917" class="active">Great resource!</a></h3>  
+  
+    <p>Thanks, Sean :)</p>
+  </div>
+
+  
+
+  
+  <div class="links">
+
+    <ul class="links"><li class="comment_forbidden first last"></li>
+</ul>
+  </div>
+
+  
+  
+
+</div><!-- /comment --></div><div class="item-list"><ul class="pager"><li class="pager-first first"><a href="how-to-migrate-content-from-drupal6-to-drupal7-with-feeds-module.html" title="Go to first page" class="active">« first</a></li>
+<li class="pager-previous"><a href="how-to-migrate-content-from-drupal6-to-drupal7-with-feeds-module.html" title="Go to previous page" class="active">‹ previous</a></li>
+<li class="pager-item"><a href="how-to-migrate-content-from-drupal6-to-drupal7-with-feeds-module.html" title="Go to page 1" class="active">1</a></li>
+<li class="pager-current last">2</li>
+</ul></div></div>
+<!-- /comments -->
+                                                                  </div><!-- /content-content -->
+                                                              </div><!-- /content-inner-inner -->
+                            </div><!-- /content-inner -->
+                          </div><!-- /content-region-inner -->
+                        </div><!-- /content-region -->
+
+                                              </div><!-- /content-group-inner -->
+                    </div><!-- /content-group -->
+
+                                      </div><!-- /main-content-inner -->
+                </div><!-- /main-content -->
+
+                              </div><!-- /main-group-inner -->
+            </div><!-- /main-group -->
+          </div><!-- /main-inner -->
+        </div><!-- /main -->
+      </div><!-- /main-wrapper -->
+
+      <!-- postscript-bottom row: width = grid_width -->
+      
+      <!-- footer row: width = grid_width -->
+      
+      <!-- footer-message row: width = grid_width -->
+      <div id="footer-message-wrapper" class="footer-message-wrapper full-width">
+        <div id="footer-message" class="footer-message row grid16-16">
+          <div id="footer-message-inner" class="footer-message-inner inner clearfix" role="contentinfo">
+            <div id="footer-message-text" class="footer-message-text block">
+<div id="footer-message-text-inner" class="footer-message-text-inner inner clearfix">
+&copy; Adelle Frank, All rights reserved unless otherwise specified.</div><!-- /footer-message-text-inner -->
+</div><!-- /footer-message-text -->
+          </div><!-- /footer-message-inner -->
+        </div><!-- /footer-message -->
+      </div><!-- /footer-message-wrapper -->
+
+    </div><!-- /page-inner -->
+  </div><!-- /page -->
+  </body>
+</html>

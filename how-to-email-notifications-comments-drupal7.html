@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en"> 
+
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>How to send email notifications for comments in Drupal 7 with actions &amp; triggers (or the Rules module) | Adelle Frank</title>
+  
+<link rel="shortcut icon" href="ico/favicon.ico"  />
+  <link rel="stylesheet" media="all" href="css/css_6fb95d3684ef88a42b1ec6fe56ca5ccc.css" />
+  <link rel="stylesheet" media="all" href="css/grid16-960d956.css?o"/>
+  <!--[if IE]>
+   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->  
+  <!--[if IE 8]>
+  <link rel="stylesheet" media="all" href="/sites/all/themes/fusion/fusion_core/css/ie8-fixes.css?o" />
+  <![endif]-->
+  <!--[if IE 7]>
+  <link rel="stylesheet" media="all" href="/sites/all/themes/fusion/fusion_core/css/ie7-fixes.css?o" />
+  <![endif]-->
+  <!--[if lte IE 6]>
+  <link rel="stylesheet" media="all" href="/sites/all/themes/fusion/fusion_core/css/ie6-fixes.css?o"/>
+<link rel="stylesheet" media="all" href="/sites/all/themes/adelle/css/ie6-fixes.css?o"/>
+  <![endif]-->
+    <script src="js/js_a6373110aea2a7a54ab24e569f35f9f2.js"></script>
+<script>
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/" });
+//--><!]]>
+</script>
+</head>
+
+<body id="pid-blog-how-to-email-notifications-comments-drupal7" class="not-front not-logged-in page-node node-type-blog no-sidebars full-node layout-main sidebars-split font-size-12 grid-type-960 grid-width-16">
+  <div id="page" class="page">
+    <div id="page-inner" class="page-inner">
+      <div id="skip" role="navigation">
+        <a href="#main-content-area">Skip to Main Content Area</a>
+      </div>
+
+      <!-- header-top row: width = grid_width -->
+      
+      <!-- header-group row: width = grid_width -->
+      <div id="header-group-wrapper" class="header-group-wrapper full-width" role="banner">
+        <div id="header-group" class="header-group row grid16-16">
+          <div id="header-group-inner" class="header-group-inner inner clearfix">
+                        
+                        <div id="header-site-info" class="header-site-info block">
+              <div id="header-site-info-inner" class="header-site-info-inner inner">
+                                <div id="logo">
+                  <a href="index.html" title="Home"><img src="png/logo.png" alt="Home" /></a>
+                </div>
+                                                <div id="site-name-wrapper" class="clearfix">
+                                    <span id="site-name"><a href="index.html" title="Home">Adelle Frank</a></span>
+                                                      <span id="slogan">Drupal, genealogy, accessibility, and religion archives geek in Atlanta, Georgia</span>
+                                  </div><!-- /site-name-wrapper -->
+                              </div><!-- /header-site-info-inner -->
+            </div><!-- /header-site-info -->
+            
+            
+<div role="navigation" id="block-menu-menu-about" class="block block-menu odd first grid16-2 fusion-right fusion-multicol-menu clearfix">
+  <div class="inner clearfix">
+            <div class="content clearfix">
+      <ul class="menu"><li class="expanded first last"><a href="about.html" title="About">ABOUT</a><ul class="menu"><li class="leaf first"><a href="me.html" title="About Adelle">Adelle</a></li>
+<li class="leaf"><a href="surnames.html" title="">Surnames</a></li>
+<li class="leaf last"><a href="site.html" title="About this Site">This Site</a></li>
+</ul></li>
+</ul>    </div>
+  </div><!-- /block-inner -->
+</div><!-- /block -->
+
+<div role="navigation" id="block-menu-menu-topics" class="block block-menu even  last grid16-2 fusion-right fusion-multicol-menu clearfix">
+  <div class="inner clearfix">
+            <div class="content clearfix">
+      <ul class="menu"><li class="expanded first last"><a href="rss.html" title="Blog Topics">TOPICS</a><ul class="menu"><li class="leaf first"><a href="genealogy.html" title="Family history thoughts and notes.">Genealogy</a></li>
+<li class="leaf"><a href="libraries.html" title="Blog posts on topics of interest to those in the library and information science professions.">Libraries</a></li>
+<li class="leaf"><a href="drupal.html" title="Only the most wonderful web content management system in the universe!">Drupal</a></li>
+<li class="leaf"><a href="web.html" title="Blog posts about web design &amp; development.">The Web</a></li>
+<li class="leaf"><a href="daily-life.html" title="Blog posts related to the home and gardening.">Daily Life</a></li>
+<li class="leaf last"><a href="politics.html" title="Blog posts about politics and elections.">Politics</a></li>
+</ul></li>
+</ul>    </div>
+  </div><!-- /block-inner -->
+</div><!-- /block -->
+                      </div><!-- /header-group-inner -->
+        </div><!-- /header-group -->
+      </div><!-- /header-group-wrapper -->
+
+      <!-- preface-top row: width = grid_width -->
+      
+      <!-- main row: width = grid_width -->
+      <div id="main-wrapper" class="main-wrapper full-width">
+        <div id="main" class="main row grid16-16">
+          <div id="main-inner" class="main-inner inner clearfix">
+            
+            <!-- main group: width = grid_width - sidebar_first_width -->
+            <div id="main-group" class="main-group row nested grid16-16">
+              <div id="main-group-inner" class="main-group-inner inner">
+                
+                <div id="main-content" class="main-content row nested">
+                  <div id="main-content-inner" class="main-content-inner inner">
+                    <!-- content group: width = grid_width - (sidebar_first_width + sidebar_last_width) -->
+                    <div id="content-group" class="content-group row nested grid16-16">
+                      <div id="content-group-inner" class="content-group-inner inner">
+                        
+                        
+                        <div id="content-region" class="content-region row nested">
+                          <div id="content-region-inner" class="content-region-inner inner">
+                            <a name="main-content-area" id="main-content-area"></a>
+                                                        <div id="content-inner" class="content-inner block">
+                              <div id="content-inner-inner" class="content-inner-inner inner">   
+                                                                <div id="content-content" class="content-content" role="main">
+                                  
+<div id="node-313" class="node odd full-node node-type-blog">
+
+  <div class="inner">
+
+    
+    
+    <div class="meta">
+
+      <div class="submitted">
+      
+        <div class="day">
+           9        </div>
+        <div class="month">
+           May        </div>
+        <div class="year">
+           2012        </div>
+      
+      </div>
+
+
+        
+        <div class="terms">
+
+          <ul class="links inline"><li class="taxonomy_term_33 first"><a href="drupal.html" rel="tag" title="Posts about the most wonderful web content management system in the universe.">drupal</a></li>
+<li class="taxonomy_term_1 last"><a href="web.html" rel="tag" title="Blog entries focused on web design and development">the web</a></li>
+</ul>
+        </div>
+
+             
+
+   </div>
+   
+       
+
+ 
+ 
+    <h1 class="title">How to send email notifications for comments in Drupal 7 with actions &amp; triggers (or the Rules module)</h1>
+    
+                               
+    
+
+
+    <div class="content clearfix">
+
+      <p><a href="http://drupal.org/project/rules"><img src="png/rules_icon.png" alt="Rules module logo" title="Rules module logo" height="110" width="150"></a> Do you have a Drupal 7 web site? Do you want to get an email when someone comments, so you don't have to check your site all the time? Don't panic! Here's how you do it.</p><p>You don't need to install any new modules to do this in Drupal 7. All that's needed is a little configuring and to copy and paste in a short bit of code.</p><p><strong>Update</strong>: <em>Both the easiest &amp; most powerful way to get these notification emails (in Drupal 6 or 7) is to install and configure the<a href="http://drupal.org/project/rules"> Rules Module</a>. NodeOne has a great set of <a href="http://dev.nodeone.se/node/984">video tutorials</a> on their site explaining how to use the Rules module. I've also put <strong>example code</strong> for a Rules-based email notification in the comments to this post for both <a href="how-to-email-notifications-comments-drupal7.html#comment-1334">Drupal 6</a>&nbsp;and <a href="how-to-email-notifications-comments-drupal7.html#comment-1569">Drupal 7</a>.&nbsp;</em></p><p>
+</p>
+<p>&nbsp;</p><ul id="toc">
+<li><a href="#1" title="Step 1">Step 1: Getting started</a></li>
+<li><a href="#2" title="Step 2">Step 2: Taking action</a></li>
+<li><a href="#3" title="Step 3">Step 3: Triggering your action</a><ul><li><a href="#advanced_action_code" title="sample tokenized email notification code for Drupal 7">Sample Email Code</a></li></ul></li>
+<li><a href="#4" title="Step 4">Step 4: Testing it out</a></li>
+<li><a href="#moreinfo" title="Read more">For more information</a></li>
+</ul>
+
+<h3><a name="1"></a>Step 1: Getting started</h3>
+
+<p>Go to the Modules page, and make sure that you <strong>enable the Trigger </strong><strong>module</strong> (at <em>Modules &gt; Trigger</em>) and <strong>turn on Clean URLs</strong> (at <em>Administer &gt; Configuration &gt; Search and metadata</em>). These are core modules/settings in Drupal 7, so you don't have to install them, just turn them on.</p>
+<p class="floatleft"><img src="png/comment-notification0.png" alt="enabled checkbox for Trigger on the Modules page" title="enabled checkbox for Trigger on the Modules page" height="288" width="354"><img src="png/cleanurlslocation.png" alt="location of Clean URLs in administrative interface" title="location of Clean URLs in administrative interface" height="285" width="535">
+</p>
+
+<h3><a name="2"></a>Step 2: Taking action</h3><p>
+
+Your next step will be to create an <em>action</em>, so that drupal can perform it when a comment is saved.</p>
+
+<p>Go to <strong>Configuration </strong>&gt; <strong>System </strong>&gt; <strong>Actions</strong>.</p><p><img src="png/comment-notification1a.png" alt="Actions link shown on Configuration page" title="Actions link shown on Configuration page" class="floatnone" height="411" width="512"></p>
+
+<p>On the Actions page, choose the dropdown for <strong>Create an Advanced Action</strong> at the bottom of the page, and click on <strong>Send email</strong> and then <strong>Create</strong>.</p><p><img src="png/comment-notification3.png" alt="create an advanced action dropdown with Send email highlighted" title="create an advanced action dropdown with Send email highlighted" class="floatnone clearleft" height="171" width="407"></p>
+
+<p>On the <strong><a name="advanced_action_code"></a>Configure an advanced action page</strong>, fill in the first 3 fields, as in these examples:
+</p><ul>
+  <li><strong>Label</strong>: Send an email notification to site owner upon comment save</li><li><strong>Recipient</strong>: siteowner@adellefrank.com</li>
+  <li><strong>Subject</strong>: New Comment at AdelleFrank.com</li>
+ </ul>
+
+<p>The trickiest part of this entire endeavor is filling in the <strong>Message field</strong>, but here's some easy sample code that you could just copy and paste in:<br>
+
+<code>### Node<br>
+[comment:node:title] at: [site:url]node/[comment:node:nid]#comment-[comment:cid]<br>
+<br>
+### Comment<br>
+[comment:author:name]<br>
+[comment:title]<br>
+[comment:body]<br>
+<br>
+### Review<br>
+[site:url]admin/content/comment/approval</code>
+</p>
+<p>Those bits of code within square brackets are called <strong>tokens</strong>. Tokens are placeholders, little bits of code that represent commonly-used values. To find more tokens&nbsp;in Drupal 7, you must have two modules enabled. First,&nbsp;<strong>turn on the core Help module</strong>, which you should have enabled anyway...because it's helpful. &nbsp;However, I find it bizarre&nbsp;that, even though you're only using tokens included in the Core, you must still <strong>install and turn on the Token module</strong>, too. </p><p>Only then can you&nbsp;point your web browser to the Help &gt; Token page at <strong>http://www.yoursite.com/admin/help/token</strong>&nbsp;and get a <a href="http://drupal.org/node/390482">list of all the tokens</a> you can choose among.</p>
+<h3><a name="3"></a>Step 3: Triggering your action</h3>
+<p>At the top of the page, click on the <strong>Triggers link</strong> to go to the next step. This page can also be found underneath <strong>Structure </strong>&gt; <strong>Triggers</strong>.</p><p><img src="png/comment-notification5.png" alt="Triggers link shown at top of Actions page" title="Triggers link shown at top of Actions page" class="floatnone" height="259" width="536"></p>
+<p>Be sure to choose the <strong>comments tab</strong> on the <strong>Triggers page</strong>.</p><p><img src="png/comment-notification6b.png" alt="Comments tab shown at top of Triggers page" title="Comments tab shown at top of Triggers page" class="floatnone" height="159" width="451"></p><p>
+You have a number of choices, but since mine is a solo blog, <strong>Trigger: After saving a new comment</strong> seems most appropriate. Click on the dropdown instructing you to <strong>Choose an action</strong> and click underneath <strong>system </strong>on the name of the Action (<strong>Send an email notification to site owner upon comment save</strong>) you created in Step 2 and then click <strong>Assign</strong>.</p>
+<p><img src="png/comment-notification7b.png" alt="action selected on dropdown for Trigger: After saving a new comment" title="action selected on dropdown for Trigger: After saving a new comment" class="floatnone clearboth" height="391" width="432"></p>
+<p><img src="png/comment-notification8b.png" alt="successfully assigned action to trigger" title="successfully assigned action to trigger" class="floatnone clearboth" height="173" width="690"></p>
+
+<h3><a name="4"></a>Step 4: Testing your comments form</h3><p>
+Now, as far as you know, your web site is set up to email you when someone saves a comment.&nbsp; To be absolutely certain that your new action and trigger are working correctly, you need to test it.</p><p>Browse to any page, article, or blog post on your site and <strong>post a comment</strong>.</p><p><strong>Check your email </strong>at the address you chose in step 2. Does this email give you the information you expected?</p><p>Remember to <strong>delete your test comment</strong> off of your site.</p>
+
+<h3><a name="moreinfo"></a>For more information</h3>
+<ul>
+<li><a href="http://drupal.org/handbook/modules/token">Token module Handbook on drupal.org</a></li>
+<li><a href="http://newriversdigital.com/content/blog/using-drupal-actions-triggers-and-tokens-send-notifications-about-comments">Email notifications in Drupal 6</a></li></ul>
+    </div>
+
+
+  </div><!-- /inner -->
+
+
+
+  
+</div><!-- /node-313 -->
+
+
+<div id="comments" class="comments block ">
+  <h2 class="comments-header">
+    Comments  </h2>
+  <a id="comment-2081"></a>
+
+
+
+<div class="comment odd comment-by-anon clear-block">
+
+  
+  
+
+  
+  <div class="authorship">
+      <h4 class="title">
+    Ed    </h4>
+      <div class="submitted">
+      Apr 9, 2013      </div>    
+      </div>
+
+<div class="comment-content">
+
+  <h3 class="title"><a href="how-to-email-notifications-comments-drupal7.html#comment-2081" class="active">Token problem</a></h3>  
+  
+    <p>I've made an action which sends an email to the administrator. The trigger is 'when a new user account signed in'.<br />
+In that email are tokens like [user:name] and [user:mail], they work very well. I use also tokens such as [current-user:field_address], they are added (non-existing) fields and they don't work.<br />
+Does anybody has any idea how I get this working?<br />
+Ed</p>
+
+  </div>
+
+  
+
+  
+  <div class="links">
+
+    <ul class="links"><li class="comment_forbidden first last"></li>
+</ul>
+  </div>
+
+  
+  
+
+</div><!-- /comment --><a id="comment-2044"></a>
+
+
+
+<div class="comment even comment-by-anon clear-block">
+
+  
+  
+
+  
+  <div class="authorship">
+      <h4 class="title">
+    <a href="http://www.johnmartyn.info/" rel="nofollow">Hans van den Berk</a>    </h4>
+      <div class="submitted">
+      Feb 1, 2013      </div>    
+      </div>
+
+<div class="comment-content">
+
+  <h3 class="title"><a href="how-to-email-notifications-comments-drupal7.html#comment-2044" class="active">This works!</a></h3>  
+  
+    <p>Thanx a lot for this tutorial. It was all I needed to complete the guestbook.<br />
+Also took a look at html email format but that looks like a nightmare so plain text will do for the intended purpose.</p>
+
+  </div>
+
+  
+
+  
+  <div class="links">
+
+    <ul class="links"><li class="comment_forbidden first last"></li>
+</ul>
+  </div>
+
+  
+  
+
+</div><!-- /comment --><a id="comment-1907"></a>
+
+
+
+<div class="comment odd comment-by-anon clear-block">
+
+  
+  
+
+  
+  <div class="authorship">
+      <h4 class="title">
+    <a href="http://www.baconsbeacon.com/" rel="nofollow">boftx</a>    </h4>
+      <div class="submitted">
+      Dec 4, 2012      </div>    
+      </div>
+
+<div class="comment-content">
+
+  <h3 class="title"><a href="how-to-email-notifications-comments-drupal7.html#comment-1907" class="active">Combine this with user roles</a></h3>  
+  
+    <p>Most of us have noticed by now that spammers are using human comment factories to get past captcha rules.<br />
+What I have found to be effective is to have a role called 'Reviewed User' and only allow this role to post comments or content without moderation.<br />
+In the case of content, I allow authenticated users to post, but the triggered rule will automatically unpublish any new content unless the user has the 'Reviewed User' role, as well as send an email to me.<br />
+I also have a rule that automatically applies the 'Reviewed User' role to the content/comment author when I publish the item. If I don't publish it, I block the user, delete all of that user's content, and report them as a spammer using spambot.<br />
+This approach has greatly reduced the headache I was starting to get.</p>
+
+  </div>
+
+  
+
+  
+  <div class="links">
+
+    <ul class="links"><li class="comment_forbidden first last"></li>
+</ul>
+  </div>
+
+  
+  
+
+</div><!-- /comment --><a id="comment-1856"></a>
+
+
+
+<div class="comment even comment-by-anon clear-block">
+
+  
+  
+
+  
+  <div class="authorship">
+      <h4 class="title">
+    Visitor    </h4>
+      <div class="submitted">
+      Nov 8, 2012      </div>    
+      </div>
+
+<div class="comment-content">
+
+  <h3 class="title"><a href="how-to-email-notifications-comments-drupal7.html#comment-1856" class="active">Very good!</a></h3>  
+  
+    <p>got me running fast!<br />
+Thanks!</p>
+
+  </div>
+
+  
+
+  
+  <div class="links">
+
+    <ul class="links"><li class="comment_forbidden first last"></li>
+</ul>
+  </div>
+
+  
+  
+
+</div><!-- /comment --><a id="comment-1741"></a>
+
+
+
+<div class="comment odd comment-by-anon clear-block">
+
+  
+  
+
+  
+  <div class="authorship">
+      <h4 class="title">
+    <a href="http://guillermocerezo.com/en" rel="nofollow">Guillermo</a>    </h4>
+      <div class="submitted">
+      Sep 3, 2012      </div>    
+      </div>
+
+<div class="comment-content">
+
+  <h3 class="title"><a href="how-to-email-notifications-comments-drupal7.html#comment-1741" class="active">Useful</a></h3>  
+  
+    <p>Thanks for the article. It's very interesting this option to manage comments on drupal sites.</p>
+
+  </div>
+
+  
+
+  
+  <div class="links">
+
+    <ul class="links"><li class="comment_forbidden first last"></li>
+</ul>
+  </div>
+
+  
+  
+
+</div><!-- /comment --><a id="comment-1709"></a>
+
+
+
+<div class="comment even comment-by-anon clear-block">
+
+  
+  
+
+  
+  <div class="authorship">
+      <h4 class="title">
+    <a href="http://www.stemaco.com.au/" rel="nofollow">Yoni Steingiesser</a>    </h4>
+      <div class="submitted">
+      Aug 5, 2012      </div>    
+      </div>
+
+<div class="comment-content">
+
+  <h3 class="title"><a href="how-to-email-notifications-comments-drupal7.html#comment-1709" class="active">THANK YOU</a></h3>  
+  
+    <p>Thank you! This was exactly what I needed. You are a life saver. Thank you for putting this up!</p>
+
+  </div>
+
+  
+
+  
+  <div class="links">
+
+    <ul class="links"><li class="comment_forbidden first last"></li>
+</ul>
+  </div>
+
+  
+  
+
+</div><!-- /comment --><a id="comment-1650"></a>
+
+
+
+<div class="comment odd comment-by-anon clear-block">
+
+  
+  
+
+  
+  <div class="authorship">
+      <h4 class="title">
+    barbarae    </h4>
+      <div class="submitted">
+      Jun 7, 2012      </div>    
+      </div>
+
+<div class="comment-content">
+
+  <h3 class="title"><a href="how-to-email-notifications-comments-drupal7.html#comment-1650" class="active">Best Drupal &quot;How To&quot; I&#039;ve</a></h3>  
+  
+    <p>Best Drupal "How To" I've read yet - Woohoo - thanks</p>
+
+  </div>
+
+  
+
+  
+  <div class="links">
+
+    <ul class="links"><li class="comment_forbidden first last"></li>
+</ul>
+  </div>
+
+  
+  
+
+</div><!-- /comment --><a id="comment-1578"></a>
+
+
+
+<div class="comment even comment-by-anon clear-block">
+
+  
+  
+
+  
+  <div class="authorship">
+      <h4 class="title">
+    Calvina    </h4>
+      <div class="submitted">
+      May 14, 2012      </div>    
+      </div>
+
+<div class="comment-content">
+
+  <h3 class="title"><a href="how-to-email-notifications-comments-drupal7.html#comment-1578" class="active">Great!</a></h3>  
+  
+    <p>Thank you Adelle, really clean explanation and working fine in Drupal 7!</p>
+
+  </div>
+
+  
+
+  
+  <div class="links">
+
+    <ul class="links"><li class="comment_forbidden first last"></li>
+</ul>
+  </div>
+
+  
+  
+
+</div><!-- /comment --><a id="comment-1572"></a>
+
+
+
+<div class="comment odd comment-by-anon clear-block">
+
+  
+  
+
+  
+  <div class="authorship">
+      <h4 class="title">
+    vijay    </h4>
+      <div class="submitted">
+      May 10, 2012      </div>    
+      </div>
+
+<div class="comment-content">
+
+  <h3 class="title"><a href="how-to-email-notifications-comments-drupal7.html#comment-1572" class="active">need help</a></h3>  
+  
+    <p>i need to add the comment form on my drupal 7 in an attractive way help me i have just simple form for the comments</p>
+
+  </div>
+
+  
+
+  
+  <div class="links">
+
+    <ul class="links"><li class="comment_forbidden first last"></li>
+</ul>
+  </div>
+
+  
+  
+
+</div><!-- /comment --><div class="indented"><a id="comment-1582"></a>
+
+
+
+<div class="comment even comment-by-author clear-block">
+
+  
+  
+
+  
+  <div class="authorship">
+      <h4 class="title">
+    Adelle Frank    </h4>
+      <div class="submitted">
+      May 15, 2012      </div>    
+      </div>
+
+<div class="comment-content">
+
+  <h3 class="title"><a href="how-to-email-notifications-comments-drupal7.html#comment-1582" class="active">Try this post about theming the comment form in D7</a></h3>  
+  
+    <p><a href="http://www.digett.com/blog/05/26/2011/how-theme-comment-form-drupal-7">http://www.digett.com/blog/05/26/2011/how-theme-comment-form-drupal-7</a></p>
+  </div>
+
+  
+
+  
+  <div class="links">
+
+    <ul class="links"><li class="comment_forbidden first last"></li>
+</ul>
+  </div>
+
+  
+  
+
+</div><!-- /comment --></div><div class="item-list"><ul class="pager"><li class="pager-current first">1</li>
+<li class="pager-item"><a href="how-to-email-notifications-comments-drupal72679.html?page=1" title="Go to page 2" class="active">2</a></li>
+<li class="pager-item"><a href="how-to-email-notifications-comments-drupal74658.html?page=2" title="Go to page 3" class="active">3</a></li>
+<li class="pager-item"><a href="how-to-email-notifications-comments-drupal79ba9.html?page=3" title="Go to page 4" class="active">4</a></li>
+<li class="pager-item"><a href="how-to-email-notifications-comments-drupal7fdb0.html?page=4" title="Go to page 5" class="active">5</a></li>
+<li class="pager-item"><a href="how-to-email-notifications-comments-drupal7af4d.html?page=5" title="Go to page 6" class="active">6</a></li>
+<li class="pager-next"><a href="how-to-email-notifications-comments-drupal72679.html?page=1" title="Go to next page" class="active">next ›</a></li>
+<li class="pager-last last"><a href="how-to-email-notifications-comments-drupal7af4d.html?page=5" title="Go to last page" class="active">last »</a></li>
+</ul></div></div>
+<!-- /comments -->
+                                                                  </div><!-- /content-content -->
+                                                              </div><!-- /content-inner-inner -->
+                            </div><!-- /content-inner -->
+                          </div><!-- /content-region-inner -->
+                        </div><!-- /content-region -->
+
+                                              </div><!-- /content-group-inner -->
+                    </div><!-- /content-group -->
+
+                                      </div><!-- /main-content-inner -->
+                </div><!-- /main-content -->
+
+                              </div><!-- /main-group-inner -->
+            </div><!-- /main-group -->
+          </div><!-- /main-inner -->
+        </div><!-- /main -->
+      </div><!-- /main-wrapper -->
+
+      <!-- postscript-bottom row: width = grid_width -->
+      
+      <!-- footer row: width = grid_width -->
+      
+      <!-- footer-message row: width = grid_width -->
+      <div id="footer-message-wrapper" class="footer-message-wrapper full-width">
+        <div id="footer-message" class="footer-message row grid16-16">
+          <div id="footer-message-inner" class="footer-message-inner inner clearfix" role="contentinfo">
+            <div id="footer-message-text" class="footer-message-text block">
+<div id="footer-message-text-inner" class="footer-message-text-inner inner clearfix">
+&copy; Adelle Frank, All rights reserved unless otherwise specified.</div><!-- /footer-message-text-inner -->
+</div><!-- /footer-message-text -->
+          </div><!-- /footer-message-inner -->
+        </div><!-- /footer-message -->
+      </div><!-- /footer-message-wrapper -->
+
+    </div><!-- /page-inner -->
+  </div><!-- /page -->
+  </body>
+</html>

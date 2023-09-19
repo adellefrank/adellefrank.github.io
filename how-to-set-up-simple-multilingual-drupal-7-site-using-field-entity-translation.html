@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en"> 
+
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>How to set up a &quot;simple&quot; multilingual Drupal 7 website using field (entity) translation | Adelle Frank</title>
+  
+<link rel="shortcut icon" href="ico/favicon.ico"  />
+  <link rel="stylesheet" media="all" href="css/css_6fb95d3684ef88a42b1ec6fe56ca5ccc.css" />
+  <link rel="stylesheet" media="all" href="css/grid16-960d956.css?o"/>
+  <!--[if IE]>
+   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->  
+  <!--[if IE 8]>
+  <link rel="stylesheet" media="all" href="/sites/all/themes/fusion/fusion_core/css/ie8-fixes.css?o" />
+  <![endif]-->
+  <!--[if IE 7]>
+  <link rel="stylesheet" media="all" href="/sites/all/themes/fusion/fusion_core/css/ie7-fixes.css?o" />
+  <![endif]-->
+  <!--[if lte IE 6]>
+  <link rel="stylesheet" media="all" href="/sites/all/themes/fusion/fusion_core/css/ie6-fixes.css?o"/>
+<link rel="stylesheet" media="all" href="/sites/all/themes/adelle/css/ie6-fixes.css?o"/>
+  <![endif]-->
+    <script src="js/js_a6373110aea2a7a54ab24e569f35f9f2.js"></script>
+<script>
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/" });
+//--><!]]>
+</script>
+</head>
+
+<body id="pid-blog-how-to-set-up-simple-multilingual-drupal-7-site-using-field-entity-translation" class="not-front not-logged-in page-node node-type-blog no-sidebars full-node layout-main sidebars-split font-size-12 grid-type-960 grid-width-16">
+  <div id="page" class="page">
+    <div id="page-inner" class="page-inner">
+      <div id="skip" role="navigation">
+        <a href="#main-content-area">Skip to Main Content Area</a>
+      </div>
+
+      <!-- header-top row: width = grid_width -->
+      
+      <!-- header-group row: width = grid_width -->
+      <div id="header-group-wrapper" class="header-group-wrapper full-width" role="banner">
+        <div id="header-group" class="header-group row grid16-16">
+          <div id="header-group-inner" class="header-group-inner inner clearfix">
+                        
+                        <div id="header-site-info" class="header-site-info block">
+              <div id="header-site-info-inner" class="header-site-info-inner inner">
+                                <div id="logo">
+                  <a href="index.html" title="Home"><img src="png/logo.png" alt="Home" /></a>
+                </div>
+                                                <div id="site-name-wrapper" class="clearfix">
+                                    <span id="site-name"><a href="index.html" title="Home">Adelle Frank</a></span>
+                                                      <span id="slogan">Drupal, genealogy, accessibility, and religion archives geek in Atlanta, Georgia</span>
+                                  </div><!-- /site-name-wrapper -->
+                              </div><!-- /header-site-info-inner -->
+            </div><!-- /header-site-info -->
+            
+            
+<div role="navigation" id="block-menu-menu-about" class="block block-menu odd first grid16-2 fusion-right fusion-multicol-menu clearfix">
+  <div class="inner clearfix">
+            <div class="content clearfix">
+      <ul class="menu"><li class="expanded first last"><a href="about.html" title="About">ABOUT</a><ul class="menu"><li class="leaf first"><a href="me.html" title="About Adelle">Adelle</a></li>
+<li class="leaf"><a href="surnames.html" title="">Surnames</a></li>
+<li class="leaf last"><a href="site.html" title="About this Site">This Site</a></li>
+</ul></li>
+</ul>    </div>
+  </div><!-- /block-inner -->
+</div><!-- /block -->
+
+<div role="navigation" id="block-menu-menu-topics" class="block block-menu even  last grid16-2 fusion-right fusion-multicol-menu clearfix">
+  <div class="inner clearfix">
+            <div class="content clearfix">
+      <ul class="menu"><li class="expanded first last"><a href="rss.html" title="Blog Topics">TOPICS</a><ul class="menu"><li class="leaf first"><a href="genealogy.html" title="Family history thoughts and notes.">Genealogy</a></li>
+<li class="leaf"><a href="libraries.html" title="Blog posts on topics of interest to those in the library and information science professions.">Libraries</a></li>
+<li class="leaf"><a href="drupal.html" title="Only the most wonderful web content management system in the universe!">Drupal</a></li>
+<li class="leaf"><a href="web.html" title="Blog posts about web design &amp; development.">The Web</a></li>
+<li class="leaf"><a href="daily-life.html" title="Blog posts related to the home and gardening.">Daily Life</a></li>
+<li class="leaf last"><a href="politics.html" title="Blog posts about politics and elections.">Politics</a></li>
+</ul></li>
+</ul>    </div>
+  </div><!-- /block-inner -->
+</div><!-- /block -->
+                      </div><!-- /header-group-inner -->
+        </div><!-- /header-group -->
+      </div><!-- /header-group-wrapper -->
+
+      <!-- preface-top row: width = grid_width -->
+      
+      <!-- main row: width = grid_width -->
+      <div id="main-wrapper" class="main-wrapper full-width">
+        <div id="main" class="main row grid16-16">
+          <div id="main-inner" class="main-inner inner clearfix">
+            
+            <!-- main group: width = grid_width - sidebar_first_width -->
+            <div id="main-group" class="main-group row nested grid16-16">
+              <div id="main-group-inner" class="main-group-inner inner">
+                
+                <div id="main-content" class="main-content row nested">
+                  <div id="main-content-inner" class="main-content-inner inner">
+                    <!-- content group: width = grid_width - (sidebar_first_width + sidebar_last_width) -->
+                    <div id="content-group" class="content-group row nested grid16-16">
+                      <div id="content-group-inner" class="content-group-inner inner">
+                        
+                        
+                        <div id="content-region" class="content-region row nested">
+                          <div id="content-region-inner" class="content-region-inner inner">
+                            <a name="main-content-area" id="main-content-area"></a>
+                                                        <div id="content-inner" class="content-inner block">
+                              <div id="content-inner-inner" class="content-inner-inner inner">   
+                                                                <div id="content-content" class="content-content" role="main">
+                                  
+<div id="node-430" class="node odd full-node node-type-blog">
+
+  <div class="inner">
+
+    
+    
+    <div class="meta">
+
+      <div class="submitted">
+      
+        <div class="day">
+           10        </div>
+        <div class="month">
+           Dec        </div>
+        <div class="year">
+           2013        </div>
+      
+      </div>
+
+
+        
+        <div class="terms">
+
+          <ul class="links inline"><li class="taxonomy_term_33 first last"><a href="drupal.html" rel="tag" title="Posts about the most wonderful web content management system in the universe.">drupal</a></li>
+</ul>
+        </div>
+
+             
+
+   </div>
+   
+       
+
+ 
+ 
+    <h1 class="title">How to set up a &quot;simple&quot; multilingual Drupal 7 website using field (entity) translation</h1>
+    
+                               
+    
+
+
+    <div class="content clearfix">
+
+      <p><a href="https://drupal.org/documentation/multilingual" title="Link to official Multilingual documentation on Drupal.org"><img alt="Drupal icon saying Hola and Hello" height="114" src="png/druplicon-small-hola-hello.png" width="100" /></a> Do you need to set up a &quot;simple&quot; multilingual site with Drupal 7, using the future-looking Field translation method? Learn how to create a small website where the public content switches between many languages, but editors only use one language.</p>
+
+<p></p>
+
+<ul id="toc">
+	<li><a href="#types">2 types of translation</a></li>
+	<li><a href="#definitions">Strange definitions</a></li>
+	<li><a href="#modules">Module choices</a></li>
+	<li><a href="#configure">Basic configuration</a></li>
+	<li><a href="#fields">Content types &amp; fields</a></li>
+	<li><a href="#menus">Menus</a></li>
+	<li><a href="#blocks">Blocks</a></li>
+	<li><a href="#info">For more information</a></li>
+</ul>
+
+<h2><a id="types" name="types"></a>Two types of translation on multilingual sites</h2>
+
+<p>There are <a href="https://drupal.org/node/1498708" title="Drupal.org explanation of 2 methods">two ways to set up translation</a> on your multilingual Drupal 7 (D7) site. This tutorial assumes that you:</p>
+
+<ul>
+	<li><span class="pullquote">use the newer <strong>Field translation</strong> method</span>, (via the <a href="https://drupal.org/project/entity_translation">Entity Translation</a> module) and</li>
+	<li><strong>do NOT use </strong>the old <strong>Node translation</strong> method (via the core &quot;<em>Content translation</em>&quot; module).</li>
+</ul>
+
+<h3>Why use Field translation?</h3>
+
+<ol>
+	<li>Your site will be able to more easily migrate to <a href="https://drupal.org/drupal-8.0">Drupal 8</a>.</li>
+	<li>Your editor&#39;s experience is consistent; they can translate content using a similar method throughout the site.</li>
+	<li>When your site links to one of its pages using different addresses (especially different node IDs) for each translation of that page, it is confusing for your editors and your <a href="http://en.wikipedia.org/wiki/Search_engine_optimization" title="search engine optimization">SEO</a>.</li>
+</ol>
+
+<h2><a id="definitions" name="definitions"></a>Strange, but important, definitions</h2>
+
+<p>We&#39;ve already learned that D7 defines <strong>field translation </strong>and<strong> content translation</strong> differently. This section will explain some other potentially-confusing, but really important, concepts in multilingual D7.</p>
+
+<p>Every site must have a &quot;<strong>default language</strong>&quot; in which all its links and messages intially appear. Although this is not very difficult to understand, I want to emphasize how important it is that you carefully choose your default language when starting to build a site.&nbsp;You will later be required to use this language for the FIRST version you create of almost all content and <em><span class="pullquote">changing the default language after you&#39;ve added content will break your site</span></em>.</p>
+
+<p>Unlike the previous definition, the distinction between <strong>&quot;User Interface&quot; (UI) </strong>and &quot;<strong>Content</strong>&quot; was one of the most uniquely-defined concepts I encountered. <span class="pullquote">Three parts of what D7 classifies as User Interface (rather than Content) can make translating them difficult: menus, blocks, and taxonomies.</span> This post will only discuss menus and blocks (because I don&#39;t using taxonomy on my multilingual site).</p>
+
+<p><strong>Strings</strong> are those bits of text that come directly from Drupal or its contributed modules. An example might be the message you see after saving a page, or the word &quot;Preview&quot; on the button at the bottom of a page you&#39;re editing. D7 has an entirely separate &quot;Translation Interface&quot; (at <em>admin/config/regional/translate/translate</em>) where you can translate these standardized words and phrases. However, because my editors are only using the default language, this post mostly ignores string translation.</p>
+
+<h2><a id="modules" name="modules"></a>Module choices</h2>
+
+<p>There are a confusing number of multilingual-related modules in the Drupal world. Each module listed below is accompanied, when helpful, by notes explaining:</p>
+
+<ul>
+	<li>the module version (at the time of this writing)</li>
+	<li>which of its submodules should be enabled</li>
+	<li>the submodules you should NOT enable</li>
+	<li>what job the module does for your site</li>
+</ul>
+
+<h3><a id="modules-no" name="modules-no"></a>Modules NOT to use</h3>
+
+<p>For this site, I recommend that you do NOT install or enable these multilingual modules:</p>
+
+<ul>
+	<li><strong>Content translation</strong> (version 7.24 in Core): uses an old way of translating that is removed in Drupal 8. It is possible to enable this at the same time as Entity Translation and use it for only some content types, but I don&#39;t recommend doing so.</li>
+	<li><a href="https://drupal.org/project/l10n_update"><strong>Localization update</strong></a> (also known as &quot;<strong>l10n_update</strong>&quot;) and <a href="https://drupal.org/project/l10n_client"><strong>Localization client</strong></a> (also known as &quot;<strong>l10n_client</strong>&quot;): both help improve translations of the standard text strings within Drupal (and other modules), but don&#39;t help you with translating your actual content.</li>
+</ul>
+
+<h3><a id="modules-yes" name="modules-yes"></a>Modules you MUST install</h3>
+
+<p>For this multilingual site, install and enable these modules and submodules:</p>
+
+<ul>
+	<li><strong>Locale</strong> (Core, version 7.24): required for everything multilingual to work.</li>
+	<li><strong><a href="https://drupal.org/project/entity_translation">Entity Translation</a></strong> (version 7.x-1.0-beta3, as well as its submodule, <strong>Entity Translation Menu</strong>): provides an interface for editors to translate parts of your site and lets a single page (using the same node ID) have multiple translations.</li>
+	<li><strong><a href="https://drupal.org/project/title">Title</a></strong> (version 7.x-1.0-alpha7): lets you translate the default &quot;Title&quot; field on any piece of content, which is otherwise forbidden in D7.</li>
+	<li><strong><a href="https://drupal.org/project/transliteration">Transliteration</a></strong> (version 7.x-3.1): transforms the names of your web address paths and uploaded files into universally displayable, unaccented characters.</li>
+	<li><strong><a href="https://drupal.org/project/variable">Variable</a></strong> (version 7.x-2.3, none of its submodules): required for the Internationalization module to work.</li>
+	<li><strong><a href="https://drupal.org/project/i18n">Internationalization</a></strong> (version 7.x-1.10, also known as &quot;<strong>i18n</strong>&quot;): lets you translate the &quot;User Interface&quot; parts of your site and creates a &quot;Language switcher&quot; block so you can easily switch between languages. Only enable individual submodules if your site needs what they provide (see this <a href="https://drupal.org/node/1279136">guide to the i18n submodules</a>). For this site, I recommend enabling<strong> </strong>these submodules:
+	<ul>
+		<li>Field translation: lets you translate a field&#39;s LABEL (not its content).</li>
+		<li>Block languages</li>
+		<li>Menu translation</li>
+		<li>Path translation</li>
+		<li>String translation</li>
+		<li>Translation sets</li>
+	</ul>
+	</li>
+</ul>
+
+<p>There are two <strong>optional modules</strong> you might also consider installing (if your site needs them):</p>
+
+<ul>
+	<li><a href="https://drupal.org/project/languageicons">Language icons</a>: adds flag pictures next to each language in your &quot;Language switcher block&quot;.</li>
+	<li><a href="https://drupal.org/project/lang_dropdown">Language Switcher Dropdown</a>: turns your list of languages in that block into a drop down list.</li>
+</ul>
+
+<ul>
+</ul>
+
+<h2><a id="configure" name="configure"></a>Basic multilingual configuration</h2>
+
+<p><strong>Warning</strong>: <span class="pullquote">Do NOT create any content, menus, etc. until you have FINISHED your multilingual setup.</span> Otherwise, your content may not have the right language information attached to it.</p>
+
+<h3><a id="language" name="language"></a>Language settings</h3>
+
+<p>The <strong>default language</strong> of my site is English, but I also added a second language so my pages can have translations (at <em>admin/config/regional/language</em>). For each language I set the &quot;<strong>path prefix</strong>&quot; so that the current language will show in the web address (for example: <em>mysite.com/en/node/2</em> or <em>mysite.com/fr/node/2</em>).</p>
+
+<p>Next, I found the &quot;<strong>Language switcher block (Content)</strong>&quot; under <em>admin/structure/block</em> and moved it to a region in my theme where I could see it easily.</p>
+
+<p>We need our site&#39;s interface (menus, error messages, etc.) to remain in English when editors are logged in. To make this happen, I instructed my editors to choose &quot;English&quot; as the Language setting in their <strong>user account</strong>, and then I set a specific order as to how languages were detected on the site. So, for my site&#39;s<strong> Language Detection</strong> settings (at <em>admin/config/regional/language/configure</em>) I chose:</p>
+
+<ul>
+	<li><strong>User interface language detection</strong>: User at the top, then URL below.</li>
+	<li><strong>Content language detection</strong>: URL at the top, and Interface below.</li>
+</ul>
+
+<p>If interested, you can read this <a href="http://www.mediacurrent.com/blog/building-multilingual-websites-drupal-7-0">more detailed explanation of Language Detection options</a>.</p>
+
+<ul>
+</ul>
+
+<h3><a id="translation" name="translation"></a>Translation format settings</h3>
+
+<p>To let fields be translated using different <strong>text input formats</strong>, you need to choose which formats (such as &quot;plain text&quot;) to make translatable (at <em>admin/config/regional/i18n/strings</em>).</p>
+
+<h2><a id="fields" name="fields"></a>Content types and fields</h2>
+
+<p>A page is the most common type of content, but every content type will need to be enabled for translation using the below steps. <span class="pullquote">Repeat these translation-enabling steps whenever you create new content types or add new fields to existing types</span>.</p>
+
+<p>First, to <strong>configure entity translation for each content type</strong> (at <em>admin/config/regional/entity_translation</em>):</p>
+
+<ul>
+	<li>choose &quot;enable entity translation&quot;,</li>
+	<li>set the default language to &quot;English&quot;,</li>
+	<li>and check both &quot;Hide language selector&quot; and &quot;Exclude Language neutral from the available languages&quot;.</li>
+</ul>
+
+<p>Next, <strong>configure translation settings on the content type itself</strong> (at <em>admin/structure/types/manage</em>):</p>
+
+<ol>
+	<li>On the main &quot;Edit&quot; tab under &quot;<strong>Publishing options</strong>&quot;, choose &quot;Enabled, with field translation&quot; and &quot;Hide content translation links&quot;.</li>
+	<li>Under the &quot;Manage fields&quot; tab, <strong>replace the &quot;Title&quot; field</strong>.</li>
+	<li>From that same tab, edit each remaining field and check the box next to &quot;<strong>Users may translate all occurrences of this field</strong>&quot; (except for fields that need no translation, such as email addresses).</li>
+</ol>
+
+<p>Your next place on this journey is the Translation Interface itself (at <em>admin/config/regional/translate/i18n_string</em>), where you need to choose the checkboxes for <em>fields</em>, <em>menus</em>, and <em>blocks</em>, and then click on &quot;<strong>Refresh strings</strong>&quot;.</p>
+
+<p>&quot;<strong>Refresh strings</strong>&quot; tells the site which translatable fields exist, and also allows you to <strong>translate a field&#39;s label</strong>. Because most of my field labels are not visible to external users, I only translated the labels for my fields (at <em>admin/config/regional/translate/translate</em>) on ONE content type (a public biography and contact page for each staff person). <span class="pullquote">Remember: whenever you add more fields, menus, or blocks, you need to &#39;refresh strings&#39; again. </span></p>
+
+<h2><a id="menus" name="menus"></a>Menus</h2>
+
+<p>According to the <a href="http://www.verbosity.ca/all-purpose-drupal-entity-translation-guide">all-purpose guide</a>, there are <strong>two ways to manage menu links</strong> with entity translation:</p>
+
+<ol>
+	<li>One multilingual menu (and its single block) that has every link for every language together.</li>
+	<li>A menu (and its block) for each language, with:
+	<ul>
+		<li>editors putting links into different menus based on each translation&#39;s language, and</li>
+		<li>each block&#39;s language visibility used to display or hide that menu.</li>
+	</ul>
+	</li>
+</ol>
+
+<p>My theme requires the &quot;main menu&quot; in a hard-coded region, so I chose the first option: one big multilingual menu.</p>
+
+<p>Regardless of which menu method you choose, you will need to:</p>
+
+<ol>
+	<li>Edit each menu (at <em>admin/structure/menu/manage/main-menu/edit</em>) and, under <strong>&quot;Multilingual options&quot; for that menu</strong>, choose &quot;Translate and Localize. Menu items with language will allow translations. Menu items without language will be localized.&quot;</li>
+	<li><strong>Refresh strings</strong> again for menus and blocks (at <em>admin/config/regional/translate/i18n_string</em>).</li>
+	<li><span class="pullquote">Train editors to <strong>create ALL menu links FROM the actual page</strong>, because there&#39;s no easy way to specify which translation to choose if adding links from the menu editing screen.</span> Under &quot;<strong>Menu settings</strong>&quot; for each page, they should choose &quot;Menu link enabled only for the THIS language&quot;.</li>
+	<li>Train editors to <strong>change the order of links on the menu editing page</strong> (at <em>admin/structure/menu/manage/main-menu</em>).</li>
+</ol>
+
+<h2><a id="blocks" name="blocks"></a>Blocks</h2>
+
+<p>For this last part of the D7 &quot;Interface&quot;, I recommend that you <strong class="pullquote">create separate blocks for each language</strong> because:</p>
+
+<ul>
+	<li>using the Translation Interface to translate strings is not user-friendly and</li>
+	<li>block translations don&#39;t let you use a text editor on translated body fields, so you would often have type html code (see <a href="https://drupal.org/node/1298440">i18n issue on Drupal.org</a>).</li>
+</ul>
+
+<p>For some blocks, the <a href="http://www.verbosity.ca/all-purpose-drupal-entity-translation-guide">all purpose guide</a> says it might even be &quot;be easier to just create a new content type and display the translated data with a View.&quot;</p>
+
+<p>However, separate blocks for each language will result in managing a large number of blocks. My solution is two-fold:</p>
+
+<ul>
+	<li><span class="pullquote">Train editors to name blocks in a standard way, so it is easy to find them later.</span></li>
+	<li>Consider using the Context module to better manage your many blocks (see <a href="http://www.slideshare.net/KalataBG/introduction-to-drupal-7-blocks-management-and-contexts">slide 14</a>).</li>
+</ul>
+
+<p>If interested, you can read this <a href="http://drupal-translation.com/content/translating-block-contents">more detailed explanation of the approaches to block translation</a>.</p>
+
+<h2><a id="info" name="info"></a>For more information</h2>
+
+<p>I am indebted to the authors of these books and articles for teaching me about multilingual in D7:</p>
+
+<ul>
+	<li><a href="http://www.packtpub.com/drupal-7-multilingual-sites/book">Drupal 7 Multilingual Sites</a> (a life-saving book, which Kristen Pol graciously gave me for FREE)</li>
+	<li><a href="http://www.verbosity.ca/all-purpose-drupal-entity-translation-guide">All purpose recipe for multilingual with entity translation</a></li>
+	<li>Excellent <a href="http://hojtsy.hu/multilingual-drupal7">series of articles</a> by a leader in Multilingual Drupal (G&aacute;bor Hojtsy)</li>
+	<li><a href="https://drupal.org/documentation/multilingual">General multilingual guide</a> (Drupal.org)</li>
+	<li><a href="https://docs.google.com/spreadsheet/pub?hl=en_US&amp;hl=en_US&amp;key=0Aoie8KeILHxndDJmYmRxTXlIazBOd0hiLWctMEhuZWc&amp;output=html">Spreadsheet of functions by multilingual module</a> (Jose Reyero)</li>
+	<li><a href="http://www.drupal8multilingual.org/">Drupal 8 multilingual initiative</a></li>
+</ul>
+
+    </div>
+
+
+  </div><!-- /inner -->
+
+
+
+  
+</div><!-- /node-430 -->
+
+                                                                  </div><!-- /content-content -->
+                                                              </div><!-- /content-inner-inner -->
+                            </div><!-- /content-inner -->
+                          </div><!-- /content-region-inner -->
+                        </div><!-- /content-region -->
+
+                                              </div><!-- /content-group-inner -->
+                    </div><!-- /content-group -->
+
+                                      </div><!-- /main-content-inner -->
+                </div><!-- /main-content -->
+
+                              </div><!-- /main-group-inner -->
+            </div><!-- /main-group -->
+          </div><!-- /main-inner -->
+        </div><!-- /main -->
+      </div><!-- /main-wrapper -->
+
+      <!-- postscript-bottom row: width = grid_width -->
+      
+      <!-- footer row: width = grid_width -->
+      
+      <!-- footer-message row: width = grid_width -->
+      <div id="footer-message-wrapper" class="footer-message-wrapper full-width">
+        <div id="footer-message" class="footer-message row grid16-16">
+          <div id="footer-message-inner" class="footer-message-inner inner clearfix" role="contentinfo">
+            <div id="footer-message-text" class="footer-message-text block">
+<div id="footer-message-text-inner" class="footer-message-text-inner inner clearfix">
+&copy; Adelle Frank, All rights reserved unless otherwise specified.</div><!-- /footer-message-text-inner -->
+</div><!-- /footer-message-text -->
+          </div><!-- /footer-message-inner -->
+        </div><!-- /footer-message -->
+      </div><!-- /footer-message-wrapper -->
+
+    </div><!-- /page-inner -->
+  </div><!-- /page -->
+  </body>
+</html>

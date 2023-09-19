@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system-data-structure>
+    <group identifier="PeopleSoftCodes" label="PeopleSoft" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher,College Atlas UberEditor Summer">
+        <text identifier="CourseID" label="Course ID" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher,College Atlas UberEditor Summer" default="0" required="true"/>
+        <text identifier="CrosslistingID" label="Crosslisting ID" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher,College Atlas UberEditor Summer" default="0"/>
+        <text identifier="ClassID" label="Class ID" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher,College Atlas UberEditor Summer" default="0" required="true"/>
+        <text identifier="NoteMessagePeoplesoft" label="Peoplesoft Notes" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher,College Atlas UberEditor Summer"/>
+        <text type="dropdown" identifier="PermissionRequired" label="Permission" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher,College Atlas UberEditor Summer" default="None">
+            <dropdown-item value="None"/>
+            <dropdown-item value="Instructor"/>
+            <dropdown-item value="Department"/>
+            <dropdown-item value="Other"/>
+        </text>
+        <text type="dropdown" identifier="CreditGradingOption" label="Grading Option" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher,College Atlas UberEditor Summer" default="OPT">
+            <dropdown-item value="None"/>
+            <dropdown-item value="GRD"/>
+            <dropdown-item value="OPT"/>
+            <dropdown-item value="SUS"/>
+            <dropdown-item value="Other"/>
+        </text>
+    </group>
+    <asset type="page" identifier="CatalogInfo" label="Catalog Course Connection" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher,College Atlas UberEditor Summer" render-content-depth="2"/>
+    <group identifier="Number" label="Number" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher,College Atlas UberEditor Summer">
+        <text type="dropdown" identifier="SubjectAbbreviation" label="Subject" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher,College Atlas UberEditor Summer" default="Other" required="true">
+            <dropdown-item value="AAS"/>
+            <dropdown-item value="AFS"/>
+            <dropdown-item value="AMST"/>
+            <dropdown-item value="ANCMED"/>
+            <dropdown-item value="ANT"/>
+            <dropdown-item value="ARAB"/>
+            <dropdown-item value="ARTHIST"/>
+            <dropdown-item value="ARTVIS"/>
+            <dropdown-item value="ASIA"/>
+            <dropdown-item value="BIOL"/>
+            <dropdown-item value="CHEM"/>
+            <dropdown-item value="CHN"/>
+            <dropdown-item value="CL"/>
+            <dropdown-item value="CPLT"/>
+            <dropdown-item value="CS"/>
+            <dropdown-item value="DANC"/>
+            <dropdown-item value="DUTCH"/>
+            <dropdown-item value="EAS"/>
+            <dropdown-item value="ECON"/>
+            <dropdown-item value="EDS"/>
+            <dropdown-item value="ENG"/>
+            <dropdown-item value="ENGCW"/>
+            <dropdown-item value="ENVS"/>
+            <dropdown-item value="FILM"/>
+            <dropdown-item value="FREN"/>
+            <dropdown-item value="GER"/>
+            <dropdown-item value="GHCS"/>
+            <dropdown-item value="GRK"/>
+            <dropdown-item value="HEBR"/>
+            <dropdown-item value="HIST"/>
+            <dropdown-item value="HNDI"/>
+            <dropdown-item value="IDS"/>
+            <dropdown-item value="ITAL"/>
+            <dropdown-item value="JPN"/>
+            <dropdown-item value="JRNL"/>
+            <dropdown-item value="JS"/>
+            <dropdown-item value="KRN"/>
+            <dropdown-item value="LACS"/>
+            <dropdown-item value="LAT"/>
+            <dropdown-item value="LING"/>
+            <dropdown-item value="MATH"/>
+            <dropdown-item value="MESAS"/>
+            <dropdown-item value="MUS"/>
+            <dropdown-item value="NBB"/>
+            <dropdown-item value="PACE"/>
+            <dropdown-item value="PE"/>
+            <dropdown-item value="PERS"/>
+            <dropdown-item value="PHIL"/>
+            <dropdown-item value="PHYS"/>
+            <dropdown-item value="POLS"/>
+            <dropdown-item value="PORT"/>
+            <dropdown-item value="PSYC"/>
+            <dropdown-item value="REALC"/>
+            <dropdown-item value="REES"/>
+            <dropdown-item value="REL"/>
+            <dropdown-item value="ROTC"/>
+            <dropdown-item value="RUSS"/>
+            <dropdown-item value="SNSK"/>
+            <dropdown-item value="SOC"/>
+            <dropdown-item value="SPAN"/>
+            <dropdown-item value="TBT"/>
+            <dropdown-item value="THEA"/>
+            <dropdown-item value="WS"/>
+            <dropdown-item value="YDD"/>
+            <dropdown-item value="Other"/>
+        </text>
+        <text identifier="CatalogNumber" label="Catalog Number" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher,College Atlas UberEditor Summer" default="000" required="true"/>
+        <text identifier="CatalogNumberExtension" label="Section Number" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher,College Atlas UberEditor Summer" default="0" required="true"/>
+    </group>
+    <group identifier="Title" label="Title" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher,College Atlas UberEditor Summer">
+        <text identifier="ShortTitle" label="Short Title" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher,College Atlas UberEditor Summer" default="0" required="true"/>
+        <text identifier="LongTitle" label="Short Topic" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher,College Atlas UberEditor Summer"/>
+        <text identifier="ShortTitleText" label="Long Title" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher,College Atlas UberEditor Summer"/>
+    </group>
+    <group identifier="Instructors" label="Instructors" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher,College Atlas UberEditor Summer">
+        <group identifier="Instructor" label="Instructor" multiple="true" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher,College Atlas UberEditor Summer">
+            <text identifier="EmployeeId" label="Instructor's PPID" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher,College Atlas UberEditor Summer" default="0"/>
+            <text identifier="FormattedName" label="Formatted Name" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher,College Atlas UberEditor Summer"/>
+            <asset type="page" identifier="PersonInstructor" label="Bio Page" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher,College Atlas UberEditor Summer" render-content-depth="1"/>
+        </group>
+    </group>
+    <group identifier="InstructionSite" label="Location" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher,College Atlas UberEditor Summer">
+        <text identifier="InstructionSitePeoplesoft1" label="Building and Room 1" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher,College Atlas UberEditor Summer"/>
+        <text identifier="InstructionSitePeoplesoft2" label="Building and Room 2" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher,College Atlas UberEditor Summer"/>
+    </group>
+    <group identifier="Credits" label="Credits" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher,College Atlas UberEditor Summer">
+        <text identifier="CreditMinimumValue" label="Minimum Credits" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher,College Atlas UberEditor Summer" default="0"/>
+        <text identifier="CreditMaximumValue" label="Maximum Credits" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher,College Atlas UberEditor Summer" default="0"/>
+    </group>
+    <group identifier="InstructorNotes" label="Details">
+        <text wysiwyg="true" identifier="NoteMessageInstructor" label="Description of this class (don't include the description from the catalog, or the textbooks or assessement details, as there are spaces for this information elsewhere)." wysiwyg-toolbar-remove="insert image,insert table,html view,"/>
+        <asset type="file" identifier="SyllabusFile" label="Sample Syllabus (if applicable)" render-content-depth="1"/>
+        <text identifier="InternetWebAddress" label="Homepage for section (if applicable)"/>
+        <group identifier="Resources" label="Resources">
+            <group identifier="Required" label="Required">
+                <group identifier="RequiredResource" label="Textbook or Resource" multiple="true">
+                    <text type="radiobutton" identifier="ResourceType" label="Type" default="Book">
+                        <radio-item value="Book"/>
+                        <radio-item value="Article"/>
+                        <radio-item value="Music"/>
+                        <radio-item value="Movie"/>
+                        <radio-item value="Course Packet"/>
+                        <radio-item value="Website"/>
+                        <radio-item value="Other"/>
+                    </text>
+                    <text type="dropdown" identifier="StandardNumberType" label="Standard number type" default="ISBN">
+                        <dropdown-item value="ISBN"/>
+                        <dropdown-item value="ASIN"/>
+                        <dropdown-item value="DOI"/>
+                        <dropdown-item value="ISAN"/>
+                        <dropdown-item value="ISMN"/>
+                        <dropdown-item value="ISRC"/>
+                        <dropdown-item value="ISSN"/>
+                        <dropdown-item value="ISWC"/>
+                        <dropdown-item value="UPC"/>
+                        <dropdown-item value="Other"/>
+                    </text>
+                    <text identifier="StandardNumber" label="Standard number (without dashes). If ISBN, use number that starts with 9. This allows us to link to booksellers directly."/>
+                    <text identifier="Title" label="Title (required if you want this resource to show up)."/>
+                    <text identifier="AuthorGivenName" label="Author's First name"/>
+                    <text identifier="AuthorFamily" label="Author's Last name"/>
+                    <text identifier="PublicationYear" label="Publication Year (leave as 1900 if you don't know it)" default="1900"/>
+                    <text identifier="Cost" label="Cost (in US dollars)"/>
+                    <text identifier="JournalTitle" label="Journal Title"/>
+                    <text identifier="JournalLink" label="Link to article in Emory Libraries"/>
+                    <text identifier="InternetWebAddress" label="Web Link"/>
+                    <text multi-line="true" identifier="Description" label="Description or comments" rows="2" cols="40"/>
+                </group>
+            </group>
+            <group identifier="Recommended" label="Recommended">
+                <group identifier="RecommendedResource" label="Textbook or Resource" multiple="true">
+                    <text type="radiobutton" identifier="ResourceType" label="Type" default="Book">
+                        <radio-item value="Book"/>
+                        <radio-item value="Article"/>
+                        <radio-item value="Music"/>
+                        <radio-item value="Movie"/>
+                        <radio-item value="Course Packet"/>
+                        <radio-item value="Website"/>
+                        <radio-item value="Other"/>
+                    </text>
+                    <text type="dropdown" identifier="StandardNumberType" label="Standard number type" default="ISBN">
+                        <dropdown-item value="ISBN"/>
+                        <dropdown-item value="ASIN"/>
+                        <dropdown-item value="DOI"/>
+                        <dropdown-item value="ISAN"/>
+                        <dropdown-item value="ISMN"/>
+                        <dropdown-item value="ISRC"/>
+                        <dropdown-item value="ISSN"/>
+                        <dropdown-item value="ISWC"/>
+                        <dropdown-item value="UPC"/>
+                        <dropdown-item value="Other"/>
+                    </text>
+                    <text identifier="StandardNumber" label="Standard number (without dashes). If ISBN, use number that starts with 9. This allows us to link to booksellers directly."/>
+                    <text identifier="Title" label="Title (required if you want this resource to show up)."/>
+                    <text identifier="AuthorGivenName" label="Author's First name"/>
+                    <text identifier="AuthorFamily" label="Author's Last name"/>
+                    <text identifier="PublicationYear" label="Publication Year (leave as 1900 if you don't know it)" default="1900"/>
+                    <text identifier="Cost" label="Cost (in US dollars)"/>
+                    <text identifier="JournalTitle" label="Journal Title"/>
+                    <text identifier="JournalLink" label="Link to article in Emory Libraries"/>
+                    <text identifier="InternetWebAddress" label="Web Link"/>
+                    <text multi-line="true" identifier="Description" label="Description or comments" rows="2" cols="40"/>
+                </group>
+            </group>
+        </group>
+        <group identifier="Grading" label="Grading">
+            <group identifier="Assignments" label="Homework">
+                <group identifier="AssessmentAssignment" label="Assignment" multiple="true">
+                    <text identifier="Name" label="Assignment Label (e.g. Discussion and Participation; required if you want this assessment to show up)."/>
+                    <text multi-line="true" identifier="Description" label="Description (if applicable)" rows="2" cols="40"/>
+                    <text identifier="PercentageOfTotalGrade" label="Percent (%) of Total Grade (don't enter % sign)"/>
+                </group>
+            </group>
+            <group identifier="Exams" label="Exams">
+                <group identifier="AssessmentExam" label="Test" multiple="true">
+                    <text identifier="Name" label="Exam Label (e.g. Weekly Quizzes; required if you want this assessment to show up)."/>
+                    <text multi-line="true" identifier="Description" label="Description (if applicable)" rows="2" cols="40"/>
+                    <text identifier="PercentageOfTotalGrade" label="Percent (%) of Total Grade (don't enter % sign)"/>
+                </group>
+            </group>
+        </group>
+    </group>
+    <group identifier="RelatedCourses" label="Related Courses">
+        <group identifier="Prerequisites" label="Prerequisites">
+            <text identifier="Prerequisite" label="List Prerequisite catalog numbers, separated by a comma and end list with a period."/>
+        </group>
+        <group identifier="Corequisites" label="Co-requisites">
+            <text identifier="Corequisite" label="List Co-requisite catalog numbers, separated by a comma and end list with a period."/>
+        </group>
+        <group identifier="CrossListedCourses" label="Cross-listed" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher,College Atlas UberEditor Summer">
+            <text identifier="CrossListed" label="List Crosslisted numbers, separated by a comma and end list with a period." restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher,College Atlas UberEditor Summer"/>
+            <asset type="page" identifier="CrossListedLink" label="Link" multiple="true" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher,College Atlas UberEditor Summer" render-content-depth="1"/>
+        </group>
+        <group identifier="LabCourses" label="Labs" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher,College Atlas UberEditor Summer">
+            <asset type="page" identifier="LabCourseLink" label="Link" multiple="true" restrict-to-groups="college_managers,college_cascade_presentation,college_publishers,college_semi_publisher,College Atlas UberEditor Summer" render-content-depth="1"/>
+        </group>
+    </group>
+</system-data-structure>

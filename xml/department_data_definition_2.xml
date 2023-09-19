@@ -1,0 +1,187 @@
+<system-data-structure>
+    <text type="dropdown" identifier="LeaderType" label="Leader Type" default="Chair">
+        <dropdown-item value="Chair"/>
+        <dropdown-item value="Director"/>
+        <dropdown-item value="Dean"/>
+        <dropdown-item value="Other"/>
+    </text>
+    <text wysiwyg="true" identifier="Description" label="Short Description of Department"/>
+    <group identifier="ContactInfo" label="Dept. Contact Info">
+        <text identifier="PersonName" label="Name"/>
+        <group identifier="InternetEmailAddress" label="Email">
+            <text identifier="UnderGraduate" label="UnderGraduate"/>
+            <text identifier="Graduate" label="Graduate"/>
+        </group>
+        <group identifier="InternetWebAddress" label="Website">
+            <text identifier="UnderGraduate" label="UnderGraduate"/>
+            <text identifier="Graduate" label="Graduate"/>
+        </group>
+        <group identifier="Telephone" label="Telephone">
+            <text identifier="TelephoneFormattedNumber" label="Formatted Number"/>
+            <text identifier="InternationalCountryCode" label="International Country Code" default="00"/>
+            <text identifier="NationalNumber" label="National Number" default="1"/>
+            <text identifier="AreaCityCode" label="Area Code" default="404"/>
+            <text identifier="SubscriberNumber" label="Subscriber Number" default="727"/>
+            <text identifier="Extension" label="Extension"/>
+        </group>
+        <group identifier="PostalAddress" label="Address">
+            <text identifier="BuildingRoom" label="Building and Room"/>
+            <text identifier="Mailstop" label="Mailstop"/>
+            <text identifier="AddressLine" label="Line" multiple="true"/>
+            <text identifier="Municipality" label="City" default="Atlanta"/>
+            <text identifier="Region" label="Region" default="GA"/>
+            <text identifier="PostalCode" label="Postal Code" default="30322"/>
+            <text identifier="CountryCode" label="Country" default="U.S.A."/>
+        </group>
+    </group>
+    <group identifier="Calendar" label="Calendar">
+        <asset type="file" identifier="TrumbaCalendarFile" label="Trumba File" render-content-depth="1"/>
+    </group>
+    <group identifier="Programs" label="Programs">
+        <group identifier="Majors" label="Majors">
+            <asset type="page" identifier="Major" label="Major" multiple="true" render-content-depth="1"/>
+        </group>
+        <group identifier="Minors" label="Minors">
+            <asset type="page" identifier="Minor" label="Minor" multiple="true" render-content-depth="1"/>
+        </group>
+        <group identifier="HonorsProgram" label="Honors Program">
+            <asset type="page" identifier="Program" label="Program" render-content-depth="1"/>
+            <text wysiwyg="true" identifier="Description" label="Additional Description or Particulars"/>
+        </group>
+        <group identifier="StudyAbroad" label="Study Abroad">
+            <asset type="page" identifier="Program" label="Program" multiple="true" render-content-depth="1"/>
+            <text wysiwyg="true" identifier="Description" label="Additional Description or Particulars" multiple="true"/>
+        </group>
+        <group identifier="Advising" label="Advising">
+            <asset type="page" identifier="Program" label="Program" multiple="true" render-content-depth="1"/>
+            <text wysiwyg="true" identifier="Description" label="Additional Description or Particulars"/>
+        </group>
+        <group identifier="LanguageStudy" label="Language Study">
+            <asset type="page" identifier="Program" label="Program" multiple="true" render-content-depth="1"/>
+            <text wysiwyg="true" identifier="Description" label="Additional Description or Particulars" multiple="true"/>
+        </group>
+        <group identifier="Internship" label="Internship">
+            <asset type="page" identifier="Program" label="Program" multiple="true" render-content-depth="1"/>
+            <text wysiwyg="true" identifier="Description" label="Additional Description or Particulars" multiple="true"/>
+        </group>
+        <group identifier="Award" label="Award">
+            <asset type="page" identifier="Program" label="Program" multiple="true" render-content-depth="1"/>
+            <text wysiwyg="true" identifier="Description" label="Additional Description or Particulars" multiple="true"/>
+        </group>
+        <group identifier="IndependentStudy" label="Independent Study or Research">
+            <asset type="page" identifier="Program" label="Program" multiple="true" render-content-depth="1"/>
+            <text wysiwyg="true" identifier="Description" label="Additional Description or Particulars" multiple="true"/>
+        </group>
+        <group identifier="ProgramSection" label="Section" multiple="true">
+            <text identifier="Label" label="Label for Section"/>
+            <group identifier="Program" label="Program" multiple="true">
+                <text identifier="Title" label="Title of Individual Program"/>
+                <text wysiwyg="true" identifier="Description" label="Short Description of Individual Program" multiple="true"/>
+            </group>
+        </group>
+    </group>
+    <group identifier="People" label="People">
+        <group identifier="Staff" label="Staff">
+            <asset type="page" identifier="LeadStaff" label="Lead Staff" render-content-depth="1"/>
+            <group identifier="OtherStaff" label="Other Faculty">
+                <asset type="page" identifier="StaffMember" label="Staff" multiple="true" render-content-depth="1"/>
+            </group>
+        </group>
+        <group identifier="Faculty" label="Faculty">
+            <asset type="page" identifier="Leader" label="Dept. Leader" render-content-depth="1"/>
+            <asset type="page" identifier="DirectorUndergraduateStudies" label="Director, Undergrad. Studies" render-content-depth="1"/>
+            <asset type="page" identifier="DirectorGraduateStudies" label="Director, Grad. Studies" render-content-depth="1"/>
+            <group identifier="CoreFaculty" label="Core Faculty">
+                <asset type="page" identifier="CoreFacultyMember" label="Faculty" multiple="true" render-content-depth="1"/>
+            </group>
+            <group identifier="AssociatedFaculty" label="Associated Faculty">
+                <asset type="page" identifier="AssociatedFacultyMember" label="Faculty" multiple="true" render-content-depth="1"/>
+            </group>
+            <group identifier="AdjunctFaculty" label="Adjunct Faculty">
+                <asset type="page" identifier="AdjunctFacultyMember" label="Faculty" multiple="true" render-content-depth="1"/>
+            </group>
+            <group identifier="EmeritiFaculty" label="Emeriti Faculty">
+                <asset type="page" identifier="EmeritiFacultyMember" label="Faculty" multiple="true" render-content-depth="1"/>
+            </group>
+        </group>
+        <group identifier="Affiliate" label="Affiliate" multiple="true">
+            <text identifier="AffiliateLabel" label="Label for this Category"/>
+            <asset type="page" identifier="AffiliatePerson" label="Person" multiple="true" render-content-depth="1"/>
+        </group>
+    </group>
+    <group identifier="Courses" label="Courses">
+        <text type="dropdown" identifier="SubjectAbbreviation" label="Associated Subject" multiple="true" default="None">
+            <dropdown-item value="AAS"/>
+            <dropdown-item value="AFS"/>
+            <dropdown-item value="AMST"/>
+            <dropdown-item value="ANCMED"/>
+            <dropdown-item value="ANT"/>
+            <dropdown-item value="ARAB"/>
+            <dropdown-item value="ARTHIST"/>
+            <dropdown-item value="ARTVIS"/>
+            <dropdown-item value="ASIA"/>
+            <dropdown-item value="BIOL"/>
+            <dropdown-item value="CHEM"/>
+            <dropdown-item value="CHN"/>
+            <dropdown-item value="CL"/>
+            <dropdown-item value="CPLT"/>
+            <dropdown-item value="CS"/>
+            <dropdown-item value="DANC"/>
+            <dropdown-item value="DUTCH"/>
+            <dropdown-item value="EAS"/>
+            <dropdown-item value="ECON"/>
+            <dropdown-item value="EDS"/>
+            <dropdown-item value="ENG"/>
+            <dropdown-item value="ENGCW"/>
+            <dropdown-item value="ENVS"/>
+            <dropdown-item value="FILM"/>
+            <dropdown-item value="FREN"/>
+            <dropdown-item value="GER"/>
+            <dropdown-item value="GHCS"/>
+            <dropdown-item value="GRK"/>
+            <dropdown-item value="HEBR"/>
+            <dropdown-item value="HIST"/>
+            <dropdown-item value="HNDI"/>
+            <dropdown-item value="IDS"/>
+            <dropdown-item value="ITAL"/>
+            <dropdown-item value="JPN"/>
+            <dropdown-item value="JRNL"/>
+            <dropdown-item value="JS"/>
+            <dropdown-item value="KRN"/>
+            <dropdown-item value="LACS"/>
+            <dropdown-item value="LAT"/>
+            <dropdown-item value="LING"/>
+            <dropdown-item value="MATH"/>
+            <dropdown-item value="MESAS"/>
+            <dropdown-item value="MUS"/>
+            <dropdown-item value="NBB"/>
+            <dropdown-item value="PACE"/>
+            <dropdown-item value="PE"/>
+            <dropdown-item value="PERS"/>
+            <dropdown-item value="PHIL"/>
+            <dropdown-item value="PHYS"/>
+            <dropdown-item value="POLS"/>
+            <dropdown-item value="PORT"/>
+            <dropdown-item value="PSYC"/>
+            <dropdown-item value="REALC"/>
+            <dropdown-item value="REES"/>
+            <dropdown-item value="REL"/>
+            <dropdown-item value="ROTC"/>
+            <dropdown-item value="RUSS"/>
+            <dropdown-item value="SNSK"/>
+            <dropdown-item value="SOC"/>
+            <dropdown-item value="SPAN"/>
+            <dropdown-item value="TBT"/>
+            <dropdown-item value="THEA"/>
+            <dropdown-item value="WS"/>
+            <dropdown-item value="YDD"/>
+            <dropdown-item value="None"/>
+        </text>
+        <text wysiwyg="true" identifier="Description" label="Course prerequisites, placement, transfer credit, etc. details"/>
+        <group identifier="Area" label="Area" multiple="true">
+            <text identifier="Label" label="Label for Course Area"/>
+            <asset type="block" identifier="courseBlock" label="Choose an index block of Courses" render-content-depth="2"/>
+            <asset type="page" identifier="CatalogCourse" label="Catalog Course" multiple="true" render-content-depth="2"/>
+        </group>
+    </group>
+</system-data-structure>

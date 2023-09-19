@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system-data-structure>
+    <group identifier="Departments" label="Departments">
+        <asset type="page" identifier="AssociatedDepartment" label="Associated Department" multiple="true" render-content-depth="1"/>
+    </group>
+    <text type="dropdown" identifier="AcademicConcentration" label="Concentration" default="Major" required="true">
+        <dropdown-item value="Major"/>
+        <dropdown-item value="Minor"/>
+        <dropdown-item value="Other"/>
+    </text>
+    <text identifier="TotalCourses" label="Number of Courses to Complete Major or Minor"/>
+    <asset type="file" identifier="DeclarationForm" label="Declaration Form" render-content-depth="1"/>
+    <group identifier="Requirements" label="Requirements">
+        <text wysiwyg="true" identifier="Description" label="Overview of Requirements"/>
+        <text wysiwyg="true" identifier="Admission" label="Admission" />
+        <group identifier="Courses" label="Courses">
+            <text type="dropdown" identifier="SubjectAbbreviation" label="Associated Subject" multiple="true" default="None">
+                <dropdown-item value="AAS"/>
+                <dropdown-item value="AFS"/>
+                <dropdown-item value="AMST"/>
+                <dropdown-item value="ANCMED"/>
+                <dropdown-item value="ANT"/>
+                <dropdown-item value="ARAB"/>
+                <dropdown-item value="ARTHIST"/>
+                <dropdown-item value="ARTVIS"/>
+                <dropdown-item value="ASIA"/>
+                <dropdown-item value="BIOL"/>
+                <dropdown-item value="CHEM"/>
+                <dropdown-item value="CHN"/>
+                <dropdown-item value="CL"/>
+                <dropdown-item value="CPLT"/>
+                <dropdown-item value="CS"/>
+                <dropdown-item value="DANC"/>
+                <dropdown-item value="DUTCH"/>
+                <dropdown-item value="EAS"/>
+                <dropdown-item value="ECON"/>
+                <dropdown-item value="EDS"/>
+                <dropdown-item value="ENG"/>
+                <dropdown-item value="ENVS"/>
+                <dropdown-item value="FILM"/>
+                <dropdown-item value="FREN"/>
+                <dropdown-item value="GER"/>
+                <dropdown-item value="GHCS"/>
+                <dropdown-item value="GRK"/>
+                <dropdown-item value="HEBR"/>
+                <dropdown-item value="HIST"/>
+                <dropdown-item value="HNDI"/>
+                <dropdown-item value="IDS"/>
+                <dropdown-item value="ITAL"/>
+                <dropdown-item value="JPN"/>
+                <dropdown-item value="JRNL"/>
+                <dropdown-item value="JS"/>
+                <dropdown-item value="KRN"/>
+                <dropdown-item value="LACS"/>
+                <dropdown-item value="LAT"/>
+                <dropdown-item value="LING"/>
+                <dropdown-item value="MATH"/>
+                <dropdown-item value="MESAS"/>
+                <dropdown-item value="MUS"/>
+                <dropdown-item value="NBB"/>
+                <dropdown-item value="PACE"/>
+                <dropdown-item value="PE"/>
+                <dropdown-item value="PERS"/>
+                <dropdown-item value="PHIL"/>
+                <dropdown-item value="PHYS"/>
+                <dropdown-item value="POLS"/>
+                <dropdown-item value="PORT"/>
+                <dropdown-item value="PSYC"/>
+                <dropdown-item value="REALC"/>
+                <dropdown-item value="REES"/>
+                <dropdown-item value="REL"/>
+                <dropdown-item value="ROTC"/>
+                <dropdown-item value="RUSS"/>
+                <dropdown-item value="SNSK"/>
+                <dropdown-item value="SOC"/>
+                <dropdown-item value="SPAN"/>
+                <dropdown-item value="TBT"/>
+                <dropdown-item value="THEA"/>
+                <dropdown-item value="WS"/>
+                <dropdown-item value="YDD"/>
+                <dropdown-item value="None"/>
+            </text>
+            <group identifier="CourseArea" label="Course Area" multiple="true">
+                <text identifier="Label" label="Label for Course Area"/>
+                <asset type="page" identifier="CatalogCourse" label="Catalog Course" multiple="true" render-content-depth="1"/>
+                <text wysiwyg="true" identifier="Description" label="Details"/>
+            </group>
+        </group>
+        <group identifier="Others" label="Additional">
+            <group identifier="OtherArea" label="Other Area" multiple="true">
+                <text identifier="Label" label="Label for Other Area"/>
+                <text wysiwyg="true" identifier="Description" label="Description" />
+            </group>
+        </group>
+    </group>
+    <group identifier="ContactInfo" label="Program Contact Info">
+        <group identifier="People" label="People" restrict-to-groups="college_managers,college_publishers">
+            <asset type="page" identifier="PersonInstructor" label="Bio Page" multiple="true" restrict-to-groups="college_managers,college_publishers" render-content-depth="1"/>
+            <text identifier="PersonName" label="Name"/>
+        </group>
+        <text identifier="InternetEmailAddress" label="Email"/>
+        <text identifier="InternetWebAddress" label="Website"/>
+        <group identifier="Telephone" label="Telephone">
+            <text identifier="TelephoneFormattedNumber" label="Formatted Number"/>
+            <text identifier="InternationalCountryCode" label="International Country Code" default="00"/>
+            <text identifier="NationalNumber" label="National Number" default="1"/>
+            <text identifier="AreaCityCode" label="Area Code" default="404"/>
+            <text identifier="SubscriberNumber" label="Subscriber Number" default="727"/>
+            <text identifier="Extension" label="Extension"/>
+        </group>
+        <group identifier="PostalAddress" label="Address">
+            <text identifier="BuildingRoom" label="Building and Room"/>
+            <text identifier="Mailstop" label="Mailstop"/>
+            <text identifier="AddressLine" label="Line" multiple="true"/>
+            <text identifier="Municipality" label="City" default="Atlanta"/>
+            <text identifier="Region" label="Region" default="GA"/>
+            <text identifier="PostalCode" label="Postal Code" default="30322"/>
+            <text identifier="CountryCode" label="Country" default="U.S.A."/>
+        </group>
+    </group>
+</system-data-structure>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en"> 
+
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>How to replace HTML tags and text in a Drupal database using phpMyAdmin and SQL | Adelle Frank</title>
+  
+<link rel="shortcut icon" href="ico/favicon.ico"  />
+  <link rel="stylesheet" media="all" href="css/css_6fb95d3684ef88a42b1ec6fe56ca5ccc.css" />
+  <link rel="stylesheet" media="all" href="css/grid16-960d956.css?o"/>
+  <!--[if IE]>
+   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->  
+  <!--[if IE 8]>
+  <link rel="stylesheet" media="all" href="/sites/all/themes/fusion/fusion_core/css/ie8-fixes.css?o" />
+  <![endif]-->
+  <!--[if IE 7]>
+  <link rel="stylesheet" media="all" href="/sites/all/themes/fusion/fusion_core/css/ie7-fixes.css?o" />
+  <![endif]-->
+  <!--[if lte IE 6]>
+  <link rel="stylesheet" media="all" href="/sites/all/themes/fusion/fusion_core/css/ie6-fixes.css?o"/>
+<link rel="stylesheet" media="all" href="/sites/all/themes/adelle/css/ie6-fixes.css?o"/>
+  <![endif]-->
+    <script src="js/js_a6373110aea2a7a54ab24e569f35f9f2.js"></script>
+<script>
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/" });
+//--><!]]>
+</script>
+</head>
+
+<body id="pid-blog-how-to-replace-html-drupal-database-phpmyadmin-sql" class="not-front not-logged-in page-node node-type-blog no-sidebars full-node layout-main sidebars-split font-size-12 grid-type-960 grid-width-16">
+  <div id="page" class="page">
+    <div id="page-inner" class="page-inner">
+      <div id="skip" role="navigation">
+        <a href="#main-content-area">Skip to Main Content Area</a>
+      </div>
+
+      <!-- header-top row: width = grid_width -->
+      
+      <!-- header-group row: width = grid_width -->
+      <div id="header-group-wrapper" class="header-group-wrapper full-width" role="banner">
+        <div id="header-group" class="header-group row grid16-16">
+          <div id="header-group-inner" class="header-group-inner inner clearfix">
+                        
+                        <div id="header-site-info" class="header-site-info block">
+              <div id="header-site-info-inner" class="header-site-info-inner inner">
+                                <div id="logo">
+                  <a href="index.html" title="Home"><img src="png/logo.png" alt="Home" /></a>
+                </div>
+                                                <div id="site-name-wrapper" class="clearfix">
+                                    <span id="site-name"><a href="index.html" title="Home">Adelle Frank</a></span>
+                                                      <span id="slogan">Drupal, genealogy, accessibility, and religion archives geek in Atlanta, Georgia</span>
+                                  </div><!-- /site-name-wrapper -->
+                              </div><!-- /header-site-info-inner -->
+            </div><!-- /header-site-info -->
+            
+            
+<div role="navigation" id="block-menu-menu-about" class="block block-menu odd first grid16-2 fusion-right fusion-multicol-menu clearfix">
+  <div class="inner clearfix">
+            <div class="content clearfix">
+      <ul class="menu"><li class="expanded first last"><a href="about.html" title="About">ABOUT</a><ul class="menu"><li class="leaf first"><a href="me.html" title="About Adelle">Adelle</a></li>
+<li class="leaf"><a href="surnames.html" title="">Surnames</a></li>
+<li class="leaf last"><a href="site.html" title="About this Site">This Site</a></li>
+</ul></li>
+</ul>    </div>
+  </div><!-- /block-inner -->
+</div><!-- /block -->
+
+<div role="navigation" id="block-menu-menu-topics" class="block block-menu even  last grid16-2 fusion-right fusion-multicol-menu clearfix">
+  <div class="inner clearfix">
+            <div class="content clearfix">
+      <ul class="menu"><li class="expanded first last"><a href="rss.html" title="Blog Topics">TOPICS</a><ul class="menu"><li class="leaf first"><a href="genealogy.html" title="Family history thoughts and notes.">Genealogy</a></li>
+<li class="leaf"><a href="libraries.html" title="Blog posts on topics of interest to those in the library and information science professions.">Libraries</a></li>
+<li class="leaf"><a href="drupal.html" title="Only the most wonderful web content management system in the universe!">Drupal</a></li>
+<li class="leaf"><a href="web.html" title="Blog posts about web design &amp; development.">The Web</a></li>
+<li class="leaf"><a href="daily-life.html" title="Blog posts related to the home and gardening.">Daily Life</a></li>
+<li class="leaf last"><a href="politics.html" title="Blog posts about politics and elections.">Politics</a></li>
+</ul></li>
+</ul>    </div>
+  </div><!-- /block-inner -->
+</div><!-- /block -->
+                      </div><!-- /header-group-inner -->
+        </div><!-- /header-group -->
+      </div><!-- /header-group-wrapper -->
+
+      <!-- preface-top row: width = grid_width -->
+      
+      <!-- main row: width = grid_width -->
+      <div id="main-wrapper" class="main-wrapper full-width">
+        <div id="main" class="main row grid16-16">
+          <div id="main-inner" class="main-inner inner clearfix">
+            
+            <!-- main group: width = grid_width - sidebar_first_width -->
+            <div id="main-group" class="main-group row nested grid16-16">
+              <div id="main-group-inner" class="main-group-inner inner">
+                
+                <div id="main-content" class="main-content row nested">
+                  <div id="main-content-inner" class="main-content-inner inner">
+                    <!-- content group: width = grid_width - (sidebar_first_width + sidebar_last_width) -->
+                    <div id="content-group" class="content-group row nested grid16-16">
+                      <div id="content-group-inner" class="content-group-inner inner">
+                        
+                        
+                        <div id="content-region" class="content-region row nested">
+                          <div id="content-region-inner" class="content-region-inner inner">
+                            <a name="main-content-area" id="main-content-area"></a>
+                                                        <div id="content-inner" class="content-inner block">
+                              <div id="content-inner-inner" class="content-inner-inner inner">   
+                                                                <div id="content-content" class="content-content" role="main">
+                                  
+<div id="node-287" class="node odd full-node node-type-blog">
+
+  <div class="inner">
+
+    
+    
+    <div class="meta">
+
+      <div class="submitted">
+      
+        <div class="day">
+           14        </div>
+        <div class="month">
+           Feb        </div>
+        <div class="year">
+           2013        </div>
+      
+      </div>
+
+
+        
+        <div class="terms">
+
+          <ul class="links inline"><li class="taxonomy_term_33 first"><a href="drupal.html" rel="tag" title="Posts about the most wonderful web content management system in the universe.">drupal</a></li>
+<li class="taxonomy_term_1 last"><a href="web.html" rel="tag" title="Blog entries focused on web design and development">the web</a></li>
+</ul>
+        </div>
+
+             
+
+   </div>
+   
+       
+
+ 
+ 
+    <h1 class="title">How to replace HTML tags and text in a Drupal database using phpMyAdmin and SQL</h1>
+    
+                               
+    
+
+
+    <div class="content clearfix">
+
+      <p><a href="http://drupal.org/"><img src="png/medium_druplicon.small_.png" alt="Drupal cms logo" title="Drupal cms logo" height="120" width="105"></a> Did you <a href="http://htmlhelp.com/tools/validator/" title="WDG Validator">validate</a> your drupal website and realize you need to <strong>replace</strong> some unclosed HTML4 tags with <a href="http://www.456bereastreet.com/archive/201005/void_empty_elements_and_self-closing_start_tags_in_html/" title="Void (empty) elements and self-closing start tags in HTML">XHTML strict self-closing tags</a>? Or maybe you're adding in some <a href="http://www.alistapart.com/articles/aria-and-progressive-enhancement" title="ARIA roles for accessibility">ARIA roles</a> to make your text a bit more accessible.</p>
+<p>Lo and behold: you will suddenly need to use your web host's <a href="http://www.youtube.com/watch?v=1-81n_vuwug" title="YouTube tutorial on using phpmyadmin">phpmyadmin</a> interface and <a href="http://www.w3schools.com/sql/default.asp" title="W3Schools SQL tutorial">SQL</a> to find and replace strings of text in drupal's database.</p>
+<p>Don't panic! Here's how you do it.</p><p>
+</p>
+<h3>Step 1: Backup the table you'll be fiddling with</h3>
+<p>First, download a backup of the <strong>node_revisions table</strong>, as this is where the <strong>body field</strong> of each of your nodes lives.</p>
+<p>If the text you're concerned about lives in a different field than the body, you'll need to adjust these instructions to deal with that field (which may be in a different table). For instance, you may also need to fiddle with your <strong>teaser field</strong>.</p>
+<h3>Step 2: Use a SELECT query to find out the number of nodes that will be affected</h3>
+<p>Second, get a count of the number of nodes that have the imperfect string within their body field, using the SELECT query in SQL.</p>
+<p>I LOVE SELECT queries because they're totally safe: <span class="pullquote">you can't break anything with SELECT</span>.</p>
+<p>
+<code>
+SELECT *<br>
+FROM  `node_revisions` <br>
+WHERE  `body` LIKE  '%&lt;br&gt;%'<br>
+</code>
+</p>
+<p>In Drupal 7, this might look like:<br>
+<code>
+SELECT *<br>
+FROM  `field_data_body` <br>
+WHERE  `body_value` LIKE  '%&lt;br&gt;%'<br>
+</code>
+</p>
+<p>
+You don't want to use just <code>'%br%'</code>, because any number of words, such as 'broken', may contain this string.  Be as specific as possible, trying to think of any weird permutations you don't want to change that might use the string you're looking for.
+</p>
+<p>It would also be a good idea to export the nid (node ids) that you're about to change into a CSV file, so you can go back later and spot check them for quality assurance.</p>
+<h3>Step 3: Exercise EXTREME caution when using the UPDATE query to replace the old string of text with your new string</h3>
+<p>Third, CAREfully prepare your SQL UPDATE statement.</p>
+<p><span class="pullquote">UPDATE queries can BREAK your site, so tread lightly.</span></p>
+<p>Place this carefully-thought-out UPDATE query into the SQL tab in your phpMyAdmin interface. Be sure to escape reserved characters (such as double quotes) with a slash (\).</p>
+<p>Your UPDATE query might look something like this:<br>
+<code>
+UPDATE `node_revisions`<br>
+SET `body` = replace(`body`,"&lt;br&gt;","&lt;br/&gt;");<br>
+</code>
+</p>
+<p>In Drupal 7, this might look like:<br>
+<code>
+UPDATE  `field_data_body` <br>
+SET `body_value` = replace(`body_value`,"&lt;br&gt;","&lt;br/&gt;");<br>
+</code>
+</p>
+<h3>Step 4: Confirm success</h3>
+<p>Finally, run the SELECT query from step 2 again, to make sure your UPDATE query worked and spot check a few of the nodes you found in step 2.</p>
+<p>
+<code>
+SELECT *<br>
+FROM  `node_revisions` <br>
+WHERE  `body` LIKE  '%&lt;br&gt;%'<br>
+</code>
+</p>
+    </div>
+
+
+  </div><!-- /inner -->
+
+
+
+  
+</div><!-- /node-287 -->
+
+
+<div id="comments" class="comments block ">
+  <h2 class="comments-header">
+    Comments  </h2>
+  <a id="comment-1102"></a>
+
+
+
+<div class="comment odd comment-by-anon clear-block">
+
+  
+  
+
+  
+  <div class="authorship">
+      <h4 class="title">
+    tellen    </h4>
+      <div class="submitted">
+      Jan 8, 2012      </div>    
+      </div>
+
+<div class="comment-content">
+
+  <h3 class="title"><a href="how-to-replace-html-drupal-database-phpmyadmin-sql.html#comment-1102" class="active">A good SQL tutorial to learn</a></h3>  
+  
+    <p>A good SQL tutorial to learn SQL is at <a href="http://www.1keydata.com/sql/sql.html" title="http://www.1keydata.com/sql/sql.html">http://www.1keydata.com/sql/sql.html</a></p>
+
+  </div>
+
+  
+
+  
+  <div class="links">
+
+    <ul class="links"><li class="comment_forbidden first last"></li>
+</ul>
+  </div>
+
+  
+  
+
+</div><!-- /comment --></div>
+<!-- /comments -->
+                                                                  </div><!-- /content-content -->
+                                                              </div><!-- /content-inner-inner -->
+                            </div><!-- /content-inner -->
+                          </div><!-- /content-region-inner -->
+                        </div><!-- /content-region -->
+
+                                              </div><!-- /content-group-inner -->
+                    </div><!-- /content-group -->
+
+                                      </div><!-- /main-content-inner -->
+                </div><!-- /main-content -->
+
+                              </div><!-- /main-group-inner -->
+            </div><!-- /main-group -->
+          </div><!-- /main-inner -->
+        </div><!-- /main -->
+      </div><!-- /main-wrapper -->
+
+      <!-- postscript-bottom row: width = grid_width -->
+      
+      <!-- footer row: width = grid_width -->
+      
+      <!-- footer-message row: width = grid_width -->
+      <div id="footer-message-wrapper" class="footer-message-wrapper full-width">
+        <div id="footer-message" class="footer-message row grid16-16">
+          <div id="footer-message-inner" class="footer-message-inner inner clearfix" role="contentinfo">
+            <div id="footer-message-text" class="footer-message-text block">
+<div id="footer-message-text-inner" class="footer-message-text-inner inner clearfix">
+&copy; Adelle Frank, All rights reserved unless otherwise specified.</div><!-- /footer-message-text-inner -->
+</div><!-- /footer-message-text -->
+          </div><!-- /footer-message-inner -->
+        </div><!-- /footer-message -->
+      </div><!-- /footer-message-wrapper -->
+
+    </div><!-- /page-inner -->
+  </div><!-- /page -->
+  </body>
+</html>

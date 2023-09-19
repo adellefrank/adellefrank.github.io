@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system-data-structure xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="file:data-definition-schema.xsd">   
+    <group identifier="Departments" label="Departments">
+        <asset identifier="AssociatedDepartment" label="Associated Department" restrict-to-groups="college_managers,college_cascade_presentation,college_semi_publisher" multiple="false"
+            type="page" render-content-depth="2"/>
+    </group>
+    <group identifier="Courses" label="Courses">        
+        <asset identifier="block-content" label="Select Index Block" multiple="true" render-content-depth="1" required="false" type="block" restrict-to-groups="college_managers,college_cascade_presentation,college_semi_publisher"/>
+        <group identifier="Area" label="Area" multiple="true">
+            <text identifier="Label" label="Label for Course Area" multiple="false"/>
+            <asset identifier="CatalogCourse" label="Catalog Course" multiple="true" type="page"
+                render-content-depth="1"/>
+        </group>
+    </group>
+</system-data-structure>

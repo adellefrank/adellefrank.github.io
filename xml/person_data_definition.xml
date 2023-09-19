@@ -1,0 +1,1561 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system-data-structure xmlns:xsi="http://www.w3.org/1900/XMLSchema-instance"
+   xsi:noNamespaceSchemaLocation="file:data-definition-schema.xsd">
+   <text identifier="EmployeeId" label="Public Key ID" idOwner="Peoplesoft" default="0"
+      required="true" restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher"/>
+   <group identifier="PersonName" label="Name">
+      <text identifier="FormattedName" label="Full, Formatted" restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher"/>
+      <text identifier="GivenName" label="First" required="true" restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher"/>
+      <text identifier="MiddleName" label="Middle" restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher"/>
+      <text identifier="FamilyName" label="Last" required="true" restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher"/>
+      <text identifier="Affix" label="Suffix" multiple="false" restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher"/>
+   </group>
+   <group identifier="PositionInfo" multiple="true" label="Position">
+      <text identifier="PositionTitle" idOwner="Peoplesoft" label="Title" multiple="false" restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher"/>
+      <text identifier="InstitutionName" label="Institution(s)" default="UndergraduateEmoryCollege"
+         multiple="true" required="true" type="dropdown" restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher">
+         <dropdown-item value="UndergraduateEmoryCollege"/>
+         <dropdown-item value="UndergraduateAlliedHealth"/>
+         <dropdown-item value="UndergraduateBusiness"/>
+         <dropdown-item value="UndergraduateNursing"/>
+         <dropdown-item value="UndergraduateOxford"/>
+         <dropdown-item value="GraduateAlliedHealth"/>
+         <dropdown-item value="GraduateArtsSciences"/>
+         <dropdown-item value="GraduateBusiness"/>
+         <dropdown-item value="GraduateNursing"/>
+         <dropdown-item value="Libraries"/>
+         <dropdown-item value="Law"/>
+         <dropdown-item value="Medicine"/>
+         <dropdown-item value="PublicHealth"/>
+         <dropdown-item value="Theology"/>
+         <dropdown-item value="EmoryHealthcare"/>
+         <dropdown-item value="Yerkes"/>
+         <dropdown-item value="Other"/>
+      </text>
+      <asset identifier="OrganizationalUnitPrimary" label="Primary Department" multiple="false"
+         type="page" render-content-depth="1" restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher"/>
+      <group identifier="OrganizationalUnitsAssociated" multiple="false"
+         label="Associated Departments" restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher">
+         <asset identifier="AssociatedDepartment" label="Department" multiple="true" type="page"
+            render-content-depth="1" restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher"/>
+      </group>
+   </group>
+   <asset identifier="HeadshotFileLarge" label="Headshot File (large)" multiple="false" type="file"
+      render-content-depth="1"/>
+   <asset identifier="HeadshotFileSmall" label="Headshot File (small)" multiple="false" type="file"
+      render-content-depth="1"/>
+   <text identifier="Description" label="Short Bio" multi-line="true" rows="5" cols="40"
+      wysiwyg="true"/>
+   <group identifier="Resume" label="C.V.">
+      <asset identifier="ResumeFile" label="Uploaded C.V. (PDF)" multiple="false" type="file"
+         render-content-depth="1"/>
+      <text identifier="InternetWebAddress" label="Link to C.V."/>
+      <group identifier="EducationHistory" label="Education" restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher">
+         <group identifier="SchoolOrInstitution" label="Institution" multiple="true">
+            <text identifier="InstitutionName" label="Institution Name" restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher"/>
+            <text identifier="DegreeName" label="Degree" default="None" wysiwyg="false"
+               wysiwyg-toolbar-remove="" required="false" type="dropdown" restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher">
+               <dropdown-item value="AA"/>
+               <dropdown-item value="AB"/>
+               <dropdown-item value="AM"/>
+               <dropdown-item value="AMusD"/>
+               <dropdown-item value="AS"/>
+               <dropdown-item value="BA"/>
+               <dropdown-item value="BD"/>
+               <dropdown-item value="BEd"/>
+               <dropdown-item value="BFA"/>
+               <dropdown-item value="BJ"/>
+               <dropdown-item value="BM"/>
+               <dropdown-item value="BMSc"/>
+               <dropdown-item value="BMEd"/>
+               <dropdown-item value="BS"/>
+               <dropdown-item value="BSc"/>
+               <dropdown-item value="BSN"/>
+               <dropdown-item value="DM"/>
+               <dropdown-item value="DPhil"/>
+               <dropdown-item value="DMA"/>
+               <dropdown-item value="DPT"/>
+               <dropdown-item value="EdD"/>
+               <dropdown-item value="JD"/>
+               <dropdown-item value="LLM"/>
+               <dropdown-item value="MA"/>
+               <dropdown-item value="MAT"/>
+               <dropdown-item value="MBA"/>
+               <dropdown-item value="MD"/>
+               <dropdown-item value="MDP"/>
+               <dropdown-item value="MDiv"/>
+               <dropdown-item value="MEd"/>
+               <dropdown-item value="MFA"/>
+               <dropdown-item value="MHL"/>
+               <dropdown-item value="MHS"/>
+               <dropdown-item value="MI"/>
+               <dropdown-item value="MM"/>
+               <dropdown-item value="MMSc"/>
+               <dropdown-item value="MPH"/>
+               <dropdown-item value="MPhil"/>
+               <dropdown-item value="MPS"/>
+               <dropdown-item value="MS"/>
+               <dropdown-item value="MSc"/>
+               <dropdown-item value="MSCR"/>
+               <dropdown-item value="MSM"/>
+               <dropdown-item value="MSN"/>
+               <dropdown-item value="MSPH"/>
+               <dropdown-item value="MSW"/>
+               <dropdown-item value="MTS"/>
+               <dropdown-item value="MVA"/>
+               <dropdown-item value="RN"/>
+               <dropdown-item value="SJD"/>
+               <dropdown-item value="PhD"/>
+               <dropdown-item value="ThD"/>
+               <dropdown-item value="ThM"/>
+               <dropdown-item value="Diploma"/>
+               <dropdown-item value="Internship"/>
+               <dropdown-item value="Residency"/>
+               <dropdown-item value="Fellowship"/>
+               <dropdown-item value="Other"/>
+               <dropdown-item value="None"/>
+            </text>
+            <text identifier="DegreeTextName" label="If other, write out degree name" restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher"/>
+            <text identifier="DegreeDate" label="Completion Year" default="1900" restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher"/>
+            <text identifier="DegreeMajor" label="Major" restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher"/>
+         </group>
+      </group>
+      <group identifier="InterestsandSpecialties" label="Interests and Specialties" restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher">
+         <group identifier="Specialties" label="Specialties">
+            <text identifier="SpecialtyFreeText" label="Specialty" multiple="true" default=""
+               help-text="Your academic or research area, such as Macroeconomics or MR and Body Imaging"
+               restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher" />
+         </group>
+         <group identifier="Interests" label="Research Interests">
+            <text identifier="InterestFreeText" label="Interest" multiple="true" default=""
+               help-text="Your specific research interest, such as American Politics of the South" restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher"/>
+         </group>
+      </group>
+      <group identifier="Associations" label="Associations">
+         <group identifier="Association" label="Association" multiple="true">
+            <text identifier="Name" label="Name"/>
+            <text identifier="InternetWebAddress" label="Link"/>
+            <group identifier="StartDate" label="Start Date">
+               <text identifier="Year" label="Year" wysiwyg="false" default="1900"/>
+               <text identifier="Month" label="Month" default="1" type="dropdown">
+                  <dropdown-item value="1"/>
+                  <dropdown-item value="2"/>
+                  <dropdown-item value="3"/>
+                  <dropdown-item value="4"/>
+                  <dropdown-item value="5"/>
+                  <dropdown-item value="6"/>
+                  <dropdown-item value="7"/>
+                  <dropdown-item value="8"/>
+                  <dropdown-item value="9"/>
+                  <dropdown-item value="10"/>
+                  <dropdown-item value="11"/>
+                  <dropdown-item value="12"/>
+               </text>
+               <text identifier="Day" label="Day" default="1" type="dropdown">
+                  <dropdown-item value="1"/>
+                  <dropdown-item value="2"/>
+                  <dropdown-item value="3"/>
+                  <dropdown-item value="4"/>
+                  <dropdown-item value="5"/>
+                  <dropdown-item value="6"/>
+                  <dropdown-item value="7"/>
+                  <dropdown-item value="8"/>
+                  <dropdown-item value="9"/>
+                  <dropdown-item value="10"/>
+                  <dropdown-item value="11"/>
+                  <dropdown-item value="12"/>
+                  <dropdown-item value="13"/>
+                  <dropdown-item value="14"/>
+                  <dropdown-item value="15"/>
+                  <dropdown-item value="16"/>
+                  <dropdown-item value="17"/>
+                  <dropdown-item value="18"/>
+                  <dropdown-item value="19"/>
+                  <dropdown-item value="20"/>
+                  <dropdown-item value="21"/>
+                  <dropdown-item value="22"/>
+                  <dropdown-item value="23"/>
+                  <dropdown-item value="24"/>
+                  <dropdown-item value="25"/>
+                  <dropdown-item value="26"/>
+                  <dropdown-item value="27"/>
+                  <dropdown-item value="28"/>
+                  <dropdown-item value="29"/>
+                  <dropdown-item value="30"/>
+                  <dropdown-item value="31"/>
+               </text>
+            </group>
+            <group identifier="Role" label="Role" multiple="true">
+               <text identifier="Name" label=" Name"/>
+               <text identifier="Deliverable" label="Deliverable"/>
+               <group identifier="StartDate" label="StartDate">
+                  <text identifier="Year" label="Year" wysiwyg="false" default="1900"/>
+                  <text identifier="Month" label="Month" default="1" type="dropdown">
+                     <dropdown-item value="1"/>
+                     <dropdown-item value="2"/>
+                     <dropdown-item value="3"/>
+                     <dropdown-item value="4"/>
+                     <dropdown-item value="5"/>
+                     <dropdown-item value="6"/>
+                     <dropdown-item value="7"/>
+                     <dropdown-item value="8"/>
+                     <dropdown-item value="9"/>
+                     <dropdown-item value="10"/>
+                     <dropdown-item value="11"/>
+                     <dropdown-item value="12"/>
+                  </text>
+                  <text identifier="Day" label="Day" default="1" type="dropdown">
+                     <dropdown-item value="1"/>
+                     <dropdown-item value="2"/>
+                     <dropdown-item value="3"/>
+                     <dropdown-item value="4"/>
+                     <dropdown-item value="5"/>
+                     <dropdown-item value="6"/>
+                     <dropdown-item value="7"/>
+                     <dropdown-item value="8"/>
+                     <dropdown-item value="9"/>
+                     <dropdown-item value="10"/>
+                     <dropdown-item value="11"/>
+                     <dropdown-item value="12"/>
+                     <dropdown-item value="13"/>
+                     <dropdown-item value="14"/>
+                     <dropdown-item value="15"/>
+                     <dropdown-item value="16"/>
+                     <dropdown-item value="17"/>
+                     <dropdown-item value="18"/>
+                     <dropdown-item value="19"/>
+                     <dropdown-item value="20"/>
+                     <dropdown-item value="21"/>
+                     <dropdown-item value="22"/>
+                     <dropdown-item value="23"/>
+                     <dropdown-item value="24"/>
+                     <dropdown-item value="25"/>
+                     <dropdown-item value="26"/>
+                     <dropdown-item value="27"/>
+                     <dropdown-item value="28"/>
+                     <dropdown-item value="29"/>
+                     <dropdown-item value="30"/>
+                     <dropdown-item value="31"/>
+                  </text>
+               </group>
+               <group identifier="EndDate" label="End Date">
+                  <text identifier="Year" label="Year" wysiwyg="false" default="1900"/>
+                  <text identifier="Month" label="Month" default="1" type="dropdown">
+                     <dropdown-item value="1"/>
+                     <dropdown-item value="2"/>
+                     <dropdown-item value="3"/>
+                     <dropdown-item value="4"/>
+                     <dropdown-item value="5"/>
+                     <dropdown-item value="6"/>
+                     <dropdown-item value="7"/>
+                     <dropdown-item value="8"/>
+                     <dropdown-item value="9"/>
+                     <dropdown-item value="10"/>
+                     <dropdown-item value="11"/>
+                     <dropdown-item value="12"/>
+                  </text>
+                  <text identifier="Day" label="Day" default="1" type="dropdown">
+                     <dropdown-item value="1"/>
+                     <dropdown-item value="2"/>
+                     <dropdown-item value="3"/>
+                     <dropdown-item value="4"/>
+                     <dropdown-item value="5"/>
+                     <dropdown-item value="6"/>
+                     <dropdown-item value="7"/>
+                     <dropdown-item value="8"/>
+                     <dropdown-item value="9"/>
+                     <dropdown-item value="10"/>
+                     <dropdown-item value="11"/>
+                     <dropdown-item value="12"/>
+                     <dropdown-item value="13"/>
+                     <dropdown-item value="14"/>
+                     <dropdown-item value="15"/>
+                     <dropdown-item value="16"/>
+                     <dropdown-item value="17"/>
+                     <dropdown-item value="18"/>
+                     <dropdown-item value="19"/>
+                     <dropdown-item value="20"/>
+                     <dropdown-item value="21"/>
+                     <dropdown-item value="22"/>
+                     <dropdown-item value="23"/>
+                     <dropdown-item value="24"/>
+                     <dropdown-item value="25"/>
+                     <dropdown-item value="26"/>
+                     <dropdown-item value="27"/>
+                     <dropdown-item value="28"/>
+                     <dropdown-item value="29"/>
+                     <dropdown-item value="30"/>
+                     <dropdown-item value="31"/>
+                  </text>
+               </group>
+            </group>
+            <text identifier="Description" label="Comments" multi-line="true" rows="5" cols="40"
+               wysiwyg="false"/>
+         </group>
+      </group>
+      <group identifier="PublicationHistory" label="Publications">
+         <group identifier="Article" label="Article" multiple="true">
+            <text identifier="Title" label="Title"/>
+            <text identifier="JournalOrSerialName" label="Journal Name"/>
+            <text identifier="Volume" label="Volume"/>
+            <text identifier="Issue" label="Issue"/>
+            <text identifier="PageNumber" label="Pages" default="319-329"/>
+            <text identifier="Abstract" label="Abstract" multi-line="true" rows="5" cols="40"
+               wysiwyg="false"/>
+            <text identifier="InternetWebAddress" label="Link"/>
+            <group identifier="PublicationDate" label="Publication Date">
+               <text identifier="Year" label="Year" wysiwyg="false" default="1900"/>
+               <text identifier="Month" label="Month" default="1" type="dropdown">
+                  <dropdown-item value="1"/>
+                  <dropdown-item value="2"/>
+                  <dropdown-item value="3"/>
+                  <dropdown-item value="4"/>
+                  <dropdown-item value="5"/>
+                  <dropdown-item value="6"/>
+                  <dropdown-item value="7"/>
+                  <dropdown-item value="8"/>
+                  <dropdown-item value="9"/>
+                  <dropdown-item value="10"/>
+                  <dropdown-item value="11"/>
+                  <dropdown-item value="12"/>
+               </text>
+               <text identifier="Day" label="Day" default="1" type="dropdown">
+                  <dropdown-item value="1"/>
+                  <dropdown-item value="2"/>
+                  <dropdown-item value="3"/>
+                  <dropdown-item value="4"/>
+                  <dropdown-item value="5"/>
+                  <dropdown-item value="6"/>
+                  <dropdown-item value="7"/>
+                  <dropdown-item value="8"/>
+                  <dropdown-item value="9"/>
+                  <dropdown-item value="10"/>
+                  <dropdown-item value="11"/>
+                  <dropdown-item value="12"/>
+                  <dropdown-item value="13"/>
+                  <dropdown-item value="14"/>
+                  <dropdown-item value="15"/>
+                  <dropdown-item value="16"/>
+                  <dropdown-item value="17"/>
+                  <dropdown-item value="18"/>
+                  <dropdown-item value="19"/>
+                  <dropdown-item value="20"/>
+                  <dropdown-item value="21"/>
+                  <dropdown-item value="22"/>
+                  <dropdown-item value="23"/>
+                  <dropdown-item value="24"/>
+                  <dropdown-item value="25"/>
+                  <dropdown-item value="26"/>
+                  <dropdown-item value="27"/>
+                  <dropdown-item value="28"/>
+                  <dropdown-item value="29"/>
+                  <dropdown-item value="30"/>
+                  <dropdown-item value="31"/>
+               </text>
+            </group>
+            <group identifier="Author" label="Other Author" multiple="true">
+               <text identifier="GivenName" label="First"/>
+               <text identifier="MiddleName" label="Middle"/>
+               <text identifier="FamilyName" label="Last"/>
+               <text identifier="Affix" label="Suffix"/>
+            </group>
+         </group>
+         <group identifier="Book" label="Book" multiple="true">
+            <text identifier="Title" label="Title"/>
+            <text identifier="Edition" label="Edition" default="2nd"/>
+            <text identifier="ISBN" label="ISBN" default="0596000222"/>
+            <text identifier="Copyright" label="Copyright" default="1900"/>
+            <text identifier="PublisherName" label="Publisher Name"/>
+            <text identifier="PublisherLocation" label="Publisher Location" default="Atlanta, GA"/>
+            <text identifier="Abstract" label="Abstract" multi-line="true" rows="5" cols="40"
+               wysiwyg="false"/>
+            <text identifier="InternetWebAddress" label="Link"/>
+            <group identifier="PublicationDate" label="Publication Date">
+               <text identifier="Year" label="Year" wysiwyg="false" default="1900"/>
+               <text identifier="Month" label="Month" default="1" type="dropdown">
+                  <dropdown-item value="1"/>
+                  <dropdown-item value="2"/>
+                  <dropdown-item value="3"/>
+                  <dropdown-item value="4"/>
+                  <dropdown-item value="5"/>
+                  <dropdown-item value="6"/>
+                  <dropdown-item value="7"/>
+                  <dropdown-item value="8"/>
+                  <dropdown-item value="9"/>
+                  <dropdown-item value="10"/>
+                  <dropdown-item value="11"/>
+                  <dropdown-item value="12"/>
+               </text>
+               <text identifier="Day" label="Day" default="1" type="dropdown">
+                  <dropdown-item value="1"/>
+                  <dropdown-item value="2"/>
+                  <dropdown-item value="3"/>
+                  <dropdown-item value="4"/>
+                  <dropdown-item value="5"/>
+                  <dropdown-item value="6"/>
+                  <dropdown-item value="7"/>
+                  <dropdown-item value="8"/>
+                  <dropdown-item value="9"/>
+                  <dropdown-item value="10"/>
+                  <dropdown-item value="11"/>
+                  <dropdown-item value="12"/>
+                  <dropdown-item value="13"/>
+                  <dropdown-item value="14"/>
+                  <dropdown-item value="15"/>
+                  <dropdown-item value="16"/>
+                  <dropdown-item value="17"/>
+                  <dropdown-item value="18"/>
+                  <dropdown-item value="19"/>
+                  <dropdown-item value="20"/>
+                  <dropdown-item value="21"/>
+                  <dropdown-item value="22"/>
+                  <dropdown-item value="23"/>
+                  <dropdown-item value="24"/>
+                  <dropdown-item value="25"/>
+                  <dropdown-item value="26"/>
+                  <dropdown-item value="27"/>
+                  <dropdown-item value="28"/>
+                  <dropdown-item value="29"/>
+                  <dropdown-item value="30"/>
+                  <dropdown-item value="31"/>
+               </text>
+            </group>
+            <group identifier="Author" label="Other Author" multiple="true">
+               <text identifier="GivenName" label="First"/>
+               <text identifier="MiddleName" label="Middle"/>
+               <text identifier="FamilyName" label="Last"/>
+               <text identifier="Affix" label="Suffix"/>
+            </group>
+         </group>
+         <group identifier="ConferencePaper" label="ConferencePaper" multiple="true">
+            <text identifier="Title" label="Title"/>
+            <text identifier="EventName" label="Event Name"/>
+            <text identifier="ConferenceLocation" label="Conference Location" default="Atlanta, GA"/>
+            <text identifier="Abstract" label="Abstract" multi-line="true" rows="5" cols="40"
+               wysiwyg="false"/>
+            <text identifier="InternetWebAddress" label="Link"/>
+            <group identifier="ConferenceDate" label="Conference Date">
+               <text identifier="Year" label="Year" wysiwyg="false" default="1900"/>
+               <text identifier="Month" label="Month" default="1" type="dropdown">
+                  <dropdown-item value="1"/>
+                  <dropdown-item value="2"/>
+                  <dropdown-item value="3"/>
+                  <dropdown-item value="4"/>
+                  <dropdown-item value="5"/>
+                  <dropdown-item value="6"/>
+                  <dropdown-item value="7"/>
+                  <dropdown-item value="8"/>
+                  <dropdown-item value="9"/>
+                  <dropdown-item value="10"/>
+                  <dropdown-item value="11"/>
+                  <dropdown-item value="12"/>
+               </text>
+               <text identifier="Day" label="Day" default="1" type="dropdown">
+                  <dropdown-item value="1"/>
+                  <dropdown-item value="2"/>
+                  <dropdown-item value="3"/>
+                  <dropdown-item value="4"/>
+                  <dropdown-item value="5"/>
+                  <dropdown-item value="6"/>
+                  <dropdown-item value="7"/>
+                  <dropdown-item value="8"/>
+                  <dropdown-item value="9"/>
+                  <dropdown-item value="10"/>
+                  <dropdown-item value="11"/>
+                  <dropdown-item value="12"/>
+                  <dropdown-item value="13"/>
+                  <dropdown-item value="14"/>
+                  <dropdown-item value="15"/>
+                  <dropdown-item value="16"/>
+                  <dropdown-item value="17"/>
+                  <dropdown-item value="18"/>
+                  <dropdown-item value="19"/>
+                  <dropdown-item value="20"/>
+                  <dropdown-item value="21"/>
+                  <dropdown-item value="22"/>
+                  <dropdown-item value="23"/>
+                  <dropdown-item value="24"/>
+                  <dropdown-item value="25"/>
+                  <dropdown-item value="26"/>
+                  <dropdown-item value="27"/>
+                  <dropdown-item value="28"/>
+                  <dropdown-item value="29"/>
+                  <dropdown-item value="30"/>
+                  <dropdown-item value="31"/>
+               </text>
+            </group>
+            <group identifier="Author" label="Other Author" multiple="true">
+               <text identifier="GivenName" label="First"/>
+               <text identifier="MiddleName" label="Middle"/>
+               <text identifier="FamilyName" label="Last"/>
+               <text identifier="Affix" label="Suffix"/>
+            </group>
+         </group>
+         <group identifier="WorkingPaper" label="Working Paper" multiple="true">
+            <text identifier="Title" label="Title"/>
+            <text identifier="Abstract" label="Abstract" multi-line="true" rows="5" cols="40"
+               wysiwyg="false"/>
+            <text identifier="InternetWebAddress" label="Link"/>
+            <group identifier="PublicationDate" label="Planned Publication Date">
+               <text identifier="Year" label="Year" wysiwyg="false" default="1900"/>
+               <text identifier="Month" label="Month" default="1" type="dropdown">
+                  <dropdown-item value="1"/>
+                  <dropdown-item value="2"/>
+                  <dropdown-item value="3"/>
+                  <dropdown-item value="4"/>
+                  <dropdown-item value="5"/>
+                  <dropdown-item value="6"/>
+                  <dropdown-item value="7"/>
+                  <dropdown-item value="8"/>
+                  <dropdown-item value="9"/>
+                  <dropdown-item value="10"/>
+                  <dropdown-item value="11"/>
+                  <dropdown-item value="12"/>
+               </text>
+               <text identifier="Day" label="Day" default="1" type="dropdown">
+                  <dropdown-item value="1"/>
+                  <dropdown-item value="2"/>
+                  <dropdown-item value="3"/>
+                  <dropdown-item value="4"/>
+                  <dropdown-item value="5"/>
+                  <dropdown-item value="6"/>
+                  <dropdown-item value="7"/>
+                  <dropdown-item value="8"/>
+                  <dropdown-item value="9"/>
+                  <dropdown-item value="10"/>
+                  <dropdown-item value="11"/>
+                  <dropdown-item value="12"/>
+                  <dropdown-item value="13"/>
+                  <dropdown-item value="14"/>
+                  <dropdown-item value="15"/>
+                  <dropdown-item value="16"/>
+                  <dropdown-item value="17"/>
+                  <dropdown-item value="18"/>
+                  <dropdown-item value="19"/>
+                  <dropdown-item value="20"/>
+                  <dropdown-item value="21"/>
+                  <dropdown-item value="22"/>
+                  <dropdown-item value="23"/>
+                  <dropdown-item value="24"/>
+                  <dropdown-item value="25"/>
+                  <dropdown-item value="26"/>
+                  <dropdown-item value="27"/>
+                  <dropdown-item value="28"/>
+                  <dropdown-item value="29"/>
+                  <dropdown-item value="30"/>
+                  <dropdown-item value="31"/>
+               </text>
+            </group>
+            <group identifier="Author" label="Other Author" multiple="true">
+               <text identifier="GivenName" label="First"/>
+               <text identifier="MiddleName" label="Middle"/>
+               <text identifier="FamilyName" label="Last"/>
+               <text identifier="Affix" label="Suffix"/>
+            </group>
+         </group>
+         <group identifier="Podcast" label="Podcast" multiple="true">
+            <text identifier="Label" label="Label"/>
+            <text identifier="InternetWebAddress" label="Website"/>
+            <text identifier="Code" label="Code" multi-line="true" rows="5" cols="40"
+               wysiwyg="false"/>
+            <group identifier="PublicationDate" label="Publication Date">
+               <text identifier="Year" label="Year" wysiwyg="false" default="1900"/>
+               <text identifier="Month" label="Month" default="1" type="dropdown">
+                  <dropdown-item value="1"/>
+                  <dropdown-item value="2"/>
+                  <dropdown-item value="3"/>
+                  <dropdown-item value="4"/>
+                  <dropdown-item value="5"/>
+                  <dropdown-item value="6"/>
+                  <dropdown-item value="7"/>
+                  <dropdown-item value="8"/>
+                  <dropdown-item value="9"/>
+                  <dropdown-item value="10"/>
+                  <dropdown-item value="11"/>
+                  <dropdown-item value="12"/>
+               </text>
+               <text identifier="Day" label="Day" default="1" type="dropdown">
+                  <dropdown-item value="1"/>
+                  <dropdown-item value="2"/>
+                  <dropdown-item value="3"/>
+                  <dropdown-item value="4"/>
+                  <dropdown-item value="5"/>
+                  <dropdown-item value="6"/>
+                  <dropdown-item value="7"/>
+                  <dropdown-item value="8"/>
+                  <dropdown-item value="9"/>
+                  <dropdown-item value="10"/>
+                  <dropdown-item value="11"/>
+                  <dropdown-item value="12"/>
+                  <dropdown-item value="13"/>
+                  <dropdown-item value="14"/>
+                  <dropdown-item value="15"/>
+                  <dropdown-item value="16"/>
+                  <dropdown-item value="17"/>
+                  <dropdown-item value="18"/>
+                  <dropdown-item value="19"/>
+                  <dropdown-item value="20"/>
+                  <dropdown-item value="21"/>
+                  <dropdown-item value="22"/>
+                  <dropdown-item value="23"/>
+                  <dropdown-item value="24"/>
+                  <dropdown-item value="25"/>
+                  <dropdown-item value="26"/>
+                  <dropdown-item value="27"/>
+                  <dropdown-item value="28"/>
+                  <dropdown-item value="29"/>
+                  <dropdown-item value="30"/>
+                  <dropdown-item value="31"/>
+               </text>
+            </group>
+         </group>
+         <group identifier="Video" label="Video" multiple="true">
+            <text identifier="Label" label="Label"/>
+            <text identifier="InternetWebAddress" label="Website"/>
+            <text identifier="Code" label="Code" multi-line="true" rows="5" cols="40"
+               wysiwyg="false"/>
+            <group identifier="PublicationDate" label="Publication Date">
+               <text identifier="Year" label="Year" wysiwyg="false" default="1900"/>
+               <text identifier="Month" label="Month" default="1" type="dropdown">
+                  <dropdown-item value="1"/>
+                  <dropdown-item value="2"/>
+                  <dropdown-item value="3"/>
+                  <dropdown-item value="4"/>
+                  <dropdown-item value="5"/>
+                  <dropdown-item value="6"/>
+                  <dropdown-item value="7"/>
+                  <dropdown-item value="8"/>
+                  <dropdown-item value="9"/>
+                  <dropdown-item value="10"/>
+                  <dropdown-item value="11"/>
+                  <dropdown-item value="12"/>
+               </text>
+               <text identifier="Day" label="Day" default="1" type="dropdown">
+                  <dropdown-item value="1"/>
+                  <dropdown-item value="2"/>
+                  <dropdown-item value="3"/>
+                  <dropdown-item value="4"/>
+                  <dropdown-item value="5"/>
+                  <dropdown-item value="6"/>
+                  <dropdown-item value="7"/>
+                  <dropdown-item value="8"/>
+                  <dropdown-item value="9"/>
+                  <dropdown-item value="10"/>
+                  <dropdown-item value="11"/>
+                  <dropdown-item value="12"/>
+                  <dropdown-item value="13"/>
+                  <dropdown-item value="14"/>
+                  <dropdown-item value="15"/>
+                  <dropdown-item value="16"/>
+                  <dropdown-item value="17"/>
+                  <dropdown-item value="18"/>
+                  <dropdown-item value="19"/>
+                  <dropdown-item value="20"/>
+                  <dropdown-item value="21"/>
+                  <dropdown-item value="22"/>
+                  <dropdown-item value="23"/>
+                  <dropdown-item value="24"/>
+                  <dropdown-item value="25"/>
+                  <dropdown-item value="26"/>
+                  <dropdown-item value="27"/>
+                  <dropdown-item value="28"/>
+                  <dropdown-item value="29"/>
+                  <dropdown-item value="30"/>
+                  <dropdown-item value="31"/>
+               </text>
+            </group>
+         </group>
+         <group identifier="OtherPublication" label="Other Publication" multiple="true">
+            <text identifier="Title" label="Title"/>
+            <text identifier="Abstract" label="Abstract" multi-line="true" rows="5" cols="40"
+               wysiwyg="false"/>
+            <text identifier="InternetWebAddress" label="Link"/>
+            <group identifier="PublicationDate" label="Publication Date">
+               <text identifier="Year" label="Year" wysiwyg="false" default="1900"/>
+               <text identifier="Month" label="Month" default="1" type="dropdown">
+                  <dropdown-item value="1"/>
+                  <dropdown-item value="2"/>
+                  <dropdown-item value="3"/>
+                  <dropdown-item value="4"/>
+                  <dropdown-item value="5"/>
+                  <dropdown-item value="6"/>
+                  <dropdown-item value="7"/>
+                  <dropdown-item value="8"/>
+                  <dropdown-item value="9"/>
+                  <dropdown-item value="10"/>
+                  <dropdown-item value="11"/>
+                  <dropdown-item value="12"/>
+               </text>
+               <text identifier="Day" label="Day" default="1" type="dropdown">
+                  <dropdown-item value="1"/>
+                  <dropdown-item value="2"/>
+                  <dropdown-item value="3"/>
+                  <dropdown-item value="4"/>
+                  <dropdown-item value="5"/>
+                  <dropdown-item value="6"/>
+                  <dropdown-item value="7"/>
+                  <dropdown-item value="8"/>
+                  <dropdown-item value="9"/>
+                  <dropdown-item value="10"/>
+                  <dropdown-item value="11"/>
+                  <dropdown-item value="12"/>
+                  <dropdown-item value="13"/>
+                  <dropdown-item value="14"/>
+                  <dropdown-item value="15"/>
+                  <dropdown-item value="16"/>
+                  <dropdown-item value="17"/>
+                  <dropdown-item value="18"/>
+                  <dropdown-item value="19"/>
+                  <dropdown-item value="20"/>
+                  <dropdown-item value="21"/>
+                  <dropdown-item value="22"/>
+                  <dropdown-item value="23"/>
+                  <dropdown-item value="24"/>
+                  <dropdown-item value="25"/>
+                  <dropdown-item value="26"/>
+                  <dropdown-item value="27"/>
+                  <dropdown-item value="28"/>
+                  <dropdown-item value="29"/>
+                  <dropdown-item value="30"/>
+                  <dropdown-item value="31"/>
+               </text>
+            </group>
+            <group identifier="Author" label="Other Author" multiple="true">
+               <text identifier="GivenName" label="First"/>
+               <text identifier="MiddleName" label="Middle"/>
+               <text identifier="FamilyName" label="Last"/>
+               <text identifier="Affix" label="Suffix"/>
+            </group>
+         </group>
+      </group>
+      <group identifier="SpeakingEventsHistory" label="Speaking Events">
+         <group identifier="SpeakingEvent" label="Event" multiple="true">
+            <text identifier="Title" label="Title of Speech"/>
+            <text identifier="EventName" label="Event Name"/>
+            <text identifier="EventLocation" label="Event Location" default="Atlanta, GA"/>
+            <text identifier="Abstract" label="Abstract" multi-line="true" rows="5" cols="40"
+               wysiwyg="false"/>
+            <text identifier="InternetWebAddress" label="Link"/>
+            <group identifier="EventDate" label="Event Date">
+               <text identifier="Year" label="Year" wysiwyg="false" default="1900"/>
+               <text identifier="Month" label="Month" default="1" type="dropdown">
+                  <dropdown-item value="1"/>
+                  <dropdown-item value="2"/>
+                  <dropdown-item value="3"/>
+                  <dropdown-item value="4"/>
+                  <dropdown-item value="5"/>
+                  <dropdown-item value="6"/>
+                  <dropdown-item value="7"/>
+                  <dropdown-item value="8"/>
+                  <dropdown-item value="9"/>
+                  <dropdown-item value="10"/>
+                  <dropdown-item value="11"/>
+                  <dropdown-item value="12"/>
+               </text>
+               <text identifier="Day" label="Day" default="1" type="dropdown">
+                  <dropdown-item value="1"/>
+                  <dropdown-item value="2"/>
+                  <dropdown-item value="3"/>
+                  <dropdown-item value="4"/>
+                  <dropdown-item value="5"/>
+                  <dropdown-item value="6"/>
+                  <dropdown-item value="7"/>
+                  <dropdown-item value="8"/>
+                  <dropdown-item value="9"/>
+                  <dropdown-item value="10"/>
+                  <dropdown-item value="11"/>
+                  <dropdown-item value="12"/>
+                  <dropdown-item value="13"/>
+                  <dropdown-item value="14"/>
+                  <dropdown-item value="15"/>
+                  <dropdown-item value="16"/>
+                  <dropdown-item value="17"/>
+                  <dropdown-item value="18"/>
+                  <dropdown-item value="19"/>
+                  <dropdown-item value="20"/>
+                  <dropdown-item value="21"/>
+                  <dropdown-item value="22"/>
+                  <dropdown-item value="23"/>
+                  <dropdown-item value="24"/>
+                  <dropdown-item value="25"/>
+                  <dropdown-item value="26"/>
+                  <dropdown-item value="27"/>
+                  <dropdown-item value="28"/>
+                  <dropdown-item value="29"/>
+                  <dropdown-item value="30"/>
+                  <dropdown-item value="31"/>
+               </text>
+            </group>
+         </group>
+      </group>
+      <group identifier="LicensesAndCertifications" label="Licenses and Certifications">
+         <group identifier="LicenseOrCertification" label="License or Certification" multiple="true">
+            <text identifier="Name" label="Name" wysiwyg="false"/>
+            <text identifier="Id" label="Id" wysiwyg="false"/>
+            <text identifier="IssuingAuthority" label="Issuing Authority" wysiwyg="false"/>
+            <text identifier="Description" label="Description" multi-line="true" rows="5" cols="40"
+               wysiwyg="false"/>
+            <group identifier="EffectiveDate" label="Effective Date" multiple="false">
+               <group identifier="ValidFromDate" label="Valid From Date">
+                  <text identifier="Year" label="Year" wysiwyg="false" default="1900"/>
+                  <text identifier="Month" label="Month" default="1" type="dropdown">
+                     <dropdown-item value="1"/>
+                     <dropdown-item value="2"/>
+                     <dropdown-item value="3"/>
+                     <dropdown-item value="4"/>
+                     <dropdown-item value="5"/>
+                     <dropdown-item value="6"/>
+                     <dropdown-item value="7"/>
+                     <dropdown-item value="8"/>
+                     <dropdown-item value="9"/>
+                     <dropdown-item value="10"/>
+                     <dropdown-item value="11"/>
+                     <dropdown-item value="12"/>
+                  </text>
+                  <text identifier="Day" label="Day" default="1" type="dropdown">
+                     <dropdown-item value="1"/>
+                     <dropdown-item value="2"/>
+                     <dropdown-item value="3"/>
+                     <dropdown-item value="4"/>
+                     <dropdown-item value="5"/>
+                     <dropdown-item value="6"/>
+                     <dropdown-item value="7"/>
+                     <dropdown-item value="8"/>
+                     <dropdown-item value="9"/>
+                     <dropdown-item value="10"/>
+                     <dropdown-item value="11"/>
+                     <dropdown-item value="12"/>
+                     <dropdown-item value="13"/>
+                     <dropdown-item value="14"/>
+                     <dropdown-item value="15"/>
+                     <dropdown-item value="16"/>
+                     <dropdown-item value="17"/>
+                     <dropdown-item value="18"/>
+                     <dropdown-item value="19"/>
+                     <dropdown-item value="20"/>
+                     <dropdown-item value="21"/>
+                     <dropdown-item value="22"/>
+                     <dropdown-item value="23"/>
+                     <dropdown-item value="24"/>
+                     <dropdown-item value="25"/>
+                     <dropdown-item value="26"/>
+                     <dropdown-item value="27"/>
+                     <dropdown-item value="28"/>
+                     <dropdown-item value="29"/>
+                     <dropdown-item value="30"/>
+                     <dropdown-item value="31"/>
+                  </text>
+               </group>
+               <group identifier="ValidToDate" label="Valid To Date">
+                  <text identifier="Year" label="Year" wysiwyg="false" default="1900"/>
+                  <text identifier="Month" label="Month" default="1" type="dropdown">
+                     <dropdown-item value="1"/>
+                     <dropdown-item value="2"/>
+                     <dropdown-item value="3"/>
+                     <dropdown-item value="4"/>
+                     <dropdown-item value="5"/>
+                     <dropdown-item value="6"/>
+                     <dropdown-item value="7"/>
+                     <dropdown-item value="8"/>
+                     <dropdown-item value="9"/>
+                     <dropdown-item value="10"/>
+                     <dropdown-item value="11"/>
+                     <dropdown-item value="12"/>
+                  </text>
+                  <text identifier="Day" label="Day" default="1" type="dropdown">
+                     <dropdown-item value="1"/>
+                     <dropdown-item value="2"/>
+                     <dropdown-item value="3"/>
+                     <dropdown-item value="4"/>
+                     <dropdown-item value="5"/>
+                     <dropdown-item value="6"/>
+                     <dropdown-item value="7"/>
+                     <dropdown-item value="8"/>
+                     <dropdown-item value="9"/>
+                     <dropdown-item value="10"/>
+                     <dropdown-item value="11"/>
+                     <dropdown-item value="12"/>
+                     <dropdown-item value="13"/>
+                     <dropdown-item value="14"/>
+                     <dropdown-item value="15"/>
+                     <dropdown-item value="16"/>
+                     <dropdown-item value="17"/>
+                     <dropdown-item value="18"/>
+                     <dropdown-item value="19"/>
+                     <dropdown-item value="20"/>
+                     <dropdown-item value="21"/>
+                     <dropdown-item value="22"/>
+                     <dropdown-item value="23"/>
+                     <dropdown-item value="24"/>
+                     <dropdown-item value="25"/>
+                     <dropdown-item value="26"/>
+                     <dropdown-item value="27"/>
+                     <dropdown-item value="28"/>
+                     <dropdown-item value="29"/>
+                     <dropdown-item value="30"/>
+                     <dropdown-item value="31"/>
+                  </text>
+               </group>
+            </group>
+         </group>
+      </group>
+      <group identifier="Languages" label="Languages">
+         <group identifier="Language" label="Language" multiple="true">
+            <text identifier="Code" label="Code" type="dropdown" default="eng"
+               help-text="For an explanation of these codes, visit http://www.loc.gov/standards/iso639-2/php/code_list.php">
+               <dropdown-item value="aar"/>
+               <dropdown-item value="abk"/>
+               <dropdown-item value="ace"/>
+               <dropdown-item value="ach"/>
+               <dropdown-item value="ada"/>
+               <dropdown-item value="ady"/>
+               <dropdown-item value="afa"/>
+               <dropdown-item value="afh"/>
+               <dropdown-item value="afr"/>
+               <dropdown-item value="ain"/>
+               <dropdown-item value="aka"/>
+               <dropdown-item value="akk"/>
+               <dropdown-item value="ale"/>
+               <dropdown-item value="alg"/>
+               <dropdown-item value="alt"/>
+               <dropdown-item value="amh"/>
+               <dropdown-item value="ang"/>
+               <dropdown-item value="anp"/>
+               <dropdown-item value="apa"/>
+               <dropdown-item value="ara"/>
+               <dropdown-item value="arc"/>
+               <dropdown-item value="arg"/>
+               <dropdown-item value="arn"/>
+               <dropdown-item value="arp"/>
+               <dropdown-item value="art"/>
+               <dropdown-item value="arw"/>
+               <dropdown-item value="asm"/>
+               <dropdown-item value="ast"/>
+               <dropdown-item value="ath"/>
+               <dropdown-item value="aus"/>
+               <dropdown-item value="ava"/>
+               <dropdown-item value="ave"/>
+               <dropdown-item value="awa"/>
+               <dropdown-item value="aym"/>
+               <dropdown-item value="aze"/>
+               <dropdown-item value="bad"/>
+               <dropdown-item value="bai"/>
+               <dropdown-item value="bak"/>
+               <dropdown-item value="bal"/>
+               <dropdown-item value="bam"/>
+               <dropdown-item value="ban"/>
+               <dropdown-item value="bas"/>
+               <dropdown-item value="bat"/>
+               <dropdown-item value="bej"/>
+               <dropdown-item value="bel"/>
+               <dropdown-item value="bem"/>
+               <dropdown-item value="ben"/>
+               <dropdown-item value="ber"/>
+               <dropdown-item value="bho"/>
+               <dropdown-item value="bih"/>
+               <dropdown-item value="bik"/>
+               <dropdown-item value="bin"/>
+               <dropdown-item value="bis"/>
+               <dropdown-item value="bla"/>
+               <dropdown-item value="bnt"/>
+               <dropdown-item value="bod"/>
+               <dropdown-item value="bos"/>
+               <dropdown-item value="bra"/>
+               <dropdown-item value="bre"/>
+               <dropdown-item value="btk"/>
+               <dropdown-item value="bua"/>
+               <dropdown-item value="bug"/>
+               <dropdown-item value="bul"/>
+               <dropdown-item value="byn"/>
+               <dropdown-item value="cad"/>
+               <dropdown-item value="cai"/>
+               <dropdown-item value="car"/>
+               <dropdown-item value="cat"/>
+               <dropdown-item value="cau"/>
+               <dropdown-item value="ceb"/>
+               <dropdown-item value="cel"/>
+               <dropdown-item value="ces"/>
+               <dropdown-item value="cha"/>
+               <dropdown-item value="chb"/>
+               <dropdown-item value="che"/>
+               <dropdown-item value="chg"/>
+               <dropdown-item value="chk"/>
+               <dropdown-item value="chm"/>
+               <dropdown-item value="chn"/>
+               <dropdown-item value="cho"/>
+               <dropdown-item value="chp"/>
+               <dropdown-item value="chr"/>
+               <dropdown-item value="chu"/>
+               <dropdown-item value="chv"/>
+               <dropdown-item value="chy"/>
+               <dropdown-item value="cmc"/>
+               <dropdown-item value="cop"/>
+               <dropdown-item value="cor"/>
+               <dropdown-item value="cos"/>
+               <dropdown-item value="cpe"/>
+               <dropdown-item value="cpf"/>
+               <dropdown-item value="cpp"/>
+               <dropdown-item value="cre"/>
+               <dropdown-item value="crh"/>
+               <dropdown-item value="crp"/>
+               <dropdown-item value="csb"/>
+               <dropdown-item value="cus"/>
+               <dropdown-item value="cym"/>
+               <dropdown-item value="dak"/>
+               <dropdown-item value="dan"/>
+               <dropdown-item value="dar"/>
+               <dropdown-item value="day"/>
+               <dropdown-item value="del"/>
+               <dropdown-item value="den"/>
+               <dropdown-item value="deu"/>
+               <dropdown-item value="dgr"/>
+               <dropdown-item value="din"/>
+               <dropdown-item value="div"/>
+               <dropdown-item value="doi"/>
+               <dropdown-item value="dra"/>
+               <dropdown-item value="dsb"/>
+               <dropdown-item value="dua"/>
+               <dropdown-item value="dum"/>
+               <dropdown-item value="dyu"/>
+               <dropdown-item value="dzo"/>
+               <dropdown-item value="efi"/>
+               <dropdown-item value="egy"/>
+               <dropdown-item value="eka"/>
+               <dropdown-item value="ell"/>
+               <dropdown-item value="elx"/>
+               <dropdown-item value="eng"/>
+               <dropdown-item value="enm"/>
+               <dropdown-item value="epo"/>
+               <dropdown-item value="est"/>
+               <dropdown-item value="eus"/>
+               <dropdown-item value="ewe"/>
+               <dropdown-item value="ewo"/>
+               <dropdown-item value="fan"/>
+               <dropdown-item value="fao"/>
+               <dropdown-item value="fas"/>
+               <dropdown-item value="fat"/>
+               <dropdown-item value="fij"/>
+               <dropdown-item value="fil"/>
+               <dropdown-item value="fin"/>
+               <dropdown-item value="fiu"/>
+               <dropdown-item value="fon"/>
+               <dropdown-item value="fra"/>
+               <dropdown-item value="frm"/>
+               <dropdown-item value="fro"/>
+               <dropdown-item value="frr"/>
+               <dropdown-item value="frs"/>
+               <dropdown-item value="fry"/>
+               <dropdown-item value="ful"/>
+               <dropdown-item value="fur"/>
+               <dropdown-item value="gaa"/>
+               <dropdown-item value="gay"/>
+               <dropdown-item value="gba"/>
+               <dropdown-item value="gem"/>
+               <dropdown-item value="gez"/>
+               <dropdown-item value="gil"/>
+               <dropdown-item value="gla"/>
+               <dropdown-item value="gle"/>
+               <dropdown-item value="glg"/>
+               <dropdown-item value="glv"/>
+               <dropdown-item value="gmh"/>
+               <dropdown-item value="goh"/>
+               <dropdown-item value="gon"/>
+               <dropdown-item value="gor"/>
+               <dropdown-item value="got"/>
+               <dropdown-item value="grb"/>
+               <dropdown-item value="grc"/>
+               <dropdown-item value="grn"/>
+               <dropdown-item value="gsw"/>
+               <dropdown-item value="guj"/>
+               <dropdown-item value="gwi"/>
+               <dropdown-item value="hai"/>
+               <dropdown-item value="hat"/>
+               <dropdown-item value="hau"/>
+               <dropdown-item value="haw"/>
+               <dropdown-item value="heb"/>
+               <dropdown-item value="her"/>
+               <dropdown-item value="hil"/>
+               <dropdown-item value="him"/>
+               <dropdown-item value="hin"/>
+               <dropdown-item value="hit"/>
+               <dropdown-item value="hmn"/>
+               <dropdown-item value="hmo"/>
+               <dropdown-item value="hrv"/>
+               <dropdown-item value="hsb"/>
+               <dropdown-item value="hun"/>
+               <dropdown-item value="hup"/>
+               <dropdown-item value="hye"/>
+               <dropdown-item value="iba"/>
+               <dropdown-item value="ibo"/>
+               <dropdown-item value="ido"/>
+               <dropdown-item value="iii"/>
+               <dropdown-item value="ijo"/>
+               <dropdown-item value="iku"/>
+               <dropdown-item value="ile"/>
+               <dropdown-item value="ilo"/>
+               <dropdown-item value="ina"/>
+               <dropdown-item value="inc"/>
+               <dropdown-item value="ind"/>
+               <dropdown-item value="ine"/>
+               <dropdown-item value="inh"/>
+               <dropdown-item value="ipk"/>
+               <dropdown-item value="ira"/>
+               <dropdown-item value="iro"/>
+               <dropdown-item value="isl"/>
+               <dropdown-item value="ita"/>
+               <dropdown-item value="jav"/>
+               <dropdown-item value="jbo"/>
+               <dropdown-item value="jpn"/>
+               <dropdown-item value="jpr"/>
+               <dropdown-item value="jrb"/>
+               <dropdown-item value="kaa"/>
+               <dropdown-item value="kab"/>
+               <dropdown-item value="kac"/>
+               <dropdown-item value="kal"/>
+               <dropdown-item value="kam"/>
+               <dropdown-item value="kan"/>
+               <dropdown-item value="kar"/>
+               <dropdown-item value="kas"/>
+               <dropdown-item value="kat"/>
+               <dropdown-item value="kau"/>
+               <dropdown-item value="kaw"/>
+               <dropdown-item value="kaz"/>
+               <dropdown-item value="kbd"/>
+               <dropdown-item value="kha"/>
+               <dropdown-item value="khi"/>
+               <dropdown-item value="khm"/>
+               <dropdown-item value="kho"/>
+               <dropdown-item value="kik"/>
+               <dropdown-item value="kin"/>
+               <dropdown-item value="kir"/>
+               <dropdown-item value="kmb"/>
+               <dropdown-item value="kok"/>
+               <dropdown-item value="kom"/>
+               <dropdown-item value="kon"/>
+               <dropdown-item value="kor"/>
+               <dropdown-item value="kos"/>
+               <dropdown-item value="kpe"/>
+               <dropdown-item value="krc"/>
+               <dropdown-item value="krl"/>
+               <dropdown-item value="kro"/>
+               <dropdown-item value="kru"/>
+               <dropdown-item value="kua"/>
+               <dropdown-item value="kum"/>
+               <dropdown-item value="kur"/>
+               <dropdown-item value="kut"/>
+               <dropdown-item value="lad"/>
+               <dropdown-item value="lah"/>
+               <dropdown-item value="lam"/>
+               <dropdown-item value="lao"/>
+               <dropdown-item value="lat"/>
+               <dropdown-item value="lav"/>
+               <dropdown-item value="lez"/>
+               <dropdown-item value="lim"/>
+               <dropdown-item value="lin"/>
+               <dropdown-item value="lit"/>
+               <dropdown-item value="lol"/>
+               <dropdown-item value="loz"/>
+               <dropdown-item value="ltz"/>
+               <dropdown-item value="lua"/>
+               <dropdown-item value="lub"/>
+               <dropdown-item value="lug"/>
+               <dropdown-item value="lui"/>
+               <dropdown-item value="lun"/>
+               <dropdown-item value="luo"/>
+               <dropdown-item value="lus"/>
+               <dropdown-item value="mad"/>
+               <dropdown-item value="mag"/>
+               <dropdown-item value="mah"/>
+               <dropdown-item value="mai"/>
+               <dropdown-item value="mak"/>
+               <dropdown-item value="mal"/>
+               <dropdown-item value="man"/>
+               <dropdown-item value="map"/>
+               <dropdown-item value="mar"/>
+               <dropdown-item value="mas"/>
+               <dropdown-item value="mdf"/>
+               <dropdown-item value="mdr"/>
+               <dropdown-item value="men"/>
+               <dropdown-item value="mga"/>
+               <dropdown-item value="mic"/>
+               <dropdown-item value="min"/>
+               <dropdown-item value="mis"/>
+               <dropdown-item value="mkd"/>
+               <dropdown-item value="mkh"/>
+               <dropdown-item value="mlg"/>
+               <dropdown-item value="mlt"/>
+               <dropdown-item value="mnc"/>
+               <dropdown-item value="mni"/>
+               <dropdown-item value="mno"/>
+               <dropdown-item value="moh"/>
+               <dropdown-item value="mon"/>
+               <dropdown-item value="mos"/>
+               <dropdown-item value="mri"/>
+               <dropdown-item value="msa"/>
+               <dropdown-item value="mul"/>
+               <dropdown-item value="mun"/>
+               <dropdown-item value="mus"/>
+               <dropdown-item value="mwl"/>
+               <dropdown-item value="mwr"/>
+               <dropdown-item value="mya"/>
+               <dropdown-item value="myn"/>
+               <dropdown-item value="myv"/>
+               <dropdown-item value="nah"/>
+               <dropdown-item value="nai"/>
+               <dropdown-item value="nap"/>
+               <dropdown-item value="nau"/>
+               <dropdown-item value="nav"/>
+               <dropdown-item value="nbl"/>
+               <dropdown-item value="nde"/>
+               <dropdown-item value="ndo"/>
+               <dropdown-item value="nds"/>
+               <dropdown-item value="nep"/>
+               <dropdown-item value="new"/>
+               <dropdown-item value="nia"/>
+               <dropdown-item value="nic"/>
+               <dropdown-item value="niu"/>
+               <dropdown-item value="nld"/>
+               <dropdown-item value="nno"/>
+               <dropdown-item value="nob"/>
+               <dropdown-item value="nog"/>
+               <dropdown-item value="non"/>
+               <dropdown-item value="nor"/>
+               <dropdown-item value="nqo"/>
+               <dropdown-item value="nso"/>
+               <dropdown-item value="nub"/>
+               <dropdown-item value="nwc"/>
+               <dropdown-item value="nya"/>
+               <dropdown-item value="nym"/>
+               <dropdown-item value="nyn"/>
+               <dropdown-item value="nyo"/>
+               <dropdown-item value="nzi"/>
+               <dropdown-item value="oci"/>
+               <dropdown-item value="oji"/>
+               <dropdown-item value="ori"/>
+               <dropdown-item value="orm"/>
+               <dropdown-item value="osa"/>
+               <dropdown-item value="oss"/>
+               <dropdown-item value="ota"/>
+               <dropdown-item value="oto"/>
+               <dropdown-item value="paa"/>
+               <dropdown-item value="pag"/>
+               <dropdown-item value="pal"/>
+               <dropdown-item value="pam"/>
+               <dropdown-item value="pan"/>
+               <dropdown-item value="pap"/>
+               <dropdown-item value="pau"/>
+               <dropdown-item value="peo"/>
+               <dropdown-item value="phi"/>
+               <dropdown-item value="phn"/>
+               <dropdown-item value="pli"/>
+               <dropdown-item value="pol"/>
+               <dropdown-item value="pon"/>
+               <dropdown-item value="por"/>
+               <dropdown-item value="pra"/>
+               <dropdown-item value="pro"/>
+               <dropdown-item value="pus"/>
+               <dropdown-item value="qaa-qtz"/>
+               <dropdown-item value="que"/>
+               <dropdown-item value="raj"/>
+               <dropdown-item value="rap"/>
+               <dropdown-item value="rar"/>
+               <dropdown-item value="roa"/>
+               <dropdown-item value="roh"/>
+               <dropdown-item value="rom"/>
+               <dropdown-item value="ron"/>
+               <dropdown-item value="run"/>
+               <dropdown-item value="rup"/>
+               <dropdown-item value="rus"/>
+               <dropdown-item value="sad"/>
+               <dropdown-item value="sag"/>
+               <dropdown-item value="sah"/>
+               <dropdown-item value="sai"/>
+               <dropdown-item value="sal"/>
+               <dropdown-item value="sam"/>
+               <dropdown-item value="san"/>
+               <dropdown-item value="sas"/>
+               <dropdown-item value="sat"/>
+               <dropdown-item value="scn"/>
+               <dropdown-item value="sco"/>
+               <dropdown-item value="sel"/>
+               <dropdown-item value="sem"/>
+               <dropdown-item value="sga"/>
+               <dropdown-item value="sgn"/>
+               <dropdown-item value="shn"/>
+               <dropdown-item value="sid"/>
+               <dropdown-item value="sin"/>
+               <dropdown-item value="sio"/>
+               <dropdown-item value="sit"/>
+               <dropdown-item value="sla"/>
+               <dropdown-item value="slk"/>
+               <dropdown-item value="slv"/>
+               <dropdown-item value="sma"/>
+               <dropdown-item value="sme"/>
+               <dropdown-item value="smi"/>
+               <dropdown-item value="smj"/>
+               <dropdown-item value="smn"/>
+               <dropdown-item value="smo"/>
+               <dropdown-item value="sms"/>
+               <dropdown-item value="sna"/>
+               <dropdown-item value="snd"/>
+               <dropdown-item value="snk"/>
+               <dropdown-item value="sog"/>
+               <dropdown-item value="som"/>
+               <dropdown-item value="son"/>
+               <dropdown-item value="sot"/>
+               <dropdown-item value="spa"/>
+               <dropdown-item value="sqi"/>
+               <dropdown-item value="srd"/>
+               <dropdown-item value="srn"/>
+               <dropdown-item value="srp"/>
+               <dropdown-item value="srr"/>
+               <dropdown-item value="ssa"/>
+               <dropdown-item value="ssw"/>
+               <dropdown-item value="suk"/>
+               <dropdown-item value="sun"/>
+               <dropdown-item value="sus"/>
+               <dropdown-item value="sux"/>
+               <dropdown-item value="swa"/>
+               <dropdown-item value="swe"/>
+               <dropdown-item value="syc"/>
+               <dropdown-item value="syr"/>
+               <dropdown-item value="tah"/>
+               <dropdown-item value="tai"/>
+               <dropdown-item value="tam"/>
+               <dropdown-item value="tat"/>
+               <dropdown-item value="tel"/>
+               <dropdown-item value="tem"/>
+               <dropdown-item value="ter"/>
+               <dropdown-item value="tet"/>
+               <dropdown-item value="tgk"/>
+               <dropdown-item value="tgl"/>
+               <dropdown-item value="tha"/>
+               <dropdown-item value="tig"/>
+               <dropdown-item value="tir"/>
+               <dropdown-item value="tiv"/>
+               <dropdown-item value="tkl"/>
+               <dropdown-item value="tlh"/>
+               <dropdown-item value="tli"/>
+               <dropdown-item value="tmh"/>
+               <dropdown-item value="tog"/>
+               <dropdown-item value="ton"/>
+               <dropdown-item value="tpi"/>
+               <dropdown-item value="tsi"/>
+               <dropdown-item value="tsn"/>
+               <dropdown-item value="tso"/>
+               <dropdown-item value="tuk"/>
+               <dropdown-item value="tum"/>
+               <dropdown-item value="tup"/>
+               <dropdown-item value="tur"/>
+               <dropdown-item value="tut"/>
+               <dropdown-item value="tvl"/>
+               <dropdown-item value="twi"/>
+               <dropdown-item value="tyv"/>
+               <dropdown-item value="udm"/>
+               <dropdown-item value="uga"/>
+               <dropdown-item value="uig"/>
+               <dropdown-item value="ukr"/>
+               <dropdown-item value="umb"/>
+               <dropdown-item value="und"/>
+               <dropdown-item value="urd"/>
+               <dropdown-item value="uzb"/>
+               <dropdown-item value="vai"/>
+               <dropdown-item value="ven"/>
+               <dropdown-item value="vie"/>
+               <dropdown-item value="vol"/>
+               <dropdown-item value="vot"/>
+               <dropdown-item value="wak"/>
+               <dropdown-item value="wal"/>
+               <dropdown-item value="war"/>
+               <dropdown-item value="was"/>
+               <dropdown-item value="wen"/>
+               <dropdown-item value="wln"/>
+               <dropdown-item value="wol"/>
+               <dropdown-item value="xal"/>
+               <dropdown-item value="xho"/>
+               <dropdown-item value="yao"/>
+               <dropdown-item value="yap"/>
+               <dropdown-item value="yid"/>
+               <dropdown-item value="yor"/>
+               <dropdown-item value="ypk"/>
+               <dropdown-item value="zap"/>
+               <dropdown-item value="zbl"/>
+               <dropdown-item value="zen"/>
+               <dropdown-item value="zha"/>
+               <dropdown-item value="zho"/>
+               <dropdown-item value="znd"/>
+               <dropdown-item value="zul"/>
+               <dropdown-item value="zun"/>
+               <dropdown-item value="zxx"/>
+               <dropdown-item value="zza"/>
+            </text>
+            <text identifier="Name" label="Name" default="English"/>
+         </group>
+      </group>
+      <group identifier="Achievements" label="Achievements">
+         <group identifier="Achievement" label="Achievement" multiple="true">
+            <text identifier="Title" label="Title of Achievement"/>
+            <text identifier="Description" label="Description" multi-line="true" rows="5" cols="40"
+               wysiwyg="false"/>
+            <text identifier="InternetWebAddress" label="Link"/>
+            <group identifier="AchievementDate" label="Date">
+               <text identifier="Year" label="Year" wysiwyg="false" default="1900"/>
+               <text identifier="Month" label="Month" default="1" type="dropdown">
+                  <dropdown-item value="1"/>
+                  <dropdown-item value="2"/>
+                  <dropdown-item value="3"/>
+                  <dropdown-item value="4"/>
+                  <dropdown-item value="5"/>
+                  <dropdown-item value="6"/>
+                  <dropdown-item value="7"/>
+                  <dropdown-item value="8"/>
+                  <dropdown-item value="9"/>
+                  <dropdown-item value="10"/>
+                  <dropdown-item value="11"/>
+                  <dropdown-item value="12"/>
+               </text>
+               <text identifier="Day" label="Day" default="1" type="dropdown">
+                  <dropdown-item value="1"/>
+                  <dropdown-item value="2"/>
+                  <dropdown-item value="3"/>
+                  <dropdown-item value="4"/>
+                  <dropdown-item value="5"/>
+                  <dropdown-item value="6"/>
+                  <dropdown-item value="7"/>
+                  <dropdown-item value="8"/>
+                  <dropdown-item value="9"/>
+                  <dropdown-item value="10"/>
+                  <dropdown-item value="11"/>
+                  <dropdown-item value="12"/>
+                  <dropdown-item value="13"/>
+                  <dropdown-item value="14"/>
+                  <dropdown-item value="15"/>
+                  <dropdown-item value="16"/>
+                  <dropdown-item value="17"/>
+                  <dropdown-item value="18"/>
+                  <dropdown-item value="19"/>
+                  <dropdown-item value="20"/>
+                  <dropdown-item value="21"/>
+                  <dropdown-item value="22"/>
+                  <dropdown-item value="23"/>
+                  <dropdown-item value="24"/>
+                  <dropdown-item value="25"/>
+                  <dropdown-item value="26"/>
+                  <dropdown-item value="27"/>
+                  <dropdown-item value="28"/>
+                  <dropdown-item value="29"/>
+                  <dropdown-item value="30"/>
+                  <dropdown-item value="31"/>
+               </text>
+            </group>
+         </group>
+      </group>
+      <group identifier="ResumeAdditionalItems" label="Additional Items">
+         <group identifier="ResumeAdditionalItem" label="Item" multiple="true">
+            <text identifier="Name" label="Name"/>
+            <text identifier="Description" label="Description" multi-line="true" rows="5" cols="40"
+               wysiwyg="false"/>
+            <text identifier="InternetWebAddress" label="Link"/>
+            <group identifier="Date" label="Date">
+               <text identifier="Year" label="Year" wysiwyg="false" default="1900"/>
+               <text identifier="Month" label="Month" default="1" type="dropdown">
+                  <dropdown-item value="1"/>
+                  <dropdown-item value="2"/>
+                  <dropdown-item value="3"/>
+                  <dropdown-item value="4"/>
+                  <dropdown-item value="5"/>
+                  <dropdown-item value="6"/>
+                  <dropdown-item value="7"/>
+                  <dropdown-item value="8"/>
+                  <dropdown-item value="9"/>
+                  <dropdown-item value="10"/>
+                  <dropdown-item value="11"/>
+                  <dropdown-item value="12"/>
+               </text>
+               <text identifier="Day" label="Day" default="1" type="dropdown">
+                  <dropdown-item value="1"/>
+                  <dropdown-item value="2"/>
+                  <dropdown-item value="3"/>
+                  <dropdown-item value="4"/>
+                  <dropdown-item value="5"/>
+                  <dropdown-item value="6"/>
+                  <dropdown-item value="7"/>
+                  <dropdown-item value="8"/>
+                  <dropdown-item value="9"/>
+                  <dropdown-item value="10"/>
+                  <dropdown-item value="11"/>
+                  <dropdown-item value="12"/>
+                  <dropdown-item value="13"/>
+                  <dropdown-item value="14"/>
+                  <dropdown-item value="15"/>
+                  <dropdown-item value="16"/>
+                  <dropdown-item value="17"/>
+                  <dropdown-item value="18"/>
+                  <dropdown-item value="19"/>
+                  <dropdown-item value="20"/>
+                  <dropdown-item value="21"/>
+                  <dropdown-item value="22"/>
+                  <dropdown-item value="23"/>
+                  <dropdown-item value="24"/>
+                  <dropdown-item value="25"/>
+                  <dropdown-item value="26"/>
+                  <dropdown-item value="27"/>
+                  <dropdown-item value="28"/>
+                  <dropdown-item value="29"/>
+                  <dropdown-item value="30"/>
+                  <dropdown-item value="31"/>
+               </text>
+            </group>
+         </group>
+      </group>
+   </group>
+   <group identifier="ContactMethod" label="Contact Info">
+      <text identifier="InternetEmailAddress" label="Email" restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher"/>
+      <text identifier="InternetWebAddress" label="Website"/>
+      <group identifier="Telephone" label="Telephone" restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher">
+         <text identifier="TelephoneFormattedNumber" label="Formatted Number" restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher"/>
+         <text identifier="InternationalCountryCode" label="International Country Code" default="00" restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher"/>
+         <text identifier="NationalNumber" label="National Number" default="1" restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher"/>
+         <text identifier="AreaCityCode" label="Area Code" default="404" restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher"/>
+         <text identifier="SubscriberNumber" label="Subscriber Number" default="727" restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher"/>
+         <text identifier="Extension" label="Extension" restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher"/>
+      </group>
+      <group identifier="Fax" label="Fax" restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher">
+         <text identifier="TelephoneFormattedNumber" label="Formatted Number" restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher"/>
+         <text identifier="InternationalCountryCode" label="International Country Code" default="00" restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher"/>
+         <text identifier="NationalNumber" label="National Number" default="1" restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher"/>
+         <text identifier="AreaCityCode" label="Area Code" default="404" restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher"/>
+         <text identifier="SubscriberNumber" label="Subscriber Number" default="727" restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher"/>
+         <text identifier="Extension" label="Extension" restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher"/>
+      </group>
+      <group identifier="PostalAddress" label="Address" type="streetAddress" restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher">
+         <text identifier="BuildingRoom" label="Building and Room" multiple="false" required="false" restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher"/>
+         <text identifier="Mailstop" label="Mailstop" multiple="false" required="false" restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher"/>
+         <text identifier="AddressLine" label="Line" multiple="true" required="false" restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher"/>
+         <text identifier="Municipality" label="City" default="Atlanta" required="false" restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher"/>
+         <text identifier="Region" label="Region" default="GA" required="false" restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher"/>
+         <text identifier="PostalCode" label="Postal Code" default="30322" required="false" restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher"/>
+         <text identifier="CountryCode" label="Country" default="U.S.A." required="false" restrict-to-groups="college_managers,college_cascade_presentation,,college_publishers,college_semi_publisher"/>
+      </group>
+      <group identifier="Privacy" label="Privacy">
+         <text identifier="EmailExternal" label="Show Email?" type="radiobutton" default="yes">
+            <radio-item value="yes"/>
+            <radio-item value="no"/>
+         </text>
+         <text identifier="TelephoneExternal" label="Show Phone?" type="radiobutton" default="yes">
+            <radio-item value="yes"/>
+            <radio-item value="no"/>
+         </text>
+         <text identifier="BuildingRoomExternal" label="Show Building and Room Number?"
+            type="radiobutton" default="yes">
+            <radio-item value="yes"/>
+            <radio-item value="no"/>
+         </text>
+         <text identifier="PostalAddressExternal" label="Show Mailing Address?" type="radiobutton"
+            default="yes">
+            <radio-item value="yes"/>
+            <radio-item value="no"/>
+         </text>
+      </group>
+   </group>
+</system-data-structure>

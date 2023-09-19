@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en"> 
+
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Backing up and migrating: where content is stored in Drupal database tables and files | Adelle Frank</title>
+  
+<link rel="shortcut icon" href="ico/favicon.ico"  />
+  <link rel="stylesheet" media="all" href="css/css_6fb95d3684ef88a42b1ec6fe56ca5ccc.css" />
+  <link rel="stylesheet" media="all" href="css/grid16-960d956.css?o"/>
+  <!--[if IE]>
+   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->  
+  <!--[if IE 8]>
+  <link rel="stylesheet" media="all" href="/sites/all/themes/fusion/fusion_core/css/ie8-fixes.css?o" />
+  <![endif]-->
+  <!--[if IE 7]>
+  <link rel="stylesheet" media="all" href="/sites/all/themes/fusion/fusion_core/css/ie7-fixes.css?o" />
+  <![endif]-->
+  <!--[if lte IE 6]>
+  <link rel="stylesheet" media="all" href="/sites/all/themes/fusion/fusion_core/css/ie6-fixes.css?o"/>
+<link rel="stylesheet" media="all" href="/sites/all/themes/adelle/css/ie6-fixes.css?o"/>
+  <![endif]-->
+    <script src="js/js_a6373110aea2a7a54ab24e569f35f9f2.js"></script>
+<script>
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/" });
+//--><!]]>
+</script>
+</head>
+
+<body id="pid-blog-drupal-database-tables-files-backup-migrate" class="not-front not-logged-in page-node node-type-blog no-sidebars full-node layout-main sidebars-split font-size-12 grid-type-960 grid-width-16">
+  <div id="page" class="page">
+    <div id="page-inner" class="page-inner">
+      <div id="skip" role="navigation">
+        <a href="#main-content-area">Skip to Main Content Area</a>
+      </div>
+
+      <!-- header-top row: width = grid_width -->
+      
+      <!-- header-group row: width = grid_width -->
+      <div id="header-group-wrapper" class="header-group-wrapper full-width" role="banner">
+        <div id="header-group" class="header-group row grid16-16">
+          <div id="header-group-inner" class="header-group-inner inner clearfix">
+                        
+                        <div id="header-site-info" class="header-site-info block">
+              <div id="header-site-info-inner" class="header-site-info-inner inner">
+                                <div id="logo">
+                  <a href="index.html" title="Home"><img src="png/logo.png" alt="Home" /></a>
+                </div>
+                                                <div id="site-name-wrapper" class="clearfix">
+                                    <span id="site-name"><a href="index.html" title="Home">Adelle Frank</a></span>
+                                                      <span id="slogan">Drupal, genealogy, accessibility, and religion archives geek in Atlanta, Georgia</span>
+                                  </div><!-- /site-name-wrapper -->
+                              </div><!-- /header-site-info-inner -->
+            </div><!-- /header-site-info -->
+            
+            
+<div role="navigation" id="block-menu-menu-about" class="block block-menu odd first grid16-2 fusion-right fusion-multicol-menu clearfix">
+  <div class="inner clearfix">
+            <div class="content clearfix">
+      <ul class="menu"><li class="expanded first last"><a href="about.html" title="About">ABOUT</a><ul class="menu"><li class="leaf first"><a href="me.html" title="About Adelle">Adelle</a></li>
+<li class="leaf"><a href="surnames.html" title="">Surnames</a></li>
+<li class="leaf last"><a href="site.html" title="About this Site">This Site</a></li>
+</ul></li>
+</ul>    </div>
+  </div><!-- /block-inner -->
+</div><!-- /block -->
+
+<div role="navigation" id="block-menu-menu-topics" class="block block-menu even  last grid16-2 fusion-right fusion-multicol-menu clearfix">
+  <div class="inner clearfix">
+            <div class="content clearfix">
+      <ul class="menu"><li class="expanded first last"><a href="rss.html" title="Blog Topics">TOPICS</a><ul class="menu"><li class="leaf first"><a href="genealogy.html" title="Family history thoughts and notes.">Genealogy</a></li>
+<li class="leaf"><a href="libraries.html" title="Blog posts on topics of interest to those in the library and information science professions.">Libraries</a></li>
+<li class="leaf"><a href="drupal.html" title="Only the most wonderful web content management system in the universe!">Drupal</a></li>
+<li class="leaf"><a href="web.html" title="Blog posts about web design &amp; development.">The Web</a></li>
+<li class="leaf"><a href="daily-life.html" title="Blog posts related to the home and gardening.">Daily Life</a></li>
+<li class="leaf last"><a href="politics.html" title="Blog posts about politics and elections.">Politics</a></li>
+</ul></li>
+</ul>    </div>
+  </div><!-- /block-inner -->
+</div><!-- /block -->
+                      </div><!-- /header-group-inner -->
+        </div><!-- /header-group -->
+      </div><!-- /header-group-wrapper -->
+
+      <!-- preface-top row: width = grid_width -->
+      
+      <!-- main row: width = grid_width -->
+      <div id="main-wrapper" class="main-wrapper full-width">
+        <div id="main" class="main row grid16-16">
+          <div id="main-inner" class="main-inner inner clearfix">
+            
+            <!-- main group: width = grid_width - sidebar_first_width -->
+            <div id="main-group" class="main-group row nested grid16-16">
+              <div id="main-group-inner" class="main-group-inner inner">
+                
+                <div id="main-content" class="main-content row nested">
+                  <div id="main-content-inner" class="main-content-inner inner">
+                    <!-- content group: width = grid_width - (sidebar_first_width + sidebar_last_width) -->
+                    <div id="content-group" class="content-group row nested grid16-16">
+                      <div id="content-group-inner" class="content-group-inner inner">
+                        
+                        
+                        <div id="content-region" class="content-region row nested">
+                          <div id="content-region-inner" class="content-region-inner inner">
+                            <a name="main-content-area" id="main-content-area"></a>
+                                                        <div id="content-inner" class="content-inner block">
+                              <div id="content-inner-inner" class="content-inner-inner inner">   
+                                                                <div id="content-content" class="content-content" role="main">
+                                  
+<div id="node-388" class="node odd sticky full-node node-type-blog">
+
+  <div class="inner">
+
+    
+    
+    <div class="meta">
+
+      <div class="submitted">
+      
+        <div class="day">
+           25        </div>
+        <div class="month">
+           Nov        </div>
+        <div class="year">
+           2013        </div>
+      
+      </div>
+
+
+        
+        <div class="terms">
+
+          <ul class="links inline"><li class="taxonomy_term_33 first last"><a href="drupal.html" rel="tag" title="Posts about the most wonderful web content management system in the universe.">drupal</a></li>
+</ul>
+        </div>
+
+             
+
+   </div>
+   
+       
+
+ 
+ 
+    <h1 class="title">Backing up and migrating: where content is stored in Drupal database tables and files</h1>
+    
+                               
+    
+
+
+    <div class="content clearfix">
+
+      <p><a href="http://drupal.org/"><img alt="Drupal logo surrounded by data-related icons" height="90" src="png/database-tables-files.png" title="Drupal logo surrounded by data-related icons" width="135" /></a> You need to backup your Drupal 7 database and site, possibly because you have finished testing and want to move it to the live web server. <strong>The problem</strong>: you don&#39;t want to waste space backing up LARGE tables or files that you don&#39;t need, but are unsure which tables and files in your Drupal site to ignore. <strong>The solution</strong>: Adelle&#39;s guide to Drupal 7 tables and files (see below).</p>
+
+<p></p>
+
+<ul id="toc">
+	<li><a href="#data">Drupal is Data</a></li>
+	<li><a href="#files">Drupal is Files </a>
+	<ul>
+		<li><a href="#filetypes">Types of files</a></li>
+		<li><a href="#customfiles">Custom files to backup</a></li>
+		<li><a href="#settings">Why settings.php matters</a></li>
+	</ul>
+	<a href="#settings"> </a></li>
+	<li><a href="#tables">Drupal is Tables </a>
+	<ul>
+		<li><a href="#datatypes">Types of data</a></li>
+		<li><a href="#tips">Tips on database backups</a></li>
+		<li><a href="#nobackup">Tables NOT to backup</a></li>
+		<li><a href="#alwaysbackup">Tables to ALWAYS backup</a></li>
+		<li><a href="#howto">How to find table explanations</a></li>
+	</ul>
+	<a href="#howto"> </a></li>
+	<li><a href="#moreinfo">For more information</a></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h2><a id="data" name="data"></a>Drupal is data</h2>
+
+<p>When you move sites that live in Drupal, you have to know where this data is stored. There are 2 places to find data for Drupal: the file system and the database.</p>
+
+<h2><a id="files" name="files"></a>Drupal is files</h2>
+
+<h3><a id="filetypes" name="filetypes"></a>Types of files</h3>
+
+<p>Once you&#39;ve installed Drupal, there are two types of files on your web server: <em>customized </em>and <em>contributed</em>.</p>
+
+<ul>
+	<li><strong>Contributed files </strong>are ones that you downloaded, probably from <a href="http://drupal.org/download">drupal.org/download</a> as core files, modules or themes; or perhaps external libraries such as <a href="http://delicious.com/redirect?url=http%3A//docs.cksource.com/CKEditor_for_Drupal/Open_Source/Drupal_7">CKeditor</a>. The important point here is that <span class="pullquote"><em>you did not hack contributed files</em>, so they are <em>easy to replace with copies</em> from the same place you got the original files, assuming you have <em>recorded which version of each module, theme, or library</em> you were using</span>.</li>
+	<li><strong>Customized files</strong>, on the other hand, contain <em>code that you created</em> when you set up and are using your Drupal site. These <span class="pullquote">customized files would be <em>hard to replace</em> and so need to be carefully and regularly backed up</span>, both with regular archiving and, especially, when moving sites or before overwriting them to perform an update.</li>
+</ul>
+
+<h3><a id="customfiles" name="customfiles"></a>Commonly customized files &amp; folders to backup</h3>
+
+<p>Some of the <strong>files </strong>you are most likely to need to backup before updating or moving your Drupal site include:</p>
+
+<ol>
+	<li>Most of the files in the <em>ROOT</em><strong><em>/sites/ </em></strong>folder, which is usually very large. <span class="pullquote">You don&#39;t need to backup up theme, module, or library code that you have not changed</span>, only that which you&#39;ve hacked. A common organization you will see within a single-site Drupal <em>ROOT</em><strong><em>/sites/ </em></strong>folder (where asterisks indicate a folder or file that does NOT need backed up) is:
+
+	<ul>
+		<li>example.sites.php*</li>
+		<li>all
+		<ul>
+			<li>themes
+			<ul>
+				<li>zen*</li>
+				<li>MYCUSTOMIZEDTHEME</li>
+			</ul>
+			</li>
+			<li>modules
+			<ul>
+				<li>contrib*</li>
+				<li>custom</li>
+				<li>features</li>
+			</ul>
+			</li>
+			<li>libraries*</li>
+		</ul>
+		</li>
+		<li>default
+		<ul>
+			<li>settings.php</li>
+			<li>default.settings.php*</li>
+			<li>files
+			<ul>
+				<li>images</li>
+				<li>documents</li>
+				<li>private</li>
+			</ul>
+			</li>
+		</ul>
+		</li>
+	</ul>
+	</li>
+	<li>If you created your own install profile, you need to save the <em>ROOT</em><strong><em>/profiles/YOURCUSTOMIZEDprofilefolder/ </em></strong>folder</li>
+	<li>If you&#39;ve changed either of these 2 files that control redirection, authentication and what&#39;s hidden from major search engines, you&#39;ll want to also back up:
+	<ul>
+		<li>ROOT/<strong>.htaccess</strong></li>
+		<li>ROOT/<strong>robots.txt</strong></li>
+	</ul>
+	</li>
+</ol>
+
+<h3><a id="settings" name="settings"></a>Why settings.php matters</h3>
+
+<p>If you look at the <a href="http://api.drupal.org/api/drupal/sites%21default%21default.settings.php/7">settings.php source code on Drupal.org</a>, you will find two very important things stored here that you will NOT want to lose:</p>
+
+<ol>
+	<li>the <strong><a href="http://en.wikipedia.org/wiki/Salt_(cryptography)" title="Wikipedia definition of hash salt">hash salt</a> </strong>value: set when you first install drupal, <span class="pullquote">the <em>hash salt</em> enhances your data&#39;s security by encrypting it but, without it, much of your information will become indecipherable</span></li>
+	<li>the <strong>database connection</strong> values: the name of your database, and the username and password of the account you are allowing to have such power over this database.</li>
+</ol>
+
+<h2><a id="tables" name="tables"></a>Drupal is tables</h2>
+
+<h3><a id="datatypes" name="datatypes"></a>Types of data</h3>
+
+<p>In general, Drupal database tables contain one of these types of data:</p>
+
+<ol>
+	<li><strong>Configuration</strong>: variables and settings used by Drupal and its modules or themes.</li>
+	<li><strong>Content</strong>: organized stuff or <a href="http://definitivedrupal.org/resource/listing-all-entities-and-bundles-site">&quot;things with fields&quot;</a>. Some common types of content include:&nbsp;
+	<ul>
+		<li>users</li>
+		<li>comments</li>
+		<li>files</li>
+		<li>taxonomy terms (tags)</li>
+		<li>nodes (pages, articles, etc.)</li>
+		<li>blocks</li>
+		<li>views (reports)</li>
+		<li>rules (workflows)</li>
+	</ul>
+	</li>
+	<li><strong>Cache</strong>: store the results of the dynamic content Drupal builds for you and re-use it, so that Drupal runs faster because doesn&#39;t have to re-build every time that page is visited.</li>
+</ol>
+
+<h3><a id="tips" name="tips"></a>Tips on database backups</h3>
+
+<ul>
+	<li><span class="pullquote">The main tables you will want to backup for Drupal are the hard-to-recreate tables for <strong>configuration </strong>and <strong>content</strong>, but <strong>not </strong>the easily-rebuildable <em>cache </em>and indexing tables.</span></li>
+	<li>In terms of scaleability and copying ENTIRE databases, you will need to <strong>copy the STRUCTURE of all tables</strong>, but there are tables whose CONTENT or DATA might not need to be copied. In fact, <span class="pullquote">a great way to condense the SQL you export is to do downloads of, first, the <em>structure </em>of all tables, and then do separate exports of just the <em>data </em>for certain tables</span>. This can be helpful when you are importing this SQL back in, so that your phpmyadmin interface doesn&#39;t run out memory and stop importing halfway through your backup.&nbsp;</li>
+	<li>Finally, make sure to <span class="pullquote"><strong>change the database name</strong> in the SQL you exported when you are re-importing it into your new, differently-named database.</span></li>
+</ul>
+
+<h3><a id="nobackup" name="nobackup"></a>Drupal tables to (probably) NOT backup</h3>
+
+<p>You will still need to backup the structure of these tables, but you can ignore their data, unless you need to keep it for audit trails or other site-specific reasons:</p>
+
+<ul>
+	<li>any table with &#39;<strong>cache</strong>&#39; in the name (CORE owned by <a href="http://api.drupal.org/api/drupal/modules%21system%21system.install/function/system_schema/7" title="source code that creates table">system</a>, others by a specific contributed module, such as views or ctools)</li>
+	<li>any table that starts with &#39;<strong>search</strong>&#39; in its name (CORE owned by <a href="http://api.drupal.org/api/drupal/modules%21search%21search.install/function/search_schema/7" title="source code that creates table">search</a>)</li>
+	<li>any table <strong>with 0 (no) records</strong> in it</li>
+	<li><strong>advanced_help_index</strong>: stores search index correlations for advanced help topics (owned by <a href="http://api.drupalize.me/api/drupal/function/advanced_help_schema/7" title="source code that creates table">advanced_help</a>).<strong>&nbsp;</strong></li>
+	<li><strong>authmap</strong>: stores distributed authentication mapping for users (owned by <a href="http://api.drupal.org/api/drupal/modules%21user%21user.install/function/user_schema/7" title="source code that creates table">user</a>), <a href="http://drupal.org/node/817118">may be dropped in D8</a>.</li>
+	<li><strong>batch</strong>: stores details about batches, processes that run in multiple HTTP requests (owned by <a href="http://api.drupal.org/api/drupal/modules%21system%21system.install/function/system_schema/7" title="source code that creates table">system</a>).</li>
+	<li><strong>flood</strong>: flood controls the threshold of events, such as the number of contact attempts (owned by <a href="http://api.drupal.org/api/drupal/modules%21system%21system.install/function/system_schema/7" title="source code that creates table">system</a>).</li>
+	<li><strong>history</strong>: records which users have read which nodes (owned by <a href="http://api.drupal.org/api/drupal/modules%21node%21node.install/function/node_schema/7" title="source code that creates table">node</a>).</li>
+	<li><strong>menu_router</strong>: a sneaky cached table that is rebuilt based on the menu_links and menu_custom tables.</li>
+	<li><strong>node_comment_statistics</strong>: keeps statistics of node and comments posts to show &quot;new&quot; and &quot;updated&quot; flags (owned by <a href="http://api.drupal.org/api/drupal/modules%21comment%21comment.install/function/comment_schema/7">comment</a>).</li>
+	<li><strong>queue</strong>: stores tasks that need to be run periodically in sequentially-ordered lists, so that you don&#39;t have to worry about running out of memory (for long-running tasks) or about two tasks trying to do the same thing at the same time (owned by <a href="http://api.drupal.org/api/drupal/modules%21system%21system.queue.inc/7" title="source code that creates table">system</a>), used by cron, update, batch API, and aggregator modules</li>
+	<li><strong>semaphore</strong>: holds <a href="http://drupal.org/node/921416#comment-3487718" title="discussion on purpose of table">locks</a> (to prevent requests from executing same code at same time) and flags for the database (owned by <a href="http://api.drupal.org/api/drupal/modules%21system%21system.install/function/system_schema/7" title="source code that creates table">system</a>).</li>
+	<li><strong>sequences</strong>: stores unique numbers, may not be used much in D7 and <a href="http://groups.drupal.org/node/143174#comment-693113" title="discussion on sequences table purpose">may even be removed in D8</a> (owned by <a href="http://api.drupal.org/api/drupal/modules%21system%21system.install/function/system_schema/7" title="source code that creates table">system</a>), sometimes used by action, batch, trigger, and update modules.</li>
+	<li><strong>sessions</strong>: each record represents a user session, either anonymous or authenticated (owned by <a href="http://api.drupal.org/api/drupal/modules%21system%21system.install/function/system_schema/7" title="source code that creates table">system</a>).</li>
+	<li><strong>tracker_node</strong> &amp; <strong>tracker_user</strong>: tracks when nodes were last changed or commented on and by which user (owned by <a href="http://api.drupal.org/api/drupal/modules%21tracker%21tracker.install/function/tracker_schema/7" title="source code that creates table">tracker</a>).</li>
+	<li><strong>watchdog</strong>: logs all system events (owned by <a href="http://api.drupal.org/api/drupal/modules%21dblog%21dblog.install/function/dblog_schema/7" title="source code that creates table">dblog</a>)</li>
+</ul>
+
+<h3><a id="alwaysbackup" name="alwaysbackup"></a>Drupal tables to ALWAYS backup</h3>
+
+<p>This is not a comprehensive list of tables to export the DATA for, but it gives you an idea of where to start:</p>
+
+<ul>
+	<li>any table that begins with &#39;<strong>field</strong>&#39;: these hold most of your content</li>
+	<li>actions</li>
+	<li>block</li>
+	<li>blocked_ips</li>
+	<li>block_custom</li>
+	<li>block_node_type</li>
+	<li>block_role</li>
+	<li>comment</li>
+	<li>date_formats</li>
+	<li>date_format_locale</li>
+	<li>date_format_type</li>
+	<li>file_managed</li>
+	<li>file_usage</li>
+	<li>filter</li>
+	<li>filter_format</li>
+	<li>image_effects</li>
+	<li>image_styles</li>
+	<li>menu_custom</li>
+	<li>menu_links</li>
+	<li>node</li>
+	<li>node_access</li>
+	<li>node_revision</li>
+	<li>node_type</li>
+	<li>registry</li>
+	<li>registry_file</li>
+	<li>role</li>
+	<li>role_permission</li>
+	<li>system</li>
+	<li>url_alias</li>
+	<li>users</li>
+	<li>users_roles</li>
+	<li>variable</li>
+	<li>views_data_export</li>
+	<li>views_display (owned by <a href="http://api.drupalize.me/api/drupal/function/views_schema/7" title="source code that creates table">views</a>)</li>
+	<li>views_view (owned by <a href="http://api.drupalize.me/api/drupal/function/views_schema/7" title="source code that creates table">views</a>)</li>
+	<li><a href="http://contentment.org/2007/04/drupal-database-tables.html">Drupal 6 list of tables</a> explained by Andrew Sterling Hanenkamp</li>
+</ul>
+
+<h3><a id="howto" name="howto"></a>How to discover what a Drupal table does</h3>
+
+<p><strong>Question 1</strong>: As you learn about new tables, how do you find out what they are supposed to be doing on your site?<br />
+<strong>Answer 1</strong>: Search the API on <a href="http://api.drupal.org/api/drupal" title="drupal.org search page">Drupal.org</a> or on <a href="http://api.drupalize.me/" title="drupalize search page">Drupalize.me</a>.&nbsp;</p>
+
+<p><strong>Question 2</strong>: What <strong>words </strong>should you search for those APIs for?<br />
+<strong>Answer 2</strong>: Each table in Drupal is supposed to be created when its module is installed (<strong>in the .install file</strong>) by a function that ends with &#39;_schema&#39;. For example, if the table you are researching is part of the search module, then what you need to search for is probably &#39;search_schema&#39;.&nbsp; To see what sorts of tables are being created by Drupal&#39;s core, start to <strong>type &#39;<em>_schema</em>&#39; into the search box</strong> at http://api.drupal.org/ and a long list of suggestions should drop down.&nbsp; You can do the same for contributed modules at http://api.drupalize.me.</p>
+
+<p><strong>Question 3</strong>: I learn better visually, can you show me a diagram or sketch that shows how all these tables work together in Drupal?<br />
+<strong>Answer 3</strong>: Some very smart people have created just such visual aids, see <a href="http://upsitesweb.com/blog/2011/06/drupal-7-database-schema"><span><span class="username">ursula</span></span>&#39;s excellent collection of Drupal 7 database diagrams</a> and <a href="http://drupal.org/node/184586">moofie&#39;s great visual for Drupal 6</a>.</p>
+
+<h2><a id="moreinfo" name="moreinfo"></a>For More Information</h2>
+
+<ul>
+	<li><a href="https://www.drupal.org/node/2360815">Drupal 7&#39;s tables</a></li>
+	<li><a href="http://drupal.org/documentation/upgrade/6/7">Upgrading from Drupal 6 to 7</a> (Drupal.org)</li>
+	<li><a href="http://www.ostraining.com/blog/drupal/migrate-drupal-6-to-drupal-7/">Migrate Drupal 6 to Drupal 7</a> (OSTraining)</li>
+	<li><a href="http://gerardmcgarry.com/blog/my-drupal-6-7-upgrade-process">My Drupal 6 to 7 Upgrade Process</a> (Blog)</li>
+	<li><a href="http://smbjorklund.no/upgrade-drupal-6-7-how-hard-it">Upgrade from Drupal 6 to 7, how hard is it?</a> (Blog)</li>
+	<li><a href="http://delicious.com/redirect?url=http%3A//drupal.stackexchange.com/questions/22041/which-drupal-tables-are-safe-to-manually-clear-using-phpmyadmin">Which Drupal tables are safe to manually clear using phpmyadmin?</a> (StackExchange)</li>
+	<li><a href="http://drupal.org/project/feeds">Feeds</a> &amp; <a href="http://drupal.org/project/migrate">Migrate</a> modules (Drupal.org)</li>
+	<li><a href="http://fourkitchens.com/blog/2012/05/04/migrating-old-html-files-drupal">Migrating old HTML files into Drupal </a>(4 Kitchens)</li>
+	<li>DrupalCon Denver sessions: <a href="http://denver2012.drupal.org/program/sessions/migration-smoothing-move">non-technical</a> and more technical <a href="http://denver2012.drupal.org/program/sessions/managing-highly-successful-drupal-migrations">session1</a> and <a href="http://denver2012.drupal.org/program/sessions/heads-7-migration-drupal-7">session2</a></li>
+	<li><a href="http://drupal.org/glossary">Glossary of words used in Drupal</a></li>
+	<li><a href="http://www.interworks.com/blogs/jkhalaj/2012/04/12/drupal-7-usage-foreign-keys-schema-api-and-current-default-fk-erd">D7 Usage of Foreign Keys in Schema API and current default FK ERD</a></li>
+	<li><a href="http://www.hashbangcode.com/blog/drupal-7-queues-api-579.html">Excellent overview of queue in Drupal 7</a> (see <a href="http://www.slideshare.net/philipnorton42/drupal-7-queues">related slides</a>)</li>
+	<li><a class="title" href="http://www.delicious.com/redirect?url=http%3A//groups.drupal.org/node/26008" rel="nofollow" target="_blank" title="Sync Staging (From Staging to Production as Simply as Possible) | groups.drupal.org">Sync Staging (From Staging to Production as Simply as Possible) | groups.drupal.org</a></li>
+	<li><a href="http://www.lullabot.com/articles/beginners-guide-caching-data-drupal-7">A beginners guide to caching data in Drupal 7</a></li>
+	<li><a href="http://drupal.stackexchange.com/questions/1055/after-deleting-all-nodes-how-do-i-reset-the-node-id-to-start-from-1-again">How sequences relates to other module tables</a></li>
+</ul>
+
+    </div>
+
+
+  </div><!-- /inner -->
+
+
+
+  
+</div><!-- /node-388 -->
+
+                                                                  </div><!-- /content-content -->
+                                                              </div><!-- /content-inner-inner -->
+                            </div><!-- /content-inner -->
+                          </div><!-- /content-region-inner -->
+                        </div><!-- /content-region -->
+
+                                              </div><!-- /content-group-inner -->
+                    </div><!-- /content-group -->
+
+                                      </div><!-- /main-content-inner -->
+                </div><!-- /main-content -->
+
+                              </div><!-- /main-group-inner -->
+            </div><!-- /main-group -->
+          </div><!-- /main-inner -->
+        </div><!-- /main -->
+      </div><!-- /main-wrapper -->
+
+      <!-- postscript-bottom row: width = grid_width -->
+      
+      <!-- footer row: width = grid_width -->
+      
+      <!-- footer-message row: width = grid_width -->
+      <div id="footer-message-wrapper" class="footer-message-wrapper full-width">
+        <div id="footer-message" class="footer-message row grid16-16">
+          <div id="footer-message-inner" class="footer-message-inner inner clearfix" role="contentinfo">
+            <div id="footer-message-text" class="footer-message-text block">
+<div id="footer-message-text-inner" class="footer-message-text-inner inner clearfix">
+&copy; Adelle Frank, All rights reserved unless otherwise specified.</div><!-- /footer-message-text-inner -->
+</div><!-- /footer-message-text -->
+          </div><!-- /footer-message-inner -->
+        </div><!-- /footer-message -->
+      </div><!-- /footer-message-wrapper -->
+
+    </div><!-- /page-inner -->
+  </div><!-- /page -->
+  </body>
+</html>

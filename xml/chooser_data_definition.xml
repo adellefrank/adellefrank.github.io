@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system-data-structure>
+    <text wysiwyg="true" identifier="content" label="Content"/>
+    <asset type="block" identifier="block-content" label="Select Index Block" multiple="true" render-content-depth="5"/>
+    <asset type="page" identifier="page-content" label="Select Page" multiple="true" render-content-depth="5"/>
+    <asset type="file" identifier="file-content" label="Select File" multiple="true" render-content-depth="2"/>
+    <asset type="symlink" identifier="link-content" label="Select Link" multiple="true" render-content-depth="1"/>
+</system-data-structure>

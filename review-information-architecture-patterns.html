@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en"> 
+
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>9 Information Architecture Patterns | Adelle Frank</title>
+  
+<link rel="shortcut icon" href="ico/favicon.ico"  />
+  <link rel="stylesheet" media="all" href="css/css_6fb95d3684ef88a42b1ec6fe56ca5ccc.css" />
+  <link rel="stylesheet" media="all" href="css/grid16-960d956.css?o"/>
+  <!--[if IE]>
+   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->  
+  <!--[if IE 8]>
+  <link rel="stylesheet" media="all" href="/sites/all/themes/fusion/fusion_core/css/ie8-fixes.css?o" />
+  <![endif]-->
+  <!--[if IE 7]>
+  <link rel="stylesheet" media="all" href="/sites/all/themes/fusion/fusion_core/css/ie7-fixes.css?o" />
+  <![endif]-->
+  <!--[if lte IE 6]>
+  <link rel="stylesheet" media="all" href="/sites/all/themes/fusion/fusion_core/css/ie6-fixes.css?o"/>
+<link rel="stylesheet" media="all" href="/sites/all/themes/adelle/css/ie6-fixes.css?o"/>
+  <![endif]-->
+    <script src="js/js_a6373110aea2a7a54ab24e569f35f9f2.js"></script>
+<script>
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/" });
+//--><!]]>
+</script>
+</head>
+
+<body id="pid-blog-review-information-architecture-patterns" class="not-front not-logged-in page-node node-type-blog no-sidebars full-node layout-main sidebars-split font-size-12 grid-type-960 grid-width-16">
+  <div id="page" class="page">
+    <div id="page-inner" class="page-inner">
+      <div id="skip" role="navigation">
+        <a href="#main-content-area">Skip to Main Content Area</a>
+      </div>
+
+      <!-- header-top row: width = grid_width -->
+      
+      <!-- header-group row: width = grid_width -->
+      <div id="header-group-wrapper" class="header-group-wrapper full-width" role="banner">
+        <div id="header-group" class="header-group row grid16-16">
+          <div id="header-group-inner" class="header-group-inner inner clearfix">
+                        
+                        <div id="header-site-info" class="header-site-info block">
+              <div id="header-site-info-inner" class="header-site-info-inner inner">
+                                <div id="logo">
+                  <a href="index.html" title="Home"><img src="png/logo.png" alt="Home" /></a>
+                </div>
+                                                <div id="site-name-wrapper" class="clearfix">
+                                    <span id="site-name"><a href="index.html" title="Home">Adelle Frank</a></span>
+                                                      <span id="slogan">Drupal, genealogy, accessibility, and religion archives geek in Atlanta, Georgia</span>
+                                  </div><!-- /site-name-wrapper -->
+                              </div><!-- /header-site-info-inner -->
+            </div><!-- /header-site-info -->
+            
+            
+<div role="navigation" id="block-menu-menu-about" class="block block-menu odd first grid16-2 fusion-right fusion-multicol-menu clearfix">
+  <div class="inner clearfix">
+            <div class="content clearfix">
+      <ul class="menu"><li class="expanded first last"><a href="about.html" title="About">ABOUT</a><ul class="menu"><li class="leaf first"><a href="me.html" title="About Adelle">Adelle</a></li>
+<li class="leaf"><a href="surnames.html" title="">Surnames</a></li>
+<li class="leaf last"><a href="site.html" title="About this Site">This Site</a></li>
+</ul></li>
+</ul>    </div>
+  </div><!-- /block-inner -->
+</div><!-- /block -->
+
+<div role="navigation" id="block-menu-menu-topics" class="block block-menu even  last grid16-2 fusion-right fusion-multicol-menu clearfix">
+  <div class="inner clearfix">
+            <div class="content clearfix">
+      <ul class="menu"><li class="expanded first last"><a href="rss.html" title="Blog Topics">TOPICS</a><ul class="menu"><li class="leaf first"><a href="genealogy.html" title="Family history thoughts and notes.">Genealogy</a></li>
+<li class="leaf"><a href="libraries.html" title="Blog posts on topics of interest to those in the library and information science professions.">Libraries</a></li>
+<li class="leaf"><a href="drupal.html" title="Only the most wonderful web content management system in the universe!">Drupal</a></li>
+<li class="leaf"><a href="web.html" title="Blog posts about web design &amp; development.">The Web</a></li>
+<li class="leaf"><a href="daily-life.html" title="Blog posts related to the home and gardening.">Daily Life</a></li>
+<li class="leaf last"><a href="politics.html" title="Blog posts about politics and elections.">Politics</a></li>
+</ul></li>
+</ul>    </div>
+  </div><!-- /block-inner -->
+</div><!-- /block -->
+                      </div><!-- /header-group-inner -->
+        </div><!-- /header-group -->
+      </div><!-- /header-group-wrapper -->
+
+      <!-- preface-top row: width = grid_width -->
+      
+      <!-- main row: width = grid_width -->
+      <div id="main-wrapper" class="main-wrapper full-width">
+        <div id="main" class="main row grid16-16">
+          <div id="main-inner" class="main-inner inner clearfix">
+            
+            <!-- main group: width = grid_width - sidebar_first_width -->
+            <div id="main-group" class="main-group row nested grid16-16">
+              <div id="main-group-inner" class="main-group-inner inner">
+                
+                <div id="main-content" class="main-content row nested">
+                  <div id="main-content-inner" class="main-content-inner inner">
+                    <!-- content group: width = grid_width - (sidebar_first_width + sidebar_last_width) -->
+                    <div id="content-group" class="content-group row nested grid16-16">
+                      <div id="content-group-inner" class="content-group-inner inner">
+                        
+                        
+                        <div id="content-region" class="content-region row nested">
+                          <div id="content-region-inner" class="content-region-inner inner">
+                            <a name="main-content-area" id="main-content-area"></a>
+                                                        <div id="content-inner" class="content-inner block">
+                              <div id="content-inner-inner" class="content-inner-inner inner">   
+                                                                <div id="content-content" class="content-content" role="main">
+                                  
+<div id="node-207" class="node odd sticky full-node node-type-blog">
+
+  <div class="inner">
+
+    
+    
+    <div class="meta">
+
+      <div class="submitted">
+      
+        <div class="day">
+           2        </div>
+        <div class="month">
+           Aug        </div>
+        <div class="year">
+           2010        </div>
+      
+      </div>
+
+
+        
+        <div class="terms">
+
+          <ul class="links inline"><li class="taxonomy_term_6 first last"><a href="libraries.html" rel="tag" title="Entries focused mainly on topics within the library and information sciences.">libraries</a></li>
+</ul>
+        </div>
+
+             
+
+   </div>
+   
+       
+
+ 
+ 
+    <h1 class="title">9 Information Architecture Patterns</h1>
+    
+                               
+    
+
+
+    <div class="content clearfix">
+
+      <p><strong><img alt="Hierarchy &amp; Database diagram" height="81" src="png/medium_heirarchy_database.png" style="margin: 2px 10px; float: left;" title="Hierarchy &amp; Database diagram" width="120" />Diagrams </strong>of the <strong>4 <em>main </em></strong>patterns proposed by Donna Spencer, as well as her <strong>4 <em>combination </em></strong>patterns and <strong>1 <em>audience-contributed </em></strong>IA pattern.</p>
+
+<p><em>This <a href="http://2010.iasummit.org/talks/9750" title="Talk overview">presentation</a> was given by Donna Spencer at the IA Summit 2010, in Phoenix, AZ. You can <a href="http://www.slideshare.net/donnam/information-architecture-patterns" title="Slideshare of Donna's presentation">View her presentation on Slideshare</a> and <a href="http://files.boxesandarrows.com/podcasts/Spencer.mp3" title="MP3 of talk">Listen to the Boxes and Arrows Podcast</a>. </em></p>
+
+<p></p>
+
+<ul id="toc" role="navigation">
+	<li>Patterns
+	<ol>
+		<li><a href="#hierarchy">Hierarchy</a></li>
+		<li><a href="#database">Database</a></li>
+		<li><a href="#hypertext">Hypertext</a></li>
+		<li><a href="#linear">Linear</a></li>
+		<li><a href="#hierarchyDatabase">Simple Hierarchy &amp; Database</a></li>
+		<li><a href="#catalog">Catalog</a></li>
+		<li><a href="#subsites">Sub-Sites</a></li>
+		<li><a href="#entryPoints">Focused Entry Points</a></li>
+		<li><a href="#hubspoke">Hub and Spoke</a></li>
+	</ol>
+	</li>
+	<li><a href="#comments">Comments on presentation</a></li>
+	<li><a href="#moreinfo">For more information</a></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p><strong>Presentation Description</strong>:</p>
+
+<p>&quot;We have patterns for buildings, patterns for interaction design, and patterns for software development. But are there patterns for information architecture?</p>
+
+<p>&nbsp; Of course there are - patterns emerge from use, and there certainly are enough information architectures around to identify a set of patterns.</p>
+
+<p>&nbsp; This presentation will describe a wide range of commonly-used information architecture patterns, including hierarchies small and large, different types of database structure, hypertext, subsite models, sites with multiple entry points and ways of combining these (and more that I discover before April).</p>
+
+<p>&nbsp; For each I will describe the core elements of the pattern, discuss the most appropriate uses and show real-world examples.</p>
+
+<p>&nbsp; Understanding the different patterns will help attendees to select the most appropriate structures for their content.&quot;</p>
+
+<p>&nbsp;</p>
+
+<table border="0" cellpadding="10" cellspacing="5" style="width: 100%;">
+	<tbody>
+		<tr>
+			<td>
+			<h2><a name="hierarchy"></a>1. Hierarchy</h2>
+
+			<ul>
+				<li>Good for:
+				<ul>
+					<li>Small sites &ndash; little need for anything else</li>
+					<li>When you are guiding, allowing people learn more and more detail</li>
+				</ul>
+				</li>
+				<li>The relationship between content chunks is naturally hierarchical
+				<ul>
+					<li>broader and narrower (less and more detail)</li>
+				</ul>
+				</li>
+			</ul>
+			</td>
+			<td>
+			<h2><img alt="Hierarchy diagram" height="412" src="png/heirarchy.png" style="float: right;" title="Hierarchy diagram" width="590" /></h2>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<h2><a name="database"></a>2. Database</h2>
+
+			<ul>
+				<li>Content chunks are independent
+				<ul>
+					<li>There are relationships, but not dependent on each other</li>
+				</ul>
+				</li>
+				<li>Good for:
+				<ul>
+					<li>Single &lsquo;product&rsquo; with consistent structure</li>
+					<li>Storing content once, display it in many ways</li>
+					<li>VERY expandable structure, unlike hierarchy</li>
+				</ul>
+				</li>
+			</ul>
+			</td>
+			<td>
+			<h2><img alt="Database diagram" height="418" src="png/database.png" style="float: right;" title="Database diagram" width="589" /></h2>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<h2><a name="hypertext"></a>3. Hypertext</h2>
+
+			<ul>
+				<li>No planned structure (very different from #1 &amp; #2)</li>
+				<li><strong>Content </strong>is linked together in <strong>context</strong></li>
+				<li>Good for:
+				<ul>
+					<li>Content not known in advance</li>
+					<li>(i.e. good for creating documentation)</li>
+					<li>Developing content domains</li>
+					<li>Collaborative work</li>
+				</ul>
+				</li>
+				<li>Main challenge ‐ knowing what is available to link to</li>
+			</ul>
+			</td>
+			<td>
+			<h2><img alt="Hypertext diagram" height="422" src="png/hypertext.png" style="float: right;" title="Hypertext diagram" width="590" /></h2>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<h2><a name="linear"></a>4. Linear</h2>
+
+			<ul>
+				<li>Not IA examples:
+				<ul>
+					<li>Transactional things (wizards, purchase process)</li>
+					<li>Breaking articles up like this is NOT a good use.</li>
+					<li>Application Workflows</li>
+				</ul>
+				</li>
+				<li>When does this make sense for an IA content type?
+				<ul>
+					<li>If you must learn 1 thing 1st before learning a 2nd thing (Sequential).</li>
+					<li>But don&#39;t lock people into this structure, unless it is CRUCIAL to their task.</li>
+				</ul>
+				</li>
+			</ul>
+			</td>
+			<td>
+			<h2><img alt="Linear diagram" height="393" src="png/linear.png" style="float: right;" title="Linear diagram" width="592" /></h2>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<h2>Combinations of 1-4</h2>
+			</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>
+			<h3><a name="hierarchyDatabase"></a>5. Simple hierarchy &amp; Simple database</h3>
+
+			<ul>
+				<li>Very common pattern</li>
+				<li>Basic heirarchy + Some sections have structured content</li>
+				<li>Good for a wide range of medium sites that have a need&nbsp; for some database‐style content</li>
+			</ul>
+			</td>
+			<td>
+			<h2><img alt="Simple Hierarchy &amp; Database diagram" height="399" src="png/heirarchy_database.png" style="float: right;" title="Simple Hierarchy &amp; Database diagram" width="592" /></h2>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<h3><a name="catalog"></a>6. Catalog</h3>
+
+			<ul>
+				<li>Particular instance of hierarchy + database (#5)</li>
+				<li>Spool&#39;s idea
+				<ul>
+					<li>Pile of content (structured)</li>
+					<li>Gallery pages (lets you into content)</li>
+					<li>Department pages (lets you into galleries)</li>
+					<li>Store pages (lets you into department)</li>
+				</ul>
+				</li>
+				<li>Like any database, able to be expanded really easily.</li>
+				<li>Hierarchical size depends on how much content you have (doesn&#39;t have to have store/department pages, but then again, it may have extra levels)</li>
+			</ul>
+			</td>
+			<td>
+			<h2><img alt="Catalog diagram" height="397" src="png/catalog.png" style="float: right;" title="Catalog diagram" width="592" /></h2>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<h3><a name="subsites"></a>7. Sub-sites</h3>
+
+			<ul>
+				<li>Good for <strong>big </strong>organisations with lots of <strong>separate</strong> topics/responsibilities
+
+				<ul>
+					<li>may have own web team for each sub-site</li>
+					<li>especially those needing one visual brand</li>
+					<li>example: government</li>
+				</ul>
+				</li>
+				<li>Subsites may have a <strong>consistent </strong>structure/pattern or <strong>vary</strong></li>
+				<li>Need to decide how often people need to cross between subsites</li>
+				<li><strong>GOAL of Homepage</strong>: help people get to sub-site they seek.</li>
+			</ul>
+			</td>
+			<td>
+			<h2><img alt="Sub-sites diagram" height="394" src="png/subsites.png" style="float: right;" title="Sub-sites diagram" width="584" /></h2>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<h3><a name="entrypoints"></a>8. Focused entry points</h3>
+
+			<ul>
+				<li>Problem: how to organize content</li>
+				<li>Organize it one way, BUT then: provide entry points for other people. Examples:
+				<ul>
+					<li><strong>Audience </strong>Entry point</li>
+					<li>Specific <strong> Topical </strong>Entry point</li>
+					<li><strong>Task</strong>-based Entry point</li>
+				</ul>
+				</li>
+				<li>Both-And</li>
+				<li>Often, users are interested in specific topic, not whole sub-site or entire hierarchy topic.</li>
+				<li>Often done manually, not generated by metadata or tags unless its big enough.</li>
+				<li>VERY common on University sites.
+				<ul>
+					<li>Example: gives audiences an overview, instead of having to visit every department page</li>
+					<li>Highlights that lead deeper</li>
+					<li>Often written manually</li>
+					<li>my term: <strong>org-chart-itis</strong>&nbsp; :)</li>
+				</ul>
+				</li>
+			</ul>
+			</td>
+			<td>
+			<h2><img alt="Focused Entry Points diagram" height="399" src="png/focusedentrypoints.png" style="float: right;" title="Focused Entry Points diagram" width="590" /></h2>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<h3><a name="hubspoke"></a>9. Hub and Spoke</h3>
+
+			<ul>
+				<li>Facebook &amp; LinkedIn (Profile Page)</li>
+				<li>Donna&#39;s question: Is this a Heirarchy? It still has a center, just set out radially</li>
+				<li>Core content = CENTRALITY, with all other content being changeable and flexible and contextual to it.</li>
+				<li>
+				<p>Might we call this, &quot;<strong>Portal</strong>&quot;?</p>
+				</li>
+			</ul>
+			</td>
+			<td>
+			<h2><a href="http://katiepoplin.com/2009/01/hub-and-spoke-social-media-engagement-model/" title="Origin of image: Social Media Engagement Blog post"><img alt="Obama Campaign's Hub &amp; Spoke Model" height="326" src="png/obama_hub_and_spoke.png" title="Obama Campaign's Hub &amp; Spoke Model" width="481" /> </a></h2>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>&nbsp;</p>
+
+<h2><a name="comments">Comments on this Presentation</a></h2>
+
+<p>&nbsp;</p>
+
+<p><em>Dan Brown&#39;s Comment</em>: These are IA</p>
+
+<ul>
+	<li>structural/information patterns, not just</li>
+	<li>navigation patterns.</li>
+</ul>
+
+<p><em>Other Comment</em>: Different people start &amp; end different places in IA</p>
+
+<ul>
+	<li>Structures (Big picture Patterns)</li>
+	<li>Problem definition (&amp; Users)</li>
+</ul>
+
+<p><em>Donna</em>: &quot;It&#39;s 5:45 and Beer O&#39;Clock!&quot;</p>
+
+<p>&nbsp;</p>
+
+<h3><a name="moreinfo">For More Information</a></h3>
+
+<ul>
+	<li><a href="http://www.webdesignfromscratch.com/website-architecture/ia-models/" title="Web Design from Scratch's take on IA structures">2nd Opinion on IA structures</a> (Web Design from Scratch).</li>
+	<li><a href="http://www.slideshare.net/haraldf/ia-6-patterns-for-effective-ixd" title="Tidwell's slideshow">Patterns for Effective Interaction Design</a> (Jennifer Tidwell slideshow)</li>
+</ul>
+
+    </div>
+
+
+  </div><!-- /inner -->
+
+
+
+  
+</div><!-- /node-207 -->
+
+                                                                  </div><!-- /content-content -->
+                                                              </div><!-- /content-inner-inner -->
+                            </div><!-- /content-inner -->
+                          </div><!-- /content-region-inner -->
+                        </div><!-- /content-region -->
+
+                                              </div><!-- /content-group-inner -->
+                    </div><!-- /content-group -->
+
+                                      </div><!-- /main-content-inner -->
+                </div><!-- /main-content -->
+
+                              </div><!-- /main-group-inner -->
+            </div><!-- /main-group -->
+          </div><!-- /main-inner -->
+        </div><!-- /main -->
+      </div><!-- /main-wrapper -->
+
+      <!-- postscript-bottom row: width = grid_width -->
+      
+      <!-- footer row: width = grid_width -->
+      
+      <!-- footer-message row: width = grid_width -->
+      <div id="footer-message-wrapper" class="footer-message-wrapper full-width">
+        <div id="footer-message" class="footer-message row grid16-16">
+          <div id="footer-message-inner" class="footer-message-inner inner clearfix" role="contentinfo">
+            <div id="footer-message-text" class="footer-message-text block">
+<div id="footer-message-text-inner" class="footer-message-text-inner inner clearfix">
+&copy; Adelle Frank, All rights reserved unless otherwise specified.</div><!-- /footer-message-text-inner -->
+</div><!-- /footer-message-text -->
+          </div><!-- /footer-message-inner -->
+        </div><!-- /footer-message -->
+      </div><!-- /footer-message-wrapper -->
+
+    </div><!-- /page-inner -->
+  </div><!-- /page -->
+  </body>
+</html>

@@ -1,0 +1,90 @@
+$view = new view;
+$view->name = 'all_export_editors';
+$view->description = 'Export Latest Editors of FAQs';
+$view->tag = '';
+$view->base_table = 'node';
+$view->human_name = 'ExportLatestEditors';
+$view->core = 6;
+$view->api_version = '3.0';
+$view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+/* Display: Defaults */
+$handler = $view->new_display('default', 'Defaults', 'default');
+$handler->display->display_options['access']['type'] = 'none';
+$handler->display->display_options['cache']['type'] = 'none';
+$handler->display->display_options['query']['type'] = 'views_query';
+$handler->display->display_options['exposed_form']['type'] = 'basic';
+$handler->display->display_options['pager']['type'] = 'none';
+$handler->display->display_options['pager']['options']['offset'] = '0';
+$handler->display->display_options['style_plugin'] = 'default';
+$handler->display->display_options['row_plugin'] = 'fields';
+/* Field: Node: Last edited by */
+$handler->display->display_options['fields']['last_editor']['id'] = 'last_editor';
+$handler->display->display_options['fields']['last_editor']['table'] = 'node';
+$handler->display->display_options['fields']['last_editor']['field'] = 'last_editor';
+$handler->display->display_options['fields']['last_editor']['label'] = 'LastEditUserID';
+$handler->display->display_options['fields']['last_editor']['alter']['alter_text'] = 0;
+$handler->display->display_options['fields']['last_editor']['alter']['make_link'] = 0;
+$handler->display->display_options['fields']['last_editor']['alter']['absolute'] = 0;
+$handler->display->display_options['fields']['last_editor']['alter']['word_boundary'] = 0;
+$handler->display->display_options['fields']['last_editor']['alter']['ellipsis'] = 0;
+$handler->display->display_options['fields']['last_editor']['alter']['strip_tags'] = 0;
+$handler->display->display_options['fields']['last_editor']['alter']['trim'] = 0;
+$handler->display->display_options['fields']['last_editor']['alter']['html'] = 0;
+$handler->display->display_options['fields']['last_editor']['hide_empty'] = 0;
+$handler->display->display_options['fields']['last_editor']['empty_zero'] = 0;
+$handler->display->display_options['fields']['last_editor']['hide_alter_empty'] = 1;
+/* Field: Email */
+$handler->display->display_options['fields']['name']['id'] = 'name';
+$handler->display->display_options['fields']['name']['table'] = 'users';
+$handler->display->display_options['fields']['name']['field'] = 'name';
+$handler->display->display_options['fields']['name']['ui_name'] = 'Email';
+$handler->display->display_options['fields']['name']['label'] = 'Email';
+$handler->display->display_options['fields']['name']['alter']['alter_text'] = 1;
+$handler->display->display_options['fields']['name']['alter']['text'] = '[last_editor]@mail.gatech.edu';
+$handler->display->display_options['fields']['name']['alter']['make_link'] = 0;
+$handler->display->display_options['fields']['name']['alter']['absolute'] = 0;
+$handler->display->display_options['fields']['name']['alter']['external'] = 0;
+$handler->display->display_options['fields']['name']['alter']['replace_spaces'] = 0;
+$handler->display->display_options['fields']['name']['alter']['trim_whitespace'] = 0;
+$handler->display->display_options['fields']['name']['alter']['nl2br'] = 0;
+$handler->display->display_options['fields']['name']['alter']['word_boundary'] = 1;
+$handler->display->display_options['fields']['name']['alter']['ellipsis'] = 1;
+$handler->display->display_options['fields']['name']['alter']['strip_tags'] = 0;
+$handler->display->display_options['fields']['name']['alter']['trim'] = 0;
+$handler->display->display_options['fields']['name']['alter']['html'] = 0;
+$handler->display->display_options['fields']['name']['element_label_colon'] = 1;
+$handler->display->display_options['fields']['name']['element_default_classes'] = 1;
+$handler->display->display_options['fields']['name']['hide_empty'] = 0;
+$handler->display->display_options['fields']['name']['empty_zero'] = 0;
+$handler->display->display_options['fields']['name']['hide_alter_empty'] = 1;
+$handler->display->display_options['fields']['name']['link_to_user'] = 0;
+$handler->display->display_options['fields']['name']['overwrite_anonymous'] = 0;
+/* Filter: Node: Type */
+$handler->display->display_options['filters']['type']['id'] = 'type';
+$handler->display->display_options['filters']['type']['table'] = 'node';
+$handler->display->display_options['filters']['type']['field'] = 'type';
+$handler->display->display_options['filters']['type']['value'] = array(
+  'faq' => 'faq',
+);
+$handler->display->display_options['filters']['type']['expose']['operator'] = FALSE;
+/* Filter: Node: Published */
+$handler->display->display_options['filters']['status']['id'] = 'status';
+$handler->display->display_options['filters']['status']['table'] = 'node';
+$handler->display->display_options['filters']['status']['field'] = 'status';
+$handler->display->display_options['filters']['status']['value'] = '1';
+
+/* Display: CSV Editors */
+$handler = $view->new_display('views_data_export', 'CSV Editors', 'views_data_export_1');
+$handler->display->display_options['pager']['type'] = 'none';
+$handler->display->display_options['pager']['options']['offset'] = '0';
+$handler->display->display_options['style_plugin'] = 'views_data_export_csv';
+$handler->display->display_options['style_options']['provide_file'] = 1;
+$handler->display->display_options['style_options']['filename'] = 'export-all-editor-users-faq-%timestamp-full.csv';
+$handler->display->display_options['style_options']['parent_sort'] = 0;
+$handler->display->display_options['style_options']['quote'] = 1;
+$handler->display->display_options['style_options']['trim'] = 0;
+$handler->display->display_options['style_options']['replace_newlines'] = 0;
+$handler->display->display_options['style_options']['header'] = 1;
+$handler->display->display_options['path'] = 'feeds/editors/csv';
+$handler->display->display_options['use_batch'] = '0';
